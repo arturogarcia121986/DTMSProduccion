@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C8D558F-92DE-4639-B623-219E9E6035CC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>BMAmonitoring.My.MyApplication</StartupObject>
+    <RootNamespace>BMAmonitoring</RootNamespace>
+    <AssemblyName>BMAmonitoring</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BMAmonitoring.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BMAmonitoring.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoCycleCountes.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gma.QrCodeNet.Encoding">
+      <HintPath>..\..\core\barandilla\bin\Debug\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI, Version=1.9.0.0, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="UCStatus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\UCStatus.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Class_parametros.vb" />
+    <Compile Include="Class\Class_Security.vb" />
+    <Compile Include="Class\Class_Usuarios.vb" />
+    <Compile Include="Class\Common.vb" />
+    <Compile Include="Class\FTPSettings.vb" />
+    <Compile Include="Class\gData.vb" />
+    <Compile Include="Class\Globals.vb" />
+    <Compile Include="Class\HttpRequest.vb" />
+    <Compile Include="Class\Module1.vb" />
+    <Compile Include="Class\Structure.vb" />
+    <Compile Include="Class\SubMain.vb" />
+    <Compile Include="Class\t_usuarios.vb" />
+    <Compile Include="CustomDataGridView\GroupByGrid.vb" />
+    <Compile Include="fmrSetComputerName.Designer.vb">
+      <DependentUpon>fmrSetComputerName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="fmrSetComputerName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBreaktime.Designer.vb">
+      <DependentUpon>frmBreaktime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBreaktime.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDetails.Designer.vb">
+      <DependentUpon>frmDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGeneralCounter.Designer.vb">
+      <DependentUpon>frmGeneralCounter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGeneralCounter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHistory.Designer.vb">
+      <DependentUpon>frmHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInputDepto.Designer.vb">
+      <DependentUpon>frmInputDepto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInputDepto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaCodes.Designer.vb">
+      <DependentUpon>frmListaCodes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaCodes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMonitor.Designer.vb">
+      <DependentUpon>frmMonitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMonitor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResultHour.Designer.vb">
+      <DependentUpon>frmResultHour.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmResultHour.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAuth.Designer.vb">
+      <DependentUpon>frmAuth.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuth.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fmrSetComputerName.resx">
+      <DependentUpon>fmrSetComputerName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBreaktime.resx">
+      <DependentUpon>frmBreaktime.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDetails.resx">
+      <DependentUpon>frmDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGeneralCounter.resx">
+      <DependentUpon>frmGeneralCounter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHistory.resx">
+      <DependentUpon>frmHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInputDepto.resx">
+      <DependentUpon>frmInputDepto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmListaCodes.resx">
+      <DependentUpon>frmListaCodes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMonitor.resx">
+      <DependentUpon>frmMonitor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmResultHour.resx">
+      <DependentUpon>frmResultHour.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAuth.resx">
+      <DependentUpon>frmAuth.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ActUtlTypeLib">
+      <Guid>{D217E54E-4A26-4A76-B0AB-57166B90F9AF}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logoCycleCountes.ico" />
+    <None Include="Resources\bmaIndexV.PNG" />
+    <None Include="Resources\bmaIndexV.jpg" />
+    <None Include="Resources\bmaIndex1Mod.png" />
+    <None Include="Resources\Edit.gif" />
+    <None Include="Resources\bmaIndex3.png" />
+    <None Include="Resources\bmaIndex1.png" />
+    <None Include="Resources\bmaIndex21.png" />
+    <None Include="Resources\bmaIndex2.png" />
+    <None Include="Resources\bmaIndex.png" />
+    <None Include="Resources\bmaIndex.jpg" />
+    <None Include="Resources\M5.JPG" />
+    <None Include="Resources\M4.JPG" />
+    <None Include="Resources\M3.JPG" />
+    <None Include="Resources\M2.JPG" />
+    <None Include="Resources\cuad3.png" />
+    <None Include="Resources\1389953720_9648.bmp" />
+    <None Include="Resources\userAdmin.jpg" />
+    <None Include="Resources\disk.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

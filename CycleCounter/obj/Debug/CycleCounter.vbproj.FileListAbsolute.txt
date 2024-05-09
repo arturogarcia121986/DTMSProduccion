@@ -1,0 +1,80 @@
+D:\Documentos\GitHub\CycleCounter\CycleCounter\bin\Debug\CycleCounter.exe.config
+D:\Documentos\GitHub\CycleCounter\CycleCounter\bin\Debug\CycleCounter.exe
+D:\Documentos\GitHub\CycleCounter\CycleCounter\bin\Debug\CycleCounter.pdb
+D:\Documentos\GitHub\CycleCounter\CycleCounter\bin\Debug\CycleCounter.xml
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.vbproj.ResolveComReference.cache
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.fmrSetComputerName.resources
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.Form1.resources
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.frmAuth.resources
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.Resources.resources
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.vbproj.GenerateResource.cache
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.vbproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.vbproj.CopyComplete
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.exe
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.xml
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.pdb
+D:\Documentos\GitHub\CycleCounter\CycleCounter\obj\Debug\CycleCounter.vbprojAssemblyReference.cache
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\CycleCounter.exe.config
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\CycleCounter.exe
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\CycleCounter.pdb
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\CycleCounter.xml
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.vbproj.ResolveComReference.cache
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.fmrSetComputerName.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.Form1.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.frmAuth.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.frmCables.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.frmConteoMetros.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.frmSubirComplemento.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.Resources.resources
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.vbproj.GenerateResource.cache
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.vbproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.vbproj.CopyComplete
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.exe
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.xml
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.pdb
+D:\Documentos\GitHub\cables sii\CycleCounter\obj\Debug\CycleCounter.vbprojAssemblyReference.cache
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.dll
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+D:\Documentos\GitHub\cables sii\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.xml
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\Interop.ActUtlTypeLib.dll
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.vbproj.ResolveComReference.cache
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.fmrSetComputerName.resources
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.frmPLC.resources
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.frmAuth.resources
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.Resources.resources
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.vbproj.GenerateResource.cache
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.vbproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.exe
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.xml
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.pdb
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\CycleCounter.exe.config
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\CycleCounter.exe
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\CycleCounter.pdb
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\CycleCounter.xml
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.dll
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\UCStatus.dll
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.xml
+D:\Documentos\GitHub\BMAdowntime\CycleCounter\obj\Debug\CycleCounter.vbproj.CopyComplete
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\Interop.ActUtlTypeLib.dll
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\CycleCounter.vbproj.ResolveComReference.cache
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.fmrSetComputerName.resources
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.frmPLC.resources
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.frmAuth.resources
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.Resources.resources
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\CycleCounter.vbproj.GenerateResource.cache
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\CycleCounter.vbproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.frmMonitor.resources
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\BMAmonitoring.exe.config
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\BMAmonitoring.exe
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\BMAmonitoring.pdb
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\BMAmonitoring.xml
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.dll
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\UCStatus.dll
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.xml
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\CycleCounter.vbproj.CopyComplete
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.exe
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.xml
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\BMAmonitoring.pdb
+D:\Documentos\GitHub\BMA Downtime Monitor\CycleCounter\obj\Debug\CycleCounter.vbprojAssemblyReference.cache

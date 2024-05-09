@@ -1,0 +1,118 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CycleCounter
+</name>
+</assembly>
+<members>
+<member name="T:CycleCounter.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:CycleCounter.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:CycleCounter.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:CycleCounter.My.Resources.Resources._1389953720_9648">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CycleCounter.My.Resources.Resources.disk">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CycleCounter.My.Resources.Resources.userAdmin">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:CycleCounter.Globals.ConvierteFechaMySQL(System.String)">
+ <summary>
+ devuelve un string de una fecha en formato mysql yyyy-MM-dd al formato dd/MM/yyyy
+ </summary>
+ <param name="mysqlDate"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.CheckForConnection">
+ <summary>
+ Checa si la conexión se encuentra Activa
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.IsDecimal(System.String)">
+ <summary>
+ determina si la cadena contiene valores decimales
+ </summary>
+ <param name="cadena"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentDateTime">
+ <summary>
+ Devuelve la Fecha y hora del sistema en formato yyyy-MM-dd hh:mm:ss
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentDate">
+ <summary>
+ Devuelve la fecha actual del sistema en formato yyyy-MM-dd
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentDate2">
+ <summary>
+ Devuelve la fecha actual del sistema en formato yyyyMMdd
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentDate3">
+ <summary>
+ Devuelve la fecha actual del sistema en formato dd/MM/yyyy
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentDateFileName">
+ <summary>
+ devuelve los siguientes datos en el siguiente formato :  ddMMyyyyhhmmsss
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentTime">
+ <summary>
+ Devuelve la hora del sistema en formato hh:mm:ss
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.Globals.GetCurrentTime2">
+ <summary>
+ Devuelve la hora del sistema en formato hh:mm:ss A.M 
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CycleCounter.frmAuth.btnCancel_Click(System.Object,System.EventArgs)">
+ <summary>
+ CONEXION A HISS BD
+ </summary>
+ <returns></returns>
+</member>
+</members>
+</doc>
