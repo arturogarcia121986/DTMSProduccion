@@ -50,3 +50,30 @@ D:\Documentos\GitHub\BMA Downtime Monitor - PRODUCTION\CycleCounter\obj\Debug\BM
 D:\Documentos\GitHub\BMA Downtime Monitor - PRODUCTION\CycleCounter\obj\Debug\BMAmonitoring.xml
 D:\Documentos\GitHub\BMA Downtime Monitor - PRODUCTION\CycleCounter\obj\Debug\BMAmonitoring.pdb
 D:\Documentos\GitHub\BMA Downtime Monitor - PRODUCTION\CycleCounter\obj\Debug\BMAmonitoring.frmListaCodes.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.dll
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\Gma.QrCodeNet.Encoding.xml
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\Interop.ActUtlTypeLib.dll
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\BmaMonitoring.vbproj.ResolveComReference.cache
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\BmaMonitoring.vbproj.GenerateResource.cache
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\BmaMonitoring.vbproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\BmaMonitoring.vbproj.CopyComplete
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.fmrSetComputerName.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmBreaktime.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmDetails.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmGeneralCounter.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmHistory.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmInputDepto.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmListaCodes.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmMonitor.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmResultHour.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.frmAuth.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.Resources.resources
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\DTMS.exe.config
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\DTMS.exe
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\DTMS.pdb
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\DTMS.xml
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.exe
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.xml
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.pdb
+D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\BmaMonitoring.vbprojAssemblyReference.cache

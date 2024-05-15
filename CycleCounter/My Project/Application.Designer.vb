@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.BMAmonitoring.frmMonitor
+            Me.MainForm = Global.DTMS.frmMonitor
         End Sub
     End Class
 End Namespace

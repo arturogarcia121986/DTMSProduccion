@@ -180,13 +180,19 @@
                     End If
 
                     If Not String.IsNullOrEmpty(cellDepto.Value) Then
-                        cellDepto.ReadOnly = True
+                        ' cellDepto.ReadOnly = True
+                        IIf(cellDepto.Value <> "MATERIAL", cellDepto.Items.Add("MATERIAL"), Nothing)
+                        IIf(cellDepto.Value <> "MAINTENANCE", cellDepto.Items.Add("MAINTENANCE"), Nothing)
+                        IIf(cellDepto.Value <> "PRODUCTION", cellDepto.Items.Add("PRODUCTION"), Nothing)
+                        IIf(cellDepto.Value <> "QUALITY", cellDepto.Items.Add("QUALITY"), Nothing)
+
                     Else
                         cellDepto.ReadOnly = False
                         cellDepto.Items.Add("MATERIAL")
                         cellDepto.Items.Add("MAINTENANCE")
                         cellDepto.Items.Add("PRODUCTION")
                         cellDepto.Items.Add("QUALITY")
+                        cellDepto.Items.Add("OTHER")
                     End If
                 Next
 
@@ -332,6 +338,7 @@
 
             colores()
             MessageBox.Show("The data was saved succesfully.", "Details", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
         Catch ex As Exception
 
         End Try

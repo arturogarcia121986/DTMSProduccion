@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("BMAmonitoring.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("DTMS.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -143,6 +143,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property bmaIndex32() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bmaIndex32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bmaIndex33() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bmaIndex33", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property bmaIndexV() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("bmaIndexV", resourceCulture)
@@ -236,6 +256,16 @@ Namespace My.Resources
         Friend ReadOnly Property M5() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("M5", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property shift1Hours() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("shift1Hours", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

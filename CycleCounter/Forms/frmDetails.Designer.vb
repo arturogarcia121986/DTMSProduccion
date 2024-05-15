@@ -81,7 +81,7 @@ Partial Class frmDetails
         Me.btnSave.FocusedColor = System.Drawing.Color.Empty
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.Black
-        Me.btnSave.Image = Global.BMAmonitoring.My.Resources.Resources.disk
+        Me.btnSave.Image = Global.DTMS.My.Resources.Resources.disk
         Me.btnSave.ImageSize = New System.Drawing.Size(20, 20)
         Me.btnSave.LineColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(170, Byte), Integer))
         Me.btnSave.Location = New System.Drawing.Point(1156, 473)
@@ -159,7 +159,6 @@ Partial Class frmDetails
         '
         Me.depto.HeaderText = "Depto"
         Me.depto.Name = "depto"
-        Me.depto.ReadOnly = True
         Me.depto.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.depto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '

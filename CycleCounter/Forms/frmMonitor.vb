@@ -29,6 +29,9 @@ Public Class frmMonitor
     Private posY As Integer
     Private pantallaPrincipal As Screen
     Dim idToSend, warningQuery As String
+    Dim onlyShowShift1 As Boolean = True
+    Dim segundosTotales As Integer = 0
+    Dim horasTotales As Integer = 24
 
     'PROGRESS BAR M1 100-------------------------------------
     Dim progressbarrunit As Double
@@ -331,55 +334,83 @@ iniciar:
     End Sub
 
     Private Sub breakTime(picbb As PictureBox, bm As Bitmap, linea As String)
-        Dim pbu As Double = picbb.Width / 86400
+        Dim pbu As Double = picbb.Width / segundosTotales
         g = Graphics.FromImage(bm)
-        Dim factor As Double = (picbb.Width / 24) / 4   'este factor se calcula con el width del picbox. (width / 24) / 4 (cada 15 mins 15x4=60. Una hora)
+        Dim factor As Double = (picbb.Width / horasTotales) / 4.4  'este factor se calcula con el width del picbox. (width / 24) / 4 (cada 15 mins 15x4=60. Una hora)
+
+
 
         Dim arre2 As DataRowCollection = GetRows("SELECT * FROM [t_bma_breaktime] WHERE line='" & linea & "'")
 
         If Not IsNothing(arre2) Then
             For Each item As DataRow In arre2
-                cboMinutes.Text = item("startup1").ToString.Trim
 
-                'startup(1st)
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '7 a 7:15  valor=295
-                picbb.Image = bm
+                If onlyShowShift1 = True Then
+                    cbShift1.Text = item("startup1").ToString.Trim
 
-                cboMinutes.Text = item("break1").ToString.Trim
+                    'startup(1st)                                                                         10 es el ancho de la barra equivalente a n minutos
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cbShift1.SelectedIndex * factor, 0, 25, picbb.Height)) '7 a 7:15  valor=295
+                    picbb.Image = bm
 
-                'breaktime1
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '8:45 a9  v=368
-                picbb.Image = bm
+                    cbShift1.Text = item("break1").ToString.Trim
 
-                cboMinutes.Text = item("lunch1").ToString.Trim
-                'lunch
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 20, picbb.Height)) '12:45 a 13:15 v=538
-                picbb.Image = bm
+                    'breaktime1
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cbShift1.SelectedIndex * factor, 0, 25, picbb.Height)) '8:45 a9  v=368
+                    picbb.Image = bm
 
-                cboMinutes.Text = item("break2").ToString.Trim
-                'breaktime2
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '16:45 a 17:00 v=706
-                picbb.Image = bm
+                    cbShift1.Text = item("lunch1").ToString.Trim
+                    'lunch
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cbShift1.SelectedIndex * factor, 0, 50, picbb.Height)) '12:45 a 13:15 v=538
+                    picbb.Image = bm
 
-                cboMinutes.Text = item("startup2").ToString.Trim
-                'startup 2
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '19:00 a 19:15 v=800
-                picbb.Image = bm
+                    cbShift1.Text = item("break2").ToString.Trim
+                    'breaktime2
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cbShift1.SelectedIndex * factor, 0, 25, picbb.Height)) '16:45 a 17:00 v=706
+                    picbb.Image = bm
+                Else
+                    cboMinutes.Text = item("startup1").ToString.Trim
 
-                cboMinutes.Text = item("lunch2").ToString.Trim
-                'lunch 2
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 20, picbb.Height)) '22 a 22:30 v=927
-                picbb.Image = bm
+                    'startup(1st)
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '7 a 7:15  valor=295
+                    picbb.Image = bm
 
-                cboMinutes.Text = item("break3").ToString.Trim
-                'break time 3
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '02:30 a 02:45 v=105
-                picbb.Image = bm
+                    cboMinutes.Text = item("break1").ToString.Trim
 
-                cboMinutes.Text = item("break4").ToString.Trim
-                'break time 4
-                g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '05:30 a 05:45 v=231
-                picbb.Image = bm
+                    'breaktime1
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '8:45 a9  v=368
+                    picbb.Image = bm
+
+                    cboMinutes.Text = item("lunch1").ToString.Trim
+                    'lunch
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 20, picbb.Height)) '12:45 a 13:15 v=538
+                    picbb.Image = bm
+
+                    cboMinutes.Text = item("break2").ToString.Trim
+                    'breaktime2
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '16:45 a 17:00 v=706
+                    picbb.Image = bm
+
+                    cboMinutes.Text = item("startup2").ToString.Trim
+                    'startup 2
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '19:00 a 19:15 v=800
+                    picbb.Image = bm
+
+                    cboMinutes.Text = item("lunch2").ToString.Trim
+                    'lunch 2
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 20, picbb.Height)) '22 a 22:30 v=927
+                    picbb.Image = bm
+
+                    cboMinutes.Text = item("break3").ToString.Trim
+                    'break time 3
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '02:30 a 02:45 v=105
+                    picbb.Image = bm
+
+                    cboMinutes.Text = item("break4").ToString.Trim
+                    'break time 4
+                    g.FillRectangle(Brushes.SandyBrown, New Rectangle(cboMinutes.SelectedIndex * factor, 0, 10, picbb.Height)) '05:30 a 05:45 v=231
+                    picbb.Image = bm
+                End If
+
             Next
         End If
 
@@ -1502,7 +1533,7 @@ primeraVez:
         lbCounter.Text = CInt(lbCounter.Text) - 1
         If lbCounter.Text = "0" Then
             intialLoad()
-            lbCounter.Text = "100"
+            lbCounter.Text = "200"
         End If
 
         'whatsapp API
@@ -1888,6 +1919,16 @@ primeraVez:
         _formularioHijo.Show()
     End Sub
 
+    Private Sub rbAll_CheckedChanged(sender As Object, e As EventArgs) Handles rbAll.CheckedChanged
+        intialLoad()
+        lbCounter.Text = "200"
+    End Sub
+
+    Private Sub rbShift1_CheckedChanged(sender As Object, e As EventArgs) Handles rbShift1.CheckedChanged
+        intialLoad()
+        lbCounter.Text = "200"
+    End Sub
+
 
     'Private Sub menuDGV_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles menuDGV.Opening
     '    Try
@@ -2131,6 +2172,27 @@ primeraVez:
 
         End Try
     End Sub
+    Private Sub Shift1Controls()
+        If rbShift1.Checked = True Then
+            onlyShowShift1 = True
+            pbM1shift1.Visible = True
+            pbm2shift1.Visible = True
+            pbm3shift1.Visible = True
+            pbm4shift1.Visible = True
+            pbM5shift1.Visible = True
+            segundosTotales = 39600
+            horasTotales = 10
+        ElseIf rbAll.Checked = True Then
+            onlyShowShift1 = False
+            pbM1shift1.Visible = False
+            pbm2shift1.Visible = False
+            pbm3shift1.Visible = False
+            pbm4shift1.Visible = False
+            pbM5shift1.Visible = False
+            segundosTotales = 86400
+            horasTotales = 24
+        End If
+    End Sub
 
     Private Sub frmMonitor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -2138,7 +2200,7 @@ primeraVez:
 
             intialLoad()
             tGeneral.Start()
-            Me.Text &= "PRODUCTION --Version " & My.Application.Info.Version.ToString
+            Me.Text &= " PRODUCTION --Version " & My.Application.Info.Version.ToString
             posX = Me.Location.X
             posY = Me.Location.Y
             pantallaPrincipal = Screen.FromControl(Me)
@@ -2150,14 +2212,6 @@ primeraVez:
         End Try
     End Sub
 
-    Dim counter = 0
-    Private Sub hilo1()
-        Do While counter <> 1
-            lbTest2.Text = CInt(lbTest2.Text) - 1
-            Threading.Thread.Sleep(1000)
-        Loop
-
-    End Sub
 
 
     ''' <summary>
@@ -2270,7 +2324,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             turno = 2
         End If
 
-        Dim versionCore As String = QueryRow("SELECT valor From t_parametros WHERE parametro='vMonitoring'", "valor", "version3134")
+        Dim versionCore As String = QueryRow("SELECT valor From t_parametros WHERE parametro='vMonitoringProduction'", "valor", "version3134")
         If My.Application.Info.Version.ToString <> versionCore Then
             'MessageBox.Show("There is a new version available to download. Update the CORE system.")
             Dim ouputFileName As String = Environment.CurrentDirectory & "\Updater.exe"
@@ -2280,6 +2334,7 @@ INSERT INTO [dbo].[t_bma_downtime]
 
 
         loadLines()
+        Shift1Controls()
         'Dim mut As System.Threading.Mutex = New System.Threading.Mutex(False, Application.ProductName)
         'Dim running As Boolean = Not mut.WaitOne(0, False)
         'If running Then
@@ -2429,7 +2484,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning1100 = True Then
             progressbarwidth = PictureBox1.Width
             progressbarheight = PictureBox1.Height
-            progressbarrunit = PictureBox1.Width / 86400
+            progressbarrunit = PictureBox1.Width / segundosTotales
             progressbarcomplete = 0
 
             bmp = New Bitmap(progressbarwidth, progressbarheight)
@@ -2446,7 +2501,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning1400 = True Then
             progressbarwidth_M1_400 = pbm1p400.Width
             progressbarheight_M1_400 = pbm1p400.Height
-            progressbarrunit_M1_400 = pbm1p400.Width / 86400
+            progressbarrunit_M1_400 = pbm1p400.Width / segundosTotales
             progressbarcomplete_M1_400 = 0
 
             bmp_M1_400 = New Bitmap(progressbarwidth_M1_400, progressbarheight_M1_400)
@@ -2463,7 +2518,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning1700 = True Then
             progressbarwidth_M1_700 = pbm1p700.Width
             progressbarheight_M1_700 = pbm1p700.Height
-            progressbarrunit_M1_700 = pbm1p700.Width / 86400
+            progressbarrunit_M1_700 = pbm1p700.Width / segundosTotales
             progressbarcomplete_M1_700 = 0
 
             bmp_M1_700 = New Bitmap(progressbarwidth_M1_700, progressbarheight_M1_700)
@@ -2479,7 +2534,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning2100 = True Then
             progressbarwidth_M2_100 = pbm2p100.Width
             progressbarheight_M2_100 = pbm2p100.Height
-            progressbarrunit_M2_100 = pbm2p100.Width / 86400
+            progressbarrunit_M2_100 = pbm2p100.Width / segundosTotales
             progressbarcomplete_M2_100 = 0
 
             bmp_M2_100 = New Bitmap(progressbarwidth_M2_100, progressbarheight_M2_100)
@@ -2495,7 +2550,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning2400 = True Then
             progressbarwidth_2400 = pb2400.Width
             progressbarheight_2400 = pb2400.Height
-            progressbarrunit_2400 = pb2400.Width / 86400
+            progressbarrunit_2400 = pb2400.Width / segundosTotales
             progressbarcomplete_2400 = 0
             bmp_2400 = New Bitmap(progressbarwidth_2400, progressbarheight_2400)
             currentStatus2400 = "R"
@@ -2510,7 +2565,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning2700 = True Then
             progressbarwidth_2700 = pb2700.Width
             progressbarheight_2700 = pb2700.Height
-            progressbarrunit_2700 = pb2700.Width / 86400
+            progressbarrunit_2700 = pb2700.Width / segundosTotales
             progressbarcomplete_2700 = 0
             bmp_2700 = New Bitmap(progressbarwidth_2700, progressbarheight_2700)
             currentStatus2700 = "R"
@@ -2524,7 +2579,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning3100 = True Then
             progressbarwidth_3100 = pb3100.Width
             progressbarheight_3100 = pb3100.Height
-            progressbarrunit_3100 = pb3100.Width / 86400
+            progressbarrunit_3100 = pb3100.Width / segundosTotales
             progressbarcomplete_3100 = 0
             bmp_3100 = New Bitmap(progressbarwidth_3100, progressbarheight_3100)
             currentStatus3100 = "R"
@@ -2538,7 +2593,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning3400 = True Then
             progressbarwidth_3400 = pb3400.Width
             progressbarheight_3400 = pb3400.Height
-            progressbarrunit_3400 = pb3400.Width / 86400
+            progressbarrunit_3400 = pb3400.Width / segundosTotales
             progressbarcomplete_3400 = 0
             bmp_3400 = New Bitmap(progressbarwidth_3400, progressbarheight_3400)
             currentStatus3400 = "R"
@@ -2553,7 +2608,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         If isRunning3700 = True Then
             progressbarwidth_3700 = pb3700.Width
             progressbarheight_3700 = pb3700.Height
-            progressbarrunit_3700 = pb3700.Width / 86400
+            progressbarrunit_3700 = pb3700.Width / segundosTotales
             progressbarcomplete_3700 = 0
             bmp_3700 = New Bitmap(progressbarwidth_3700, progressbarheight_3700)
             currentStatus3700 = "R"
@@ -2568,7 +2623,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             totalProgress_4100 = 0
             progressbarwidth_4100 = pb4100.Width
             progressbarheight_4100 = pb4100.Height
-            progressbarrunit_4100 = pb4100.Width / 86400
+            progressbarrunit_4100 = pb4100.Width / segundosTotales
             progressbarcomplete_4100 = 0
             bmp_4100 = New Bitmap(progressbarwidth_4100, progressbarheight_4100)
             currentStatus4100 = "R"
@@ -2583,7 +2638,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             totalProgress_4400 = 0
             progressbarwidth_4400 = pb4400.Width
             progressbarheight_4400 = pb4400.Height
-            progressbarrunit_4400 = pb4400.Width / 86400
+            progressbarrunit_4400 = pb4400.Width / segundosTotales
             progressbarcomplete_4400 = 0
             bmp_4400 = New Bitmap(progressbarwidth_4400, progressbarheight_4400)
             currentStatus4400 = "R"
@@ -2598,7 +2653,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             totalProgress_4700 = 0
             progressbarwidth_4700 = pb4700.Width
             progressbarheight_4700 = pb4700.Height
-            progressbarrunit_4700 = pb4700.Width / 86400
+            progressbarrunit_4700 = pb4700.Width / segundosTotales
             progressbarcomplete_4700 = 0
             bmp_4700 = New Bitmap(progressbarwidth_4700, progressbarheight_4700)
             currentStatus4700 = "R"
@@ -2613,7 +2668,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             totalProgress_5100 = 0
             progressbarwidth_5100 = pb5100.Width
             progressbarheight_5100 = pb5100.Height
-            progressbarrunit_5100 = pb5100.Width / 86400
+            progressbarrunit_5100 = pb5100.Width / segundosTotales
             progressbarcomplete_5100 = 0
             bmp_5100 = New Bitmap(progressbarwidth_5100, progressbarheight_5100)
             currentStatus5100 = "R"
@@ -2629,7 +2684,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             totalProgress_5400 = 0
             progressbarwidth_5400 = pb5400.Width
             progressbarheight_5400 = pb5400.Height
-            progressbarrunit_5400 = pb5400.Width / 86400
+            progressbarrunit_5400 = pb5400.Width / segundosTotales
             progressbarcomplete_5400 = 0
             bmp_5400 = New Bitmap(progressbarwidth_5400, progressbarheight_5400)
             currentStatus5400 = "R"
@@ -2643,7 +2698,7 @@ INSERT INTO [dbo].[t_bma_downtime]
             totalProgress_5700 = 0
             progressbarwidth_5700 = pb5700.Width
             progressbarheight_5700 = pb5700.Height
-            progressbarrunit_5700 = pb5700.Width / 86400
+            progressbarrunit_5700 = pb5700.Width / segundosTotales
             progressbarcomplete_5700 = 0
             bmp_5700 = New Bitmap(progressbarwidth_5700, progressbarheight_5700)
             currentStatus5700 = "R"
@@ -2819,6 +2874,11 @@ INSERT INTO [dbo].[t_bma_downtime]
                 queryCompl = " AND d.process='" & NumProceso & "' "
             End If
 
+            If onlyShowShift1 = True Then
+                queryCompl = queryCompl & " AND starttime>'07:00'"
+
+            End If
+
             query = "SELECT  [id]
                       ,d.process
                       ,[machine]
@@ -2852,6 +2912,10 @@ INSERT INTO [dbo].[t_bma_downtime]
                 horaSep = hora.Split(":")
                 segundos = horaSep(2) + (horaSep(1) * 60) + (horaSep(0) * 3600)
 
+                If NumProceso = "3700" Then
+                    Console.WriteLine("here")
+                End If
+
                 If rw.Cells("STATUS").Value = "RUN" Then
                     For i = 0 To segundos
                         If estatus = "O" Or estatus = "R" Then
@@ -2865,10 +2929,16 @@ INSERT INTO [dbo].[t_bma_downtime]
                         End If
                         estatus = "D"
                         g = Graphics.FromImage(bitmap)
+                        'If segundos <> 0 Then
                         g.FillRectangle(Brushes.Green, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                        'End If
+
                         picbox.Image = bitmap
                         progresoCompletado += 1
+                        '  If segundos <> 0 Then
                         totalprogreso += 1
+                        ' End If
+
                     Next
                 ElseIf rw.Cells("STATUS").Value = "DOWN" Then
                     For i = 0 To segundos
@@ -2897,7 +2967,10 @@ INSERT INTO [dbo].[t_bma_downtime]
 
                             'nuevos colores
                             If rw.Cells("ec1").Value = "" And rw.Cells("alarmedDepto").Value = "" Then
+                                'If segundos <> 0 Then
                                 g.FillRectangle(Brushes.Red, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                                ' End If
+
                             Else
                                 If rw.Cells("step").Value = "1" And rw.Cells("alarmedDepto").Value = "PRODUCTION" And rw.Cells("ec1").Value = "08" Then
                                     g.FillRectangle(Brushes.DarkGray, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
@@ -2943,7 +3016,11 @@ INSERT INTO [dbo].[t_bma_downtime]
 
                         picbox.Image = bitmap
                         progresoCompletado += 1
-                        totalprogreso += 1
+
+                        'esta linea es para que la barra no se pase de la hora actual
+                        If segundos <> 0 Then
+                            totalprogreso += 1
+                        End If
                     Next
                 ElseIf rw.Cells("STATUS").Value = "OFF" Then
                     For i = 0 To segundos
@@ -3231,6 +3308,47 @@ WHERE CONVERT(date, insert_date) = '" & Date.Now.ToShortDateString() & "'  " & q
                 Case "5700"
                     queryComplement = " "
             End Select
+
+            Dim sqlCompl As String = ""
+
+            If onlyShowShift1 = True Then
+                sqlCompl = "	sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
+		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
+		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
+		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
+		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
+		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
+		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
+		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
+		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
+		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
+		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00]"
+            Else
+                sqlCompl = "	sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
+		sum(convert(Int, T1.[01:00~02:00])) As [01:00~02:00],
+		sum(convert(Int, T1.[02:00~03:00])) As [02:00~03:00],
+		sum(convert(Int, T1.[03:00~04:00])) As [03:00~04:00],
+		sum(convert(Int, T1.[04:00~05:00])) As [04:00~05:00],
+		sum(convert(Int, T1.[05:00~06:00])) As [05:00~06:00],
+		sum(convert(Int, T1.[06:00~07:00])) As [06:00~07:00],
+		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
+		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
+		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
+		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
+		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
+		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
+		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
+		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
+		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
+		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00],
+	    sum(convert(Int, T1.[17:00~18:00])) As [17:00~18:00],
+		sum(convert(Int, T1.[18:00~19:00])) As [18:00~19:00],
+		sum(convert(Int, T1.[19:00~20:00])) As [19:00~20:00],
+		sum(convert(Int, T1.[20:00~21:00])) As [20:00~21:00],
+		sum(convert(Int, T1.[21:00~22:00])) As [21:00~22:00],
+		sum(convert(Int, T1.[22:00~23:00])) As [22:00~23:00],
+		sum(convert(Int, T1.[23:00~24:00])) As [23:00~24:00]"
+            End If
             queryTotal = "------------------------------------------------------------------------------------------------------------------------------
 DECLARE  @MesSiteCode INT = 11
 		,@ResultDate NVARCHAR(10) = '" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
@@ -3972,30 +4090,7 @@ Else If(@ViewTypeCode = 'ByMachine')
 Begin
 	SELECT 
 		concat('Qty/Pass: ', sum(convert(Int, T1.[QtyPass]))) As [QtyPass],
-		sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
-		sum(convert(Int, T1.[01:00~02:00])) As [01:00~02:00],
-		sum(convert(Int, T1.[02:00~03:00])) As [02:00~03:00],
-		sum(convert(Int, T1.[03:00~04:00])) As [03:00~04:00],
-		sum(convert(Int, T1.[04:00~05:00])) As [04:00~05:00],
-		sum(convert(Int, T1.[05:00~06:00])) As [05:00~06:00],
-		sum(convert(Int, T1.[06:00~07:00])) As [06:00~07:00],
-		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
-		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
-		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
-		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
-		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
-		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
-		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
-		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
-		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
-		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00],
-	    sum(convert(Int, T1.[17:00~18:00])) As [17:00~18:00],
-		sum(convert(Int, T1.[18:00~19:00])) As [18:00~19:00],
-		sum(convert(Int, T1.[19:00~20:00])) As [19:00~20:00],
-		sum(convert(Int, T1.[20:00~21:00])) As [20:00~21:00],
-		sum(convert(Int, T1.[21:00~22:00])) As [21:00~22:00],
-		sum(convert(Int, T1.[22:00~23:00])) As [22:00~23:00],
-		sum(convert(Int, T1.[23:00~24:00])) As [23:00~24:00]
+		" & sqlCompl & "
 	From @SearchResultTable T1
 	Left Outer Join [dbo].[TMES_CODESITE] T2
 			On T2.[MesSiteCode] = T1.[MesSiteCode]
@@ -4028,52 +4123,98 @@ End
 
             Select Case proceso
                 Case "1700"
-                    dgv1700.Rows.Clear()
-                    dgvToFill = dgv1700
+                    If onlyShowShift1 = True Then
+                        dgvm1shift1.Rows.Clear()
+                        dgvToFill = dgvm1shift1
+                    Else
+                        dgvm1shift1.Visible = False
+                        dgv1700.Rows.Clear()
+                        dgvToFill = dgv1700
+                    End If
+
                 Case "2700"
-                    dgv2700.Rows.Clear()
-                    dgvToFill = dgv2700
+                    If onlyShowShift1 = True Then
+                        dgvm2Shift1.Rows.Clear()
+                        dgvToFill = dgvm2Shift1
+                    Else
+                        dgvm2Shift1.Visible = False
+                        dgv2700.Rows.Clear()
+                        dgvToFill = dgv2700
+                    End If
+
                 Case "3700"
-                    dgv3700.Rows.Clear()
-                    dgvToFill = dgv3700
+                    If onlyShowShift1 = True Then
+                        dgvM3shift1.Rows.Clear()
+                        dgvToFill = dgvM3shift1
+                    Else
+                        dgvM3shift1.Visible = False
+                        dgv3700.Rows.Clear()
+                        dgvToFill = dgv3700
+                    End If
+
                 Case "4700"
-                    dgv4700.Rows.Clear()
-                    dgvToFill = dgv4700
+                    If onlyShowShift1 = True Then
+
+                    Else
+                        dgv4700.Rows.Clear()
+                        dgvToFill = dgv4700
+                    End If
+
                     Exit Sub
                 Case "5700"
-                    dgv5700.Rows.Clear()
-                    dgvToFill = dgv5700
+                    If onlyShowShift1 = True Then
+
+                    Else
+                        dgv5700.Rows.Clear()
+                        dgvToFill = dgv5700
+                    End If
+
                     Exit Sub
                 Case Else
                     Exit Sub
             End Select
 
             For Each rw As DataRow In dtQty.Rows
-                dgvToFill.Rows.Add(rw("QtyPass").ToString,
-                                 rw("00:00~01:00").ToString,
-                                 rw("01:00~02:00").ToString,
-                                 rw("02:00~03:00").ToString,
-                                 rw("03:00~04:00").ToString,
-                                 rw("04:00~05:00").ToString,
-                                 rw("05:00~06:00").ToString,
-                                 rw("06:00~07:00").ToString,
+                If onlyShowShift1 = True Then
+                    dgvToFill.Rows.Add(rw("QtyPass").ToString,
                                  rw("07:00~08:00").ToString,
-                                 rw("08:00~09:00").ToString,
-                                 rw("09:00~10:00").ToString,
-                                 rw("10:00~11:00").ToString,
-                                 rw("11:00~12:00").ToString,
-                                 rw("12:00~13:00").ToString,
-                                 rw("13:00~14:00").ToString,
-                                 rw("14:00~15:00").ToString,
-                                 rw("15:00~16:00").ToString,
-                                 rw("16:00~17:00").ToString,
-                                 rw("17:00~18:00").ToString,
-                                 rw("18:00~19:00").ToString,
-                                 rw("19:00~20:00").ToString,
-                                 rw("20:00~21:00").ToString,
-                                 rw("21:00~22:00").ToString,
-                                 rw("22:00~23:00").ToString,
-                                 rw("23:00~24:00").ToString)
+                                rw("08:00~09:00").ToString,
+                                rw("09:00~10:00").ToString,
+                                rw("10:00~11:00").ToString,
+                                rw("11:00~12:00").ToString,
+                                rw("12:00~13:00").ToString,
+                                rw("13:00~14:00").ToString,
+                                rw("14:00~15:00").ToString,
+                                rw("15:00~16:00").ToString,
+                                rw("16:00~17:00").ToString)
+                Else
+                    dgvToFill.Rows.Add(rw("QtyPass").ToString,
+                                rw("00:00~01:00").ToString,
+                                rw("01:00~02:00").ToString,
+                                rw("02:00~03:00").ToString,
+                                rw("03:00~04:00").ToString,
+                                rw("04:00~05:00").ToString,
+                                rw("05:00~06:00").ToString,
+                                rw("06:00~07:00").ToString,
+                                rw("07:00~08:00").ToString,
+                                rw("08:00~09:00").ToString,
+                                rw("09:00~10:00").ToString,
+                                rw("10:00~11:00").ToString,
+                                rw("11:00~12:00").ToString,
+                                rw("12:00~13:00").ToString,
+                                rw("13:00~14:00").ToString,
+                                rw("14:00~15:00").ToString,
+                                rw("15:00~16:00").ToString,
+                                rw("16:00~17:00").ToString,
+                                rw("17:00~18:00").ToString,
+                                rw("18:00~19:00").ToString,
+                                rw("19:00~20:00").ToString,
+                                rw("20:00~21:00").ToString,
+                                rw("21:00~22:00").ToString,
+                                rw("22:00~23:00").ToString,
+                                rw("23:00~24:00").ToString)
+                End If
+
 
             Next
         Catch ex As Exception

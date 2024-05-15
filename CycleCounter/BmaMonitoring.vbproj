@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3C8D558F-92DE-4639-B623-219E9E6035CC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BMAmonitoring.My.MyApplication</StartupObject>
-    <RootNamespace>BMAmonitoring</RootNamespace>
-    <AssemblyName>BMAmonitoring</AssemblyName>
+    <StartupObject>DTMS.My.MyApplication</StartupObject>
+    <RootNamespace>DTMS</RootNamespace>
+    <AssemblyName>DTMS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BMAmonitoring.xml</DocumentationFile>
+    <DocumentationFile>DTMS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BMAmonitoring.xml</DocumentationFile>
+    <DocumentationFile>DTMS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -266,6 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoCycleCountes.ico" />
+    <None Include="Resources\shift1Hours1.JPG" />
+    <None Include="Resources\bmaIndex31.jpg" />
+    <None Include="Resources\bmaIndex3.jpg" />
     <None Include="Resources\bmaIndexV.PNG" />
     <None Include="Resources\bmaIndexV.jpg" />
     <None Include="Resources\bmaIndex1Mod.png" />

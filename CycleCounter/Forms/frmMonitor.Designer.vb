@@ -49,6 +49,12 @@ Partial Class frmMonitor
         Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMonitor))
         Me.dgvAux = New System.Windows.Forms.DataGridView()
         Me.dgv2 = New System.Windows.Forms.DataGridView()
@@ -386,10 +392,57 @@ Partial Class frmMonitor
         Me.DataGridViewTextBoxColumn98 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn99 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn100 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.pbM1shift1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.lbTest2 = New System.Windows.Forms.Label()
+        Me.pbm2shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbm3shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbm4shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbM5shift1 = New System.Windows.Forms.PictureBox()
+        Me.dgvm1shift1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvm2Shift1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvM3shift1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.rbShift1 = New System.Windows.Forms.RadioButton()
+        Me.rbAll = New System.Windows.Forms.RadioButton()
+        Me.cbShift1 = New System.Windows.Forms.ComboBox()
         CType(Me.dgvAux, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -432,8 +485,17 @@ Partial Class frmMonitor
         CType(Me.dgv3700, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv4700, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv5700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm2shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm3shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm4shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbM5shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvm1shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvm2Shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvM3shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvAux
@@ -756,7 +818,7 @@ Partial Class frmMonitor
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.BMAmonitoring.My.Resources.Resources.cuad3
+        Me.PictureBox2.Image = Global.DTMS.My.Resources.Resources.cuad3
         Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(1338, 155)
@@ -944,7 +1006,7 @@ Partial Class frmMonitor
         '
         'PictureBox4
         '
-        Me.PictureBox4.Image = Global.BMAmonitoring.My.Resources.Resources.M2
+        Me.PictureBox4.Image = Global.DTMS.My.Resources.Resources.M2
         Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(1338, 155)
@@ -1129,7 +1191,7 @@ Partial Class frmMonitor
         '
         'PictureBox6
         '
-        Me.PictureBox6.Image = Global.BMAmonitoring.My.Resources.Resources.M3
+        Me.PictureBox6.Image = Global.DTMS.My.Resources.Resources.M3
         Me.PictureBox6.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(1340, 155)
@@ -1305,7 +1367,7 @@ Partial Class frmMonitor
         '
         'PictureBox8
         '
-        Me.PictureBox8.Image = Global.BMAmonitoring.My.Resources.Resources.M4
+        Me.PictureBox8.Image = Global.DTMS.My.Resources.Resources.M4
         Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(1340, 155)
@@ -1481,7 +1543,7 @@ Partial Class frmMonitor
         '
         'PictureBox10
         '
-        Me.PictureBox10.Image = Global.BMAmonitoring.My.Resources.Resources.M5
+        Me.PictureBox10.Image = Global.DTMS.My.Resources.Resources.M5
         Me.PictureBox10.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.Size = New System.Drawing.Size(1340, 155)
@@ -1708,7 +1770,7 @@ Partial Class frmMonitor
         '
         'btnProgress
         '
-        Me.btnProgress.Location = New System.Drawing.Point(1064, 8)
+        Me.btnProgress.Location = New System.Drawing.Point(1186, 8)
         Me.btnProgress.Name = "btnProgress"
         Me.btnProgress.Size = New System.Drawing.Size(159, 23)
         Me.btnProgress.TabIndex = 343
@@ -2522,18 +2584,22 @@ Partial Class frmMonitor
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(1229, 14)
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.Red
+        Me.Label28.Location = New System.Drawing.Point(1357, 14)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(81, 13)
+        Me.Label28.Size = New System.Drawing.Size(114, 16)
         Me.Label28.TabIndex = 416
         Me.Label28.Text = "Next Update in "
         '
         'lbCounter
         '
         Me.lbCounter.AutoSize = True
-        Me.lbCounter.Location = New System.Drawing.Point(1316, 14)
+        Me.lbCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbCounter.ForeColor = System.Drawing.Color.Red
+        Me.lbCounter.Location = New System.Drawing.Point(1469, 14)
         Me.lbCounter.Name = "lbCounter"
-        Me.lbCounter.Size = New System.Drawing.Size(25, 13)
+        Me.lbCounter.Size = New System.Drawing.Size(32, 16)
         Me.lbCounter.TabIndex = 417
         Me.lbCounter.Text = "200"
         '
@@ -3632,27 +3698,6 @@ Partial Class frmMonitor
         Me.DataGridViewTextBoxColumn100.ReadOnly = True
         Me.DataGridViewTextBoxColumn100.Width = 46
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.BMAmonitoring.My.Resources.Resources.bmaIndex31
-        Me.PictureBox3.Location = New System.Drawing.Point(99, 3)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(547, 36)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 430
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox11
-        '
-        Me.PictureBox11.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.PictureBox11.Image = Global.BMAmonitoring.My.Resources.Resources.bmaIndex1Mod
-        Me.PictureBox11.Location = New System.Drawing.Point(1349, 38)
-        Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(479, 26)
-        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox11.TabIndex = 327
-        Me.PictureBox11.TabStop = False
-        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(6, 4)
@@ -3663,22 +3708,464 @@ Partial Class frmMonitor
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
-        'lbTest2
+        'pbM1shift1
         '
-        Me.lbTest2.AutoSize = True
-        Me.lbTest2.Location = New System.Drawing.Point(1025, 14)
-        Me.lbTest2.Name = "lbTest2"
-        Me.lbTest2.Size = New System.Drawing.Size(25, 13)
-        Me.lbTest2.TabIndex = 432
-        Me.lbTest2.Text = "200"
-        Me.lbTest2.Visible = False
+        Me.pbM1shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbM1shift1.Location = New System.Drawing.Point(237, 44)
+        Me.pbM1shift1.Name = "pbM1shift1"
+        Me.pbM1shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbM1shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbM1shift1.TabIndex = 434
+        Me.pbM1shift1.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.DTMS.My.Resources.Resources.bmaIndex33
+        Me.PictureBox3.Location = New System.Drawing.Point(99, 3)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(547, 36)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 430
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.PictureBox11.Image = Global.DTMS.My.Resources.Resources.bmaIndex1Mod
+        Me.PictureBox11.Location = New System.Drawing.Point(1349, 38)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(479, 26)
+        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox11.TabIndex = 327
+        Me.PictureBox11.TabStop = False
+        '
+        'pbm2shift1
+        '
+        Me.pbm2shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbm2shift1.Location = New System.Drawing.Point(237, 231)
+        Me.pbm2shift1.Name = "pbm2shift1"
+        Me.pbm2shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbm2shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbm2shift1.TabIndex = 435
+        Me.pbm2shift1.TabStop = False
+        '
+        'pbm3shift1
+        '
+        Me.pbm3shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbm3shift1.Location = New System.Drawing.Point(235, 421)
+        Me.pbm3shift1.Name = "pbm3shift1"
+        Me.pbm3shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbm3shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbm3shift1.TabIndex = 436
+        Me.pbm3shift1.TabStop = False
+        '
+        'pbm4shift1
+        '
+        Me.pbm4shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbm4shift1.Location = New System.Drawing.Point(237, 612)
+        Me.pbm4shift1.Name = "pbm4shift1"
+        Me.pbm4shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbm4shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbm4shift1.TabIndex = 437
+        Me.pbm4shift1.TabStop = False
+        '
+        'pbM5shift1
+        '
+        Me.pbM5shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbM5shift1.Location = New System.Drawing.Point(235, 802)
+        Me.pbM5shift1.Name = "pbM5shift1"
+        Me.pbM5shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbM5shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbM5shift1.TabIndex = 438
+        Me.pbM5shift1.TabStop = False
+        '
+        'dgvm1shift1
+        '
+        Me.dgvm1shift1.AllowUserToAddRows = False
+        Me.dgvm1shift1.AllowUserToDeleteRows = False
+        Me.dgvm1shift1.AllowUserToOrderColumns = True
+        Me.dgvm1shift1.AllowUserToResizeColumns = False
+        Me.dgvm1shift1.AllowUserToResizeRows = False
+        Me.dgvm1shift1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvm1shift1.ColumnHeadersVisible = False
+        Me.dgvm1shift1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19})
+        Me.dgvm1shift1.Location = New System.Drawing.Point(97, 196)
+        Me.dgvm1shift1.Name = "dgvm1shift1"
+        Me.dgvm1shift1.ReadOnly = True
+        Me.dgvm1shift1.RowHeadersVisible = False
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle28.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black
+        Me.dgvm1shift1.RowsDefaultCellStyle = DataGridViewCellStyle28
+        Me.dgvm1shift1.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.dgvm1shift1.Size = New System.Drawing.Size(1246, 25)
+        Me.dgvm1shift1.TabIndex = 439
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle27
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 138
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.HeaderText = "7"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 101
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.HeaderText = "8"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 101
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.HeaderText = "9"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Width = 101
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.HeaderText = "10"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Width = 101
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.HeaderText = "11"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Width = 101
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.HeaderText = "12"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Width = 101
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.HeaderText = "13"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Width = 101
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.HeaderText = "14"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Width = 101
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.HeaderText = "15"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        Me.DataGridViewTextBoxColumn17.Width = 101
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.HeaderText = "16"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.Width = 101
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.HeaderText = "17"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.ReadOnly = True
+        Me.DataGridViewTextBoxColumn19.Width = 101
+        '
+        'dgvm2Shift1
+        '
+        Me.dgvm2Shift1.AllowUserToAddRows = False
+        Me.dgvm2Shift1.AllowUserToDeleteRows = False
+        Me.dgvm2Shift1.AllowUserToOrderColumns = True
+        Me.dgvm2Shift1.AllowUserToResizeColumns = False
+        Me.dgvm2Shift1.AllowUserToResizeRows = False
+        Me.dgvm2Shift1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvm2Shift1.ColumnHeadersVisible = False
+        Me.dgvm2Shift1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24})
+        Me.dgvm2Shift1.Location = New System.Drawing.Point(98, 385)
+        Me.dgvm2Shift1.Name = "dgvm2Shift1"
+        Me.dgvm2Shift1.ReadOnly = True
+        Me.dgvm2Shift1.RowHeadersVisible = False
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle30.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle30.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black
+        Me.dgvm2Shift1.RowsDefaultCellStyle = DataGridViewCellStyle30
+        Me.dgvm2Shift1.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.dgvm2Shift1.Size = New System.Drawing.Size(1246, 25)
+        Me.dgvm2Shift1.TabIndex = 440
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle29
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Column1"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 138
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "7"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 101
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "8"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 101
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.HeaderText = "9"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 101
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.HeaderText = "10"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 101
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "11"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 101
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.HeaderText = "12"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 101
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.HeaderText = "13"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.ReadOnly = True
+        Me.DataGridViewTextBoxColumn20.Width = 101
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.HeaderText = "14"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.ReadOnly = True
+        Me.DataGridViewTextBoxColumn21.Width = 101
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.HeaderText = "15"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
+        Me.DataGridViewTextBoxColumn22.Width = 101
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.HeaderText = "16"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.ReadOnly = True
+        Me.DataGridViewTextBoxColumn23.Width = 101
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.HeaderText = "17"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.ReadOnly = True
+        Me.DataGridViewTextBoxColumn24.Width = 101
+        '
+        'dgvM3shift1
+        '
+        Me.dgvM3shift1.AllowUserToAddRows = False
+        Me.dgvM3shift1.AllowUserToDeleteRows = False
+        Me.dgvM3shift1.AllowUserToOrderColumns = True
+        Me.dgvM3shift1.AllowUserToResizeColumns = False
+        Me.dgvM3shift1.AllowUserToResizeRows = False
+        Me.dgvM3shift1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvM3shift1.ColumnHeadersVisible = False
+        Me.dgvM3shift1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36})
+        Me.dgvM3shift1.Location = New System.Drawing.Point(98, 575)
+        Me.dgvM3shift1.Name = "dgvM3shift1"
+        Me.dgvM3shift1.ReadOnly = True
+        Me.dgvM3shift1.RowHeadersVisible = False
+        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle32.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle32.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black
+        Me.dgvM3shift1.RowsDefaultCellStyle = DataGridViewCellStyle32
+        Me.dgvM3shift1.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.dgvM3shift1.Size = New System.Drawing.Size(1246, 25)
+        Me.dgvM3shift1.TabIndex = 441
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle31.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle31
+        Me.DataGridViewTextBoxColumn25.HeaderText = "Column1"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.ReadOnly = True
+        Me.DataGridViewTextBoxColumn25.Width = 138
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.HeaderText = "7"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        Me.DataGridViewTextBoxColumn26.ReadOnly = True
+        Me.DataGridViewTextBoxColumn26.Width = 101
+        '
+        'DataGridViewTextBoxColumn27
+        '
+        Me.DataGridViewTextBoxColumn27.HeaderText = "8"
+        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        Me.DataGridViewTextBoxColumn27.ReadOnly = True
+        Me.DataGridViewTextBoxColumn27.Width = 101
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.HeaderText = "9"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn28.ReadOnly = True
+        Me.DataGridViewTextBoxColumn28.Width = 101
+        '
+        'DataGridViewTextBoxColumn29
+        '
+        Me.DataGridViewTextBoxColumn29.HeaderText = "10"
+        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        Me.DataGridViewTextBoxColumn29.ReadOnly = True
+        Me.DataGridViewTextBoxColumn29.Width = 101
+        '
+        'DataGridViewTextBoxColumn30
+        '
+        Me.DataGridViewTextBoxColumn30.HeaderText = "11"
+        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
+        Me.DataGridViewTextBoxColumn30.ReadOnly = True
+        Me.DataGridViewTextBoxColumn30.Width = 101
+        '
+        'DataGridViewTextBoxColumn31
+        '
+        Me.DataGridViewTextBoxColumn31.HeaderText = "12"
+        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
+        Me.DataGridViewTextBoxColumn31.ReadOnly = True
+        Me.DataGridViewTextBoxColumn31.Width = 101
+        '
+        'DataGridViewTextBoxColumn32
+        '
+        Me.DataGridViewTextBoxColumn32.HeaderText = "13"
+        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
+        Me.DataGridViewTextBoxColumn32.ReadOnly = True
+        Me.DataGridViewTextBoxColumn32.Width = 101
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.HeaderText = "14"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        Me.DataGridViewTextBoxColumn33.ReadOnly = True
+        Me.DataGridViewTextBoxColumn33.Width = 101
+        '
+        'DataGridViewTextBoxColumn34
+        '
+        Me.DataGridViewTextBoxColumn34.HeaderText = "15"
+        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
+        Me.DataGridViewTextBoxColumn34.ReadOnly = True
+        Me.DataGridViewTextBoxColumn34.Width = 101
+        '
+        'DataGridViewTextBoxColumn35
+        '
+        Me.DataGridViewTextBoxColumn35.HeaderText = "16"
+        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
+        Me.DataGridViewTextBoxColumn35.ReadOnly = True
+        Me.DataGridViewTextBoxColumn35.Width = 101
+        '
+        'DataGridViewTextBoxColumn36
+        '
+        Me.DataGridViewTextBoxColumn36.HeaderText = "17"
+        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
+        Me.DataGridViewTextBoxColumn36.ReadOnly = True
+        Me.DataGridViewTextBoxColumn36.Width = 101
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.rbShift1)
+        Me.Panel2.Controls.Add(Me.rbAll)
+        Me.Panel2.Location = New System.Drawing.Point(1025, 4)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(155, 27)
+        Me.Panel2.TabIndex = 442
+        '
+        'rbShift1
+        '
+        Me.rbShift1.AutoSize = True
+        Me.rbShift1.Checked = True
+        Me.rbShift1.Location = New System.Drawing.Point(82, 5)
+        Me.rbShift1.Name = "rbShift1"
+        Me.rbShift1.Size = New System.Drawing.Size(55, 17)
+        Me.rbShift1.TabIndex = 1
+        Me.rbShift1.TabStop = True
+        Me.rbShift1.Text = "Shift 1"
+        Me.rbShift1.UseVisualStyleBackColor = True
+        '
+        'rbAll
+        '
+        Me.rbAll.AutoSize = True
+        Me.rbAll.Location = New System.Drawing.Point(4, 5)
+        Me.rbAll.Name = "rbAll"
+        Me.rbAll.Size = New System.Drawing.Size(56, 17)
+        Me.rbAll.TabIndex = 0
+        Me.rbAll.Text = "All day"
+        Me.rbAll.UseVisualStyleBackColor = True
+        '
+        'cbShift1
+        '
+        Me.cbShift1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbShift1.FormattingEnabled = True
+        Me.cbShift1.Items.AddRange(New Object() {"07:00", "07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00"})
+        Me.cbShift1.Location = New System.Drawing.Point(913, 13)
+        Me.cbShift1.Name = "cbShift1"
+        Me.cbShift1.Size = New System.Drawing.Size(48, 21)
+        Me.cbShift1.TabIndex = 443
+        Me.cbShift1.Visible = False
         '
         'frmMonitor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
-        Me.Controls.Add(Me.lbTest2)
+        Me.ClientSize = New System.Drawing.Size(1505, 863)
+        Me.Controls.Add(Me.cbShift1)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.dgvM3shift1)
+        Me.Controls.Add(Me.dgvm2Shift1)
+        Me.Controls.Add(Me.dgvm1shift1)
+        Me.Controls.Add(Me.pbM5shift1)
+        Me.Controls.Add(Me.pbm4shift1)
+        Me.Controls.Add(Me.pbm3shift1)
+        Me.Controls.Add(Me.pbm2shift1)
+        Me.Controls.Add(Me.pbM1shift1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.dgv5700)
@@ -3798,7 +4285,7 @@ Partial Class frmMonitor
         Me.KeyPreview = True
         Me.Name = "frmMonitor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Downtime Monitoring System"
+        Me.Text = "Downtime Monitoring System (DTMS) "
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.dgvAux, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3853,8 +4340,18 @@ Partial Class frmMonitor
         CType(Me.dgv3700, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv4700, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv5700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm2shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm3shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm4shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbM5shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvm1shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvm2Shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvM3shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -4199,5 +4696,52 @@ Partial Class frmMonitor
     Friend WithEvents d23 As DataGridViewTextBoxColumn
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents lbTest2 As Label
+    Friend WithEvents pbM1shift1 As PictureBox
+    Friend WithEvents pbm2shift1 As PictureBox
+    Friend WithEvents pbm3shift1 As PictureBox
+    Friend WithEvents pbm4shift1 As PictureBox
+    Friend WithEvents pbM5shift1 As PictureBox
+    Friend WithEvents dgvm1shift1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
+    Friend WithEvents dgvm2Shift1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents dgvM3shift1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn31 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn32 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn33 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn34 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents rbShift1 As RadioButton
+    Friend WithEvents rbAll As RadioButton
+    Friend WithEvents cbShift1 As ComboBox
 End Class

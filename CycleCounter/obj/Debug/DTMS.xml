@@ -2,122 +2,137 @@
 <doc>
 <assembly>
 <name>
-BMAmonitoring
+DTMS
 </name>
 </assembly>
 <members>
-<member name="T:BMAmonitoring.My.Resources.Resources">
+<member name="T:DTMS.My.Resources.Resources">
 <summary>
   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.ResourceManager">
+<member name="P:DTMS.My.Resources.Resources.ResourceManager">
 <summary>
   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.Culture">
+<member name="P:DTMS.My.Resources.Resources.Culture">
 <summary>
   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources._1389953720_9648">
+<member name="P:DTMS.My.Resources.Resources._1389953720_9648">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex1">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex1">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex1Mod">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex1Mod">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex2">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex2">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex21">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex21">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex3">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex3">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndex31">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex31">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndexV">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex32">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndexV1">
+<member name="P:DTMS.My.Resources.Resources.bmaIndex33">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.bmaIndexV2">
+<member name="P:DTMS.My.Resources.Resources.bmaIndexV">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.cuad3">
+<member name="P:DTMS.My.Resources.Resources.bmaIndexV1">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.disk">
+<member name="P:DTMS.My.Resources.Resources.bmaIndexV2">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.Edit">
+<member name="P:DTMS.My.Resources.Resources.cuad3">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.M2">
+<member name="P:DTMS.My.Resources.Resources.disk">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.M3">
+<member name="P:DTMS.My.Resources.Resources.Edit">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.M4">
+<member name="P:DTMS.My.Resources.Resources.M2">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.M5">
+<member name="P:DTMS.My.Resources.Resources.M3">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:BMAmonitoring.My.Resources.Resources.userAdmin">
+<member name="P:DTMS.My.Resources.Resources.M4">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="M:BMAmonitoring.Globals.ConvierteFechaMySQL(System.String)">
+<member name="P:DTMS.My.Resources.Resources.M5">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:DTMS.My.Resources.Resources.shift1Hours">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:DTMS.My.Resources.Resources.userAdmin">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:DTMS.Globals.ConvierteFechaMySQL(System.String)">
  <summary>
  devuelve un string de una fecha en formato mysql yyyy-MM-dd al formato dd/MM/yyyy
  </summary>
@@ -125,13 +140,13 @@ BMAmonitoring
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.CheckForConnection">
+<member name="M:DTMS.Globals.CheckForConnection">
  <summary>
  Checa si la conexión se encuentra Activa
  </summary>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.IsDecimal(System.String)">
+<member name="M:DTMS.Globals.IsDecimal(System.String)">
  <summary>
  determina si la cadena contiene valores decimales
  </summary>
@@ -139,66 +154,66 @@ BMAmonitoring
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentDateTime">
+<member name="M:DTMS.Globals.GetCurrentDateTime">
  <summary>
  Devuelve la Fecha y hora del sistema en formato yyyy-MM-dd hh:mm:ss
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentDate">
+<member name="M:DTMS.Globals.GetCurrentDate">
  <summary>
  Devuelve la fecha actual del sistema en formato yyyy-MM-dd
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentDate2">
+<member name="M:DTMS.Globals.GetCurrentDate2">
  <summary>
  Devuelve la fecha actual del sistema en formato yyyyMMdd
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentDate3">
+<member name="M:DTMS.Globals.GetCurrentDate3">
  <summary>
  Devuelve la fecha actual del sistema en formato dd/MM/yyyy
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentDateFileName">
+<member name="M:DTMS.Globals.GetCurrentDateFileName">
  <summary>
  devuelve los siguientes datos en el siguiente formato :  ddMMyyyyhhmmsss
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentTime">
+<member name="M:DTMS.Globals.GetCurrentTime">
  <summary>
  Devuelve la hora del sistema en formato hh:mm:ss
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.Globals.GetCurrentTime2">
+<member name="M:DTMS.Globals.GetCurrentTime2">
  <summary>
  Devuelve la hora del sistema en formato hh:mm:ss A.M 
  </summary>
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:BMAmonitoring.frmMonitor.loadLines">
+<member name="M:DTMS.frmMonitor.loadLines">
  <summary>
  Verificar cuales lineas estan corriendo, es un status en base de datos
  </summary>
 </member>
-<member name="M:BMAmonitoring.frmMonitor.insertOFFline(System.String)">
+<member name="M:DTMS.frmMonitor.insertOFFline(System.String)">
  <summary>
  Revisa en la base de datos si hay datos de la linea
  </summary>
 </member>
-<member name="M:BMAmonitoring.frmAuth.btnCancel_Click(System.Object,System.EventArgs)">
+<member name="M:DTMS.frmAuth.btnCancel_Click(System.Object,System.EventArgs)">
  <summary>
  CONEXION A HISS BD
  </summary>
