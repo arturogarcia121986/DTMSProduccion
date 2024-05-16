@@ -5,9 +5,11 @@ Imports System.Reflection
 Imports System.Text
 Imports System.Globalization
 Imports System.Net.Mail
+Imports System.Xml
 
 Public Class frmMonitor
 
+    Public versionSistema As String = ""
     Dim m_log As String = ""
     Dim n = 0
     Dim lastCode As String = ""
@@ -1562,161 +1564,162 @@ primeraVez:
 
         'End If
 
-        If m100.Tipo = UCStatus.UCLed.Type.Help Or m100.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "EXEC spQuery1 @numProceso = '1100', @fecha = '" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "';"
-            'warningQuery = "SELECT top 1 id,step
-            '                FROM [db_kyungshin].[dbo].[t_bma_downtime]
-            '                where process='1100' 
-            '                and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
-            '                          order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning1100 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning1100 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("1100", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+        If versionSistema = "PRODUCTION" Then
+            If m100.Tipo = UCStatus.UCLed.Type.Help Or m100.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "EXEC spQuery1 @numProceso = '1100', @fecha = '" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "';"
+                'warningQuery = "SELECT top 1 id,step
+                '                FROM [db_kyungshin].[dbo].[t_bma_downtime]
+                '                where process='1100' 
+                '                and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
+                '                          order by id desc"
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning1100 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning1100 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("1100", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
+            Else
+                ' cerrarFrmWarning("1100")
             End If
-        Else
-            ' cerrarFrmWarning("1100")
-        End If
 
 
-        If l1400.Tipo = UCStatus.UCLed.Type.Help Or l1400.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l1400.Tipo = UCStatus.UCLed.Type.Help Or l1400.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='1400' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning1400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning1400 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("1400", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning1400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning1400 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("1400", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
+            Else
+                ' CerrarFormularioHijo("1400")
             End If
-        Else
-            ' CerrarFormularioHijo("1400")
-        End If
 
-        If l1700.Tipo = UCStatus.UCLed.Type.Help Or l1700.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l1700.Tipo = UCStatus.UCLed.Type.Help Or l1700.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='1700' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning1700 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning1700 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("1700", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning1700 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning1700 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("1700", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
+            Else
+                '  CerrarFormularioHijo("1700")
             End If
-        Else
-            '  CerrarFormularioHijo("1700")
-        End If
 
-        If l2100.Tipo = UCStatus.UCLed.Type.Help Or l2100.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l2100.Tipo = UCStatus.UCLed.Type.Help Or l2100.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='2100' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning2100 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning2100 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("2100", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning2100 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning2100 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("2100", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
+            Else
+                ' CerrarFormularioHijo("2100")
             End If
-        Else
-            ' CerrarFormularioHijo("2100")
-        End If
 
-        If l2400.Tipo = UCStatus.UCLed.Type.Help Or l2400.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l2400.Tipo = UCStatus.UCLed.Type.Help Or l2400.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='2400' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning2400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning2400 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("2400", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning2400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning2400 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("2400", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
             End If
-        End If
 
-        If l2700.Tipo = UCStatus.UCLed.Type.Help Or l2700.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l2700.Tipo = UCStatus.UCLed.Type.Help Or l2700.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='2700' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning2700 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning2700 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("2700", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning2700 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning2700 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("2700", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
             End If
-        End If
 
-        If l3100.Tipo = UCStatus.UCLed.Type.Help Or l3100.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l3100.Tipo = UCStatus.UCLed.Type.Help Or l3100.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='3100' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning3100 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning3100 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("3100", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning3100 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning3100 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("3100", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
             End If
-        End If
 
-        If l3400.Tipo = UCStatus.UCLed.Type.Help Or l3400.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l3400.Tipo = UCStatus.UCLed.Type.Help Or l3400.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='3400' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning3400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning3400 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("3400", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning3400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning3400 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("3400", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
             End If
-        End If
 
-        If l3700.Tipo = UCStatus.UCLed.Type.Help Or l3700.Tipo = UCStatus.UCLed.Type.Panic Then
-            warningQuery = "SELECT top 1 id,step
+            If l3700.Tipo = UCStatus.UCLed.Type.Help Or l3700.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
                             FROM [db_kyungshin].[dbo].[t_bma_downtime]
                             where process='3700' 
                             and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
                                       order by id desc"
-            'primer paso, mostrar la ventana warning para seleccionar departamento
-            If warning3700 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
-                warning3700 = True
-                idToSend = QueryRow(warningQuery, "id", "getLastID")
-                showWarning("3700", idToSend)
-            Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning3700 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning3700 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("3700", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
 
+                End If
             End If
-        Else
-            ' CerrarFormularioHijo("2100")
         End If
+
 
 
         tGeneral.Start()
@@ -2198,9 +2201,32 @@ primeraVez:
         Try
             Panel11.Visible = True
 
+            If (File.Exists("Config.xml")) Then
+                Dim objXMLDoc As XmlDocument = Nothing
+
+                Try
+                    objXMLDoc = New XmlDocument
+                    objXMLDoc.Load("Config.xml")
+
+                    With ArchivoXML
+                        .host = objXMLDoc.GetElementsByTagName("Host").Item(0).InnerText
+                    End With
+
+                Catch ex As Exception
+                    MessageBox.Show("Error al Leer el archivo de configuración XML, Consulte con el administrador del sistema.", "Error de Lectura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                Finally
+                    objXMLDoc = Nothing
+                End Try
+            Else
+                MessageBox.Show("Error al Leer el archivo de configuración XML.", "Error de Lectura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
+            versionSistema = ArchivoXML.host
+
             intialLoad()
             tGeneral.Start()
-            Me.Text &= " PRODUCTION --Version " & My.Application.Info.Version.ToString
+            Me.Text &= " " & versionSistema & " --Version " & My.Application.Info.Version.ToString
             posX = Me.Location.X
             posY = Me.Location.Y
             pantallaPrincipal = Screen.FromControl(Me)

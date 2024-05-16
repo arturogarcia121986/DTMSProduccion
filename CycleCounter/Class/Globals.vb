@@ -14,7 +14,10 @@ Module Globals
     Public ArchivoDat As Archivo_CFG_DAT
     Public private_key As String = "_mega"
     Public Configuración_SMTP As Email_Cfg = Nothing
+    Public ArchivoXML As xmlConfig
     Public debugMode As Boolean = False 'FALSE SE CONECTA A BD PRODUCCION   TRUE SE CONECTA A BD LOCAL LAPTOP
+
+
 
     Public Function ConvierteDecimalMoneda(ByVal m_valor As Double) As String
         Try
