@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Config>
-<Host>PRODUCTION</Host>
+<Host>MONITORING</Host>
 <pass>1209</pass>
 <Bascula>COM2</Bascula>
 </Config>

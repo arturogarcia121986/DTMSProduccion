@@ -5,6 +5,8 @@ Imports System.Reflection
 Imports System.Text
 Imports System.Globalization
 Imports System.Net.Mail
+Imports System.Drawing
+Imports System.Timers
 Imports System.Xml
 
 Public Class frmMonitor
@@ -34,6 +36,7 @@ Public Class frmMonitor
     Dim onlyShowShift1 As Boolean = True
     Dim segundosTotales As Integer = 0
     Dim horasTotales As Integer = 24
+
 
     'PROGRESS BAR M1 100-------------------------------------
     Dim progressbarrunit As Double
@@ -267,6 +270,7 @@ Public Class frmMonitor
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Control.CheckForIllegalCrossThreadCalls = False
+
     End Sub
 
 
@@ -2231,13 +2235,196 @@ primeraVez:
             posY = Me.Location.Y
             pantallaPrincipal = Screen.FromControl(Me)
 
-            'Dim trd As New Threading.Thread(AddressOf hilo1) 'este se encarga de leer el PLC
-            'trd.Start()
+            IniciarParpadeo()
         Catch ex As Exception
 
         End Try
     End Sub
 
+    Private WithEvents blinkTimer As New Timer()
+    Private isOrangeBlink As Boolean = False
+    Private Const orangeThreshold As Integer = 50 ' Umbral de tolerancia para el color naranja
+
+    ' Método para iniciar el parpadeo
+    Private Sub IniciarParpadeo()
+        blinkTimer.Interval = 500 ' Intervalo de parpadeo en milisegundos (0.5 segundos)
+        blinkTimer.Start()
+    End Sub
+
+
+    ' Evento de temporizador para el parpadeo
+    Private Sub blinkTimer_Tick(sender As Object, e As EventArgs) Handles blinkTimer.Elapsed
+        isOrangeBlink = Not isOrangeBlink
+        ' Redibujar el PictureBox para actualizar el parpadeo
+        PictureBox1.Refresh()
+        pbm1p400.Refresh()
+        pbm1p700.Refresh()
+        pb3100.Refresh()
+        pb3400.Refresh()
+        pb3700.Refresh()
+    End Sub
+
+#Region "pictures paint"
+    Private Sub PictureBox1_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox1.Paint
+        If PictureBox1.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(PictureBox1.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pbm1p400_Paint(sender As Object, e As PaintEventArgs) Handles pbm1p400.Paint
+        If pbm1p400.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pbm1p400.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pbm1p700_Paint(sender As Object, e As PaintEventArgs) Handles pbm1p700.Paint
+        If pbm1p700.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pbm1p700.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pb3100_Paint(sender As Object, e As PaintEventArgs) Handles pb3100.Paint
+        If pb3100.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pb3100.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pb3400_Paint(sender As Object, e As PaintEventArgs) Handles pb3400.Paint
+        If pb3400.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pb3400.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pb3700_Paint(sender As Object, e As PaintEventArgs) Handles pb3700.Paint
+        If pb3700.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pb3700.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Function IsOrange(color As Color) As Boolean
+        ' Comparar los componentes RGB del color con el naranja
+        If Math.Abs(color.R - 255) <= orangeThreshold AndAlso
+           Math.Abs(color.G - 165) <= orangeThreshold AndAlso
+           Math.Abs(color.B - 0) <= orangeThreshold Then
+            Return True
+        End If
+        Return False
+    End Function
+#End Region
 
 
     ''' <summary>
@@ -2891,6 +3078,8 @@ INSERT INTO [dbo].[t_bma_downtime]
         End Try
 
     End Function
+
+    Dim rectangulo As Rectangle
     Private Sub ProgresoGuardado(NumProceso As String, totalprogreso As Double, progresobarunidad As Double, estatus As String, progresoCompletado As Double,
                                  bitmap As Bitmap, picbox As PictureBox, alturaprogres As Double, userControlLEd As UCStatus.UCLed, xposicion As Double)
         Try
@@ -2981,6 +3170,9 @@ INSERT INTO [dbo].[t_bma_downtime]
                         estatus = "R"
                         g = Graphics.FromImage(bitmap)
 
+                        'rectangulo a colorear
+                        rectangulo = New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres)
+
                         If IsDBNull(rw.Cells("ec1").Value) Then
                             g.FillRectangle(Brushes.Red, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
                         Else
@@ -3006,7 +3198,11 @@ INSERT INTO [dbo].[t_bma_downtime]
                                     'solo alarmedDepto
                                     If rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value = "" And rw.Cells("EC2").Value = "" And
                                         rw.Cells("EC3").Value = "" And rw.Cells("EC4").Value = "" Then
-                                        g.FillRectangle(Brushes.Orange, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+
+                                        g.FillRectangle(Brushes.Orange, rectangulo)
+
+
+
                                         'alarmeddepto y EC1
                                     ElseIf rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value <> "" And rw.Cells("EC2").Value = "" And
                                         rw.Cells("EC3").Value = "" And rw.Cells("EC4").Value = "" Then
@@ -4276,3 +4472,5 @@ End
         End Try
     End Function
 End Class
+
+

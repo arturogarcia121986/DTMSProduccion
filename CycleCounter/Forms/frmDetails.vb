@@ -185,6 +185,7 @@
                         IIf(cellDepto.Value <> "MAINTENANCE", cellDepto.Items.Add("MAINTENANCE"), Nothing)
                         IIf(cellDepto.Value <> "PRODUCTION", cellDepto.Items.Add("PRODUCTION"), Nothing)
                         IIf(cellDepto.Value <> "QUALITY", cellDepto.Items.Add("QUALITY"), Nothing)
+                        IIf(cellDepto.Value <> "OTHER", cellDepto.Items.Add("OTHER"), Nothing)
 
                     Else
                         cellDepto.ReadOnly = False
