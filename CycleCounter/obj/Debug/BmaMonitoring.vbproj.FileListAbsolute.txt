@@ -76,4 +76,3 @@ D:\Documentos\GitHub\DTMSProduccion\CycleCounter\bin\Debug\DTMS.xml
 D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.exe
 D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.xml
 D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\DTMS.pdb
-D:\Documentos\GitHub\DTMSProduccion\CycleCounter\obj\Debug\BmaMonitoring.vbprojAssemblyReference.cache

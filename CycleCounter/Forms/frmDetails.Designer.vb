@@ -29,8 +29,6 @@ Partial Class frmDetails
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.line = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.process = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.machineID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.processName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.machineStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.start = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.endTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,12 +54,12 @@ Partial Class frmDetails
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha, Me.line, Me.process, Me.machineID, Me.processName, Me.machineStatus, Me.start, Me.endTime, Me.lead, Me.depto, Me.EC1, Me.EC2, Me.EC3, Me.EC4, Me.EC5, Me.detail})
-        Me.dgv.Location = New System.Drawing.Point(2, 2)
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.fecha, Me.line, Me.process, Me.machineStatus, Me.start, Me.endTime, Me.lead, Me.depto, Me.EC1, Me.EC2, Me.EC3, Me.EC4, Me.EC5, Me.detail})
+        Me.dgv.Location = New System.Drawing.Point(2, 56)
         Me.dgv.Name = "dgv"
         Me.dgv.RowHeadersVisible = False
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgv.Size = New System.Drawing.Size(1221, 465)
+        Me.dgv.Size = New System.Drawing.Size(1221, 505)
         Me.dgv.TabIndex = 1
         '
         'btnSave
@@ -84,7 +82,7 @@ Partial Class frmDetails
         Me.btnSave.Image = Global.DTMS.My.Resources.Resources.disk
         Me.btnSave.ImageSize = New System.Drawing.Size(20, 20)
         Me.btnSave.LineColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.btnSave.Location = New System.Drawing.Point(1156, 473)
+        Me.btnSave.Location = New System.Drawing.Point(1156, 567)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.OnHoverBaseColor = System.Drawing.Color.SteelBlue
         Me.btnSave.OnHoverBorderColor = System.Drawing.Color.Black
@@ -118,18 +116,6 @@ Partial Class frmDetails
         '
         Me.process.HeaderText = "# Process"
         Me.process.Name = "process"
-        '
-        'machineID
-        '
-        Me.machineID.HeaderText = "Machine ID"
-        Me.machineID.Name = "machineID"
-        Me.machineID.ReadOnly = True
-        '
-        'processName
-        '
-        Me.processName.HeaderText = "Process Name"
-        Me.processName.Name = "processName"
-        Me.processName.ReadOnly = True
         '
         'machineStatus
         '
@@ -205,7 +191,7 @@ Partial Class frmDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1235, 529)
+        Me.ClientSize = New System.Drawing.Size(1235, 623)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.dgv)
         Me.Name = "frmDetails"
@@ -222,8 +208,6 @@ Partial Class frmDetails
     Friend WithEvents fecha As DataGridViewTextBoxColumn
     Friend WithEvents line As DataGridViewTextBoxColumn
     Friend WithEvents process As DataGridViewTextBoxColumn
-    Friend WithEvents machineID As DataGridViewTextBoxColumn
-    Friend WithEvents processName As DataGridViewTextBoxColumn
     Friend WithEvents machineStatus As DataGridViewTextBoxColumn
     Friend WithEvents start As DataGridViewTextBoxColumn
     Friend WithEvents endTime As DataGridViewTextBoxColumn

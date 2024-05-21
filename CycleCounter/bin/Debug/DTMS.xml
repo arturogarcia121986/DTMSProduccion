@@ -102,6 +102,11 @@ DTMS
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:DTMS.My.Resources.Resources.indexNuevo">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:DTMS.My.Resources.Resources.M2">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

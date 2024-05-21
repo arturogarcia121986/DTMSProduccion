@@ -9,6 +9,7 @@ Imports System.Drawing
 Imports System.Timers
 Imports System.Xml
 
+
 Public Class frmMonitor
 
     Public versionSistema As String = ""
@@ -1722,6 +1723,25 @@ primeraVez:
 
                 End If
             End If
+
+            '4100
+
+            '4400
+            If l4400.Tipo = UCStatus.UCLed.Type.Help Or l4400.Tipo = UCStatus.UCLed.Type.Panic Then
+                warningQuery = "SELECT top 1 id,step
+                            FROM [db_kyungshin].[dbo].[t_bma_downtime]
+                            where process='4400' 
+                            and CONVERT(DATE	,insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'
+                                      order by id desc"
+                'primer paso, mostrar la ventana warning para seleccionar departamento
+                If warning4400 = False And QueryRow(warningQuery, "step", "getLastRowStep") = "0" Then
+                    warning4400 = True
+                    idToSend = QueryRow(warningQuery, "id", "getLastID")
+                    showWarning("4400", idToSend)
+                Else 'step > 0 (1,2,3) segundo paso, cambiar de color los leds y las barras
+
+                End If
+            End If
         End If
 
 
@@ -1905,8 +1925,17 @@ primeraVez:
         'm100.Tipo = UCStatus.UCLed.Type.Quality
         'showWarning("1100")
         'showWarning("2100")
-        CerrarFormularioHijo("1100")
+        'CerrarFormularioHijo("1100")
+        '_formularioHijo = New frmInputDepto("M4", "1")
+        '_formularioHijo.StartPosition = FormStartPosition.Manual
+        '_formularioHijo.Owner = Me
+        '_formularioHijo.Location = New Point(Me.Location.X + 450, Me.Location.Y + 660)
 
+        Dim frm As New frmInputDepto("M4", "1")
+        frm.StartPosition = FormStartPosition.Manual
+        frm.Owner = Me
+        frm.Location = New Point(Me.Location.X + 450, Me.Location.Y + 660)
+        frm.Show()
     End Sub
 
     Private Sub showWarning(line As String, id As String)
@@ -1921,6 +1950,8 @@ primeraVez:
             _formularioHijo.Location = New Point(Me.Location.X + 450, Me.Location.Y + 281)
         ElseIf line = "3100" Or line = "3400" Or line = "3700" Then
             _formularioHijo.Location = New Point(Me.Location.X + 450, Me.Location.Y + 471)
+        ElseIf line = "4100" Or line = "4400" Or line = "4700" Then
+            _formularioHijo.Location = New Point(Me.Location.X + 450, Me.Location.Y + 660)
         End If
 
         _formularioHijo.Show()
@@ -2247,8 +2278,12 @@ primeraVez:
 
     ' Método para iniciar el parpadeo
     Private Sub IniciarParpadeo()
-        blinkTimer.Interval = 500 ' Intervalo de parpadeo en milisegundos (0.5 segundos)
-        blinkTimer.Start()
+        'blinkTimer.Interval = 500 ' Intervalo de parpadeo en milisegundos (0.5 segundos)
+        'blinkTimer.Start()
+
+
+        Dim trd As New Threading.Thread(AddressOf blinkThread) 'este se encarga de leer el PLC
+        trd.Start()
     End Sub
 
 
@@ -2259,10 +2294,34 @@ primeraVez:
         PictureBox1.Refresh()
         pbm1p400.Refresh()
         pbm1p700.Refresh()
+        pbm2p100.Refresh()
+        pb2400.Refresh()
+        pb2700.Refresh()
         pb3100.Refresh()
         pb3400.Refresh()
         pb3700.Refresh()
+        pb4400.Refresh()
     End Sub
+
+    Private Sub blinkThread()
+        Do While n <> 1
+            Threading.Thread.Sleep(1000)
+            isOrangeBlink = Not isOrangeBlink
+            ' Redibujar el PictureBox para actualizar el parpadeo
+            PictureBox1.Refresh()
+            pbm1p400.Refresh()
+            pbm1p700.Refresh()
+            pbm2p100.Refresh()
+            pb2400.Refresh()
+            pb2700.Refresh()
+            pb3100.Refresh()
+            pb3400.Refresh()
+            pb3700.Refresh()
+            pb4400.Refresh()
+        Loop
+
+    End Sub
+
 
 #Region "pictures paint"
     Private Sub PictureBox1_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox1.Paint
@@ -2274,7 +2333,7 @@ primeraVez:
                         For x As Integer = 0 To bmp.Width - 1
                             Dim pixelColor As Color = bmp.GetPixel(x, y)
                             ' Si el color del píxel está dentro del umbral de color naranja
-                            If IsOrange(pixelColor) Then
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
                                     bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
@@ -2299,7 +2358,7 @@ primeraVez:
                         For x As Integer = 0 To bmp.Width - 1
                             Dim pixelColor As Color = bmp.GetPixel(x, y)
                             ' Si el color del píxel está dentro del umbral de color naranja
-                            If IsOrange(pixelColor) Then
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
                                     bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
@@ -2324,7 +2383,7 @@ primeraVez:
                         For x As Integer = 0 To bmp.Width - 1
                             Dim pixelColor As Color = bmp.GetPixel(x, y)
                             ' Si el color del píxel está dentro del umbral de color naranja
-                            If IsOrange(pixelColor) Then
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
                                     bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
@@ -2340,6 +2399,92 @@ primeraVez:
         End If
     End Sub
 
+    Private Sub pbm2p100_Paint(sender As Object, e As PaintEventArgs) Handles pbm2p100.Paint
+        If pbm2p100.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pbm2p100.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pb2400_Paint(sender As Object, e As PaintEventArgs) Handles pb2400.Paint
+        If pb2400.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pb2400.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub frmMonitor_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        n = 1
+        Application.Exit()
+    End Sub
+
+    Private Sub frmMonitor_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        n = 1
+        Application.Exit()
+    End Sub
+
+    Private Sub pb2700_Paint(sender As Object, e As PaintEventArgs) Handles pb2700.Paint
+        If pb2700.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pb2700.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+
     Private Sub pb3100_Paint(sender As Object, e As PaintEventArgs) Handles pb3100.Paint
         If pb3100.Image IsNot Nothing Then
             ' Crear un bitmap auxiliar para el dibujo
@@ -2349,7 +2494,7 @@ primeraVez:
                         For x As Integer = 0 To bmp.Width - 1
                             Dim pixelColor As Color = bmp.GetPixel(x, y)
                             ' Si el color del píxel está dentro del umbral de color naranja
-                            If IsOrange(pixelColor) Then
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
                                     bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
@@ -2374,7 +2519,7 @@ primeraVez:
                         For x As Integer = 0 To bmp.Width - 1
                             Dim pixelColor As Color = bmp.GetPixel(x, y)
                             ' Si el color del píxel está dentro del umbral de color naranja
-                            If IsOrange(pixelColor) Then
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
                                     bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
@@ -2399,7 +2544,32 @@ primeraVez:
                         For x As Integer = 0 To bmp.Width - 1
                             Dim pixelColor As Color = bmp.GetPixel(x, y)
                             ' Si el color del píxel está dentro del umbral de color naranja
-                            If IsOrange(pixelColor) Then
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
+                                ' Si está en el estado de parpadeo, cambiar el color del píxel
+                                If isOrangeBlink Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                End If
+                            End If
+                        Next
+                    Next
+                End Using
+
+                ' Dibujar el bitmap en el PictureBox
+                e.Graphics.DrawImage(bmp, 0, 0)
+            End Using
+        End If
+    End Sub
+
+    Private Sub pb4400_Paint(sender As Object, e As PaintEventArgs) Handles pb4400.Paint
+        If pb4400.Image IsNot Nothing Then
+            ' Crear un bitmap auxiliar para el dibujo
+            Using bmp As New Bitmap(pb4400.Image)
+                Using g As Graphics = Graphics.FromImage(bmp)
+                    For y As Integer = 0 To bmp.Height - 1
+                        For x As Integer = 0 To bmp.Width - 1
+                            Dim pixelColor As Color = bmp.GetPixel(x, y)
+                            ' Si el color del píxel está dentro del umbral de color naranja
+                            If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
                                     bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
@@ -2422,6 +2592,48 @@ primeraVez:
            Math.Abs(color.B - 0) <= orangeThreshold Then
             Return True
         End If
+        Return False
+    End Function
+
+    Private Function isPurple(color As Color) As Boolean
+        ' Comparar los componentes RGB del color con el naranja
+        If color.Name = "ffcd46de" Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Function IsBlack(color As Color) As Boolean
+
+        If color.Name = "ff000000" Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Function IsBrown(color As Color) As Boolean
+
+        If color.Name = "ff9d6015" Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Function IsDarkGray(color As Color) As Boolean
+        If color.Name = "ff8d8b8b" Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    'ff66cfd2
+
+    Private Function isTurquesa(color As Color) As Boolean
+        If color.Name = "ff66cfd2" Then
+            Return True
+        End If
+
         Return False
     End Function
 #End Region
@@ -3198,31 +3410,51 @@ INSERT INTO [dbo].[t_bma_downtime]
                                     'solo alarmedDepto
                                     If rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value = "" And rw.Cells("EC2").Value = "" And
                                         rw.Cells("EC3").Value = "" And rw.Cells("EC4").Value = "" Then
+                                        If rw.Cells("alarmedDepto").Value = "MATERIAL" Then
+                                            Console.WriteLine("here")
 
-                                        g.FillRectangle(Brushes.Orange, rectangulo)
+                                        End If
 
-
+                                        Select Case rw.Cells("alarmedDepto").Value
+                                            Case "PRODUCTION" : g.FillRectangle(Brushes.DarkGray, rectangulo)
+                                                Dim newColor As Color = Color.FromArgb(&HFF8D8B8B)
+                                                Dim brownBrush As New SolidBrush(newColor)
+                                                g.FillRectangle(brownBrush, rectangulo)
+                                            Case "QUALITY" : g.FillRectangle(Brushes.Purple, rectangulo)
+                                                Dim newColor As Color = Color.FromArgb(&HFFCD46DE)
+                                                Dim brownBrush As New SolidBrush(newColor)
+                                                g.FillRectangle(brownBrush, rectangulo)
+                                            Case "MATERIAL"
+                                                Dim brownColor As Color = Color.FromArgb(&HFF, &H9D, &H60, &H15)
+                                                Dim brownBrush As New SolidBrush(brownColor)
+                                                g.FillRectangle(brownBrush, rectangulo)
+                                            Case "MAINTENANCE" : g.FillRectangle(Brushes.Black, rectangulo)
+                                            Case "OTHER" : g.FillRectangle(Brushes.White, rectangulo)
+                                                Dim newColor As Color = Color.FromArgb(&HFF66CFD2)
+                                                Dim brownBrush As New SolidBrush(newColor)
+                                                g.FillRectangle(brownBrush, rectangulo)
+                                        End Select
 
                                         'alarmeddepto y EC1
                                     ElseIf rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value <> "" And rw.Cells("EC2").Value = "" And
                                         rw.Cells("EC3").Value = "" And rw.Cells("EC4").Value = "" Then
-                                        If rw.Cells("alarmedDepto").Value = "PRODUCTION" Then
-                                            g.FillRectangle(Brushes.Blue, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                                        If rw.Cells("alarmedDepto").Value = "PRODUCTION" Or rw.Cells("alarmedDepto").Value = "OTHER" Then
+                                            g.FillRectangle(Brushes.Blue, rectangulo)
                                         Else
-                                            g.FillRectangle(Brushes.Yellow, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                                            g.FillRectangle(Brushes.Yellow, rectangulo)
                                         End If
                                         'alarmedDepto EC1 y EC2
                                     ElseIf rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value <> "" And rw.Cells("EC2").Value <> "" And
                                         rw.Cells("EC3").Value = "" And rw.Cells("EC4").Value = "" Then
-                                        g.FillRectangle(Brushes.Blue, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                                        g.FillRectangle(Brushes.Blue, rectangulo)
                                         'AlarmedDepto EC1 EC2 Y EC3
                                     ElseIf rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value <> "" And rw.Cells("EC2").Value <> "" And
                                         rw.Cells("EC3").Value <> "" And rw.Cells("EC4").Value = "" Then
-                                        g.FillRectangle(Brushes.Blue, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                                        g.FillRectangle(Brushes.Blue, rectangulo)
                                         'alarmedDepto EC1 EC2 EC3 y EC4
                                     ElseIf rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value <> "" And rw.Cells("EC2").Value <> "" And
                                  rw.Cells("EC3").Value <> "" And rw.Cells("EC4").Value <> "" Then
-                                        g.FillRectangle(Brushes.Blue, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 0.5, alturaprogres))
+                                        g.FillRectangle(Brushes.Blue, rectangulo)
                                         'alarmedDepto EC1 EC2 EC3 EC4 y EC5
                                     ElseIf rw.Cells("alarmedDepto").Value <> "" And rw.Cells("EC1").Value <> "" And rw.Cells("EC2").Value <> "" And
                                  rw.Cells("EC3").Value <> "" And rw.Cells("EC4").Value <> "" And rw.Cells("EC5").Value <> "" Then

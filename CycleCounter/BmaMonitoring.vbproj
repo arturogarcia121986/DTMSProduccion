@@ -266,6 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoCycleCountes.ico" />
+    <None Include="Resources\indexNuevo1.jpg" />
     <None Include="Resources\shift1Hours1.JPG" />
     <None Include="Resources\bmaIndex31.jpg" />
     <None Include="Resources\bmaIndex3.jpg" />

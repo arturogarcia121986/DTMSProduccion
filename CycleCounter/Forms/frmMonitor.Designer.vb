@@ -64,7 +64,6 @@ Partial Class frmMonitor
         Me.dgv = New System.Windows.Forms.DataGridView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.HideToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -75,9 +74,6 @@ Partial Class frmMonitor
         Me.m100 = New UCStatus.UCLed()
         Me.pm1 = New System.Windows.Forms.Panel()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.pbm1p400 = New System.Windows.Forms.PictureBox()
-        Me.pbm1p700 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.p1700 = New System.Windows.Forms.Panel()
         Me.ContextMenuStrip3 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -91,11 +87,7 @@ Partial Class frmMonitor
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.l2400 = New UCStatus.UCLed()
-        Me.pb2700 = New System.Windows.Forms.PictureBox()
         Me.l2100 = New UCStatus.UCLed()
-        Me.pb2400 = New System.Windows.Forms.PictureBox()
-        Me.pbm2p100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.p2700 = New System.Windows.Forms.Panel()
         Me.p2400 = New System.Windows.Forms.Panel()
         Me.p2100 = New System.Windows.Forms.Panel()
@@ -109,10 +101,6 @@ Partial Class frmMonitor
         Me.l3100 = New UCStatus.UCLed()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.pb3700 = New System.Windows.Forms.PictureBox()
-        Me.pb3400 = New System.Windows.Forms.PictureBox()
-        Me.pb3100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.p3700 = New System.Windows.Forms.Panel()
         Me.p3400 = New System.Windows.Forms.Panel()
         Me.p3100 = New System.Windows.Forms.Panel()
@@ -124,11 +112,7 @@ Partial Class frmMonitor
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.l4400 = New UCStatus.UCLed()
-        Me.pb4700 = New System.Windows.Forms.PictureBox()
         Me.l4100 = New UCStatus.UCLed()
-        Me.pb4400 = New System.Windows.Forms.PictureBox()
-        Me.pb4100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.p4100 = New System.Windows.Forms.Panel()
         Me.p4400 = New System.Windows.Forms.Panel()
         Me.p4700 = New System.Windows.Forms.Panel()
@@ -141,10 +125,6 @@ Partial Class frmMonitor
         Me.l5100 = New UCStatus.UCLed()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Label34 = New System.Windows.Forms.Label()
-        Me.pb5700 = New System.Windows.Forms.PictureBox()
-        Me.pb5400 = New System.Windows.Forms.PictureBox()
-        Me.pb5100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.p5100 = New System.Windows.Forms.Panel()
         Me.p5400 = New System.Windows.Forms.Panel()
         Me.p5700 = New System.Windows.Forms.Panel()
@@ -393,13 +373,6 @@ Partial Class frmMonitor
         Me.DataGridViewTextBoxColumn99 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn100 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.pbM1shift1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
-        Me.pbm2shift1 = New System.Windows.Forms.PictureBox()
-        Me.pbm3shift1 = New System.Windows.Forms.PictureBox()
-        Me.pbm4shift1 = New System.Windows.Forms.PictureBox()
-        Me.pbM5shift1 = New System.Windows.Forms.PictureBox()
         Me.dgvm1shift1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -443,41 +416,48 @@ Partial Class frmMonitor
         Me.rbShift1 = New System.Windows.Forms.RadioButton()
         Me.rbAll = New System.Windows.Forms.RadioButton()
         Me.cbShift1 = New System.Windows.Forms.ComboBox()
+        Me.pbM5shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbm4shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbm3shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbm2shift1 = New System.Windows.Forms.PictureBox()
+        Me.pbM1shift1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
+        Me.pb5700 = New System.Windows.Forms.PictureBox()
+        Me.pb5400 = New System.Windows.Forms.PictureBox()
+        Me.pb5100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.pb4700 = New System.Windows.Forms.PictureBox()
+        Me.pb4400 = New System.Windows.Forms.PictureBox()
+        Me.pb4100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.pb3700 = New System.Windows.Forms.PictureBox()
+        Me.pb3400 = New System.Windows.Forms.PictureBox()
+        Me.pb3100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.pb2700 = New System.Windows.Forms.PictureBox()
+        Me.pb2400 = New System.Windows.Forms.PictureBox()
+        Me.pbm2p100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pbm1p400 = New System.Windows.Forms.PictureBox()
+        Me.pbm1p700 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.dgvAux, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.pm1.SuspendLayout()
-        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip3.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
-        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
-        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.dgv1700, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -485,17 +465,37 @@ Partial Class frmMonitor
         CType(Me.dgv3700, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv4700, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv5700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm2shift1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm3shift1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm4shift1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbM5shift1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvm1shift1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvm2Shift1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvM3shift1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.pbM5shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm4shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm3shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm2shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvAux
@@ -685,16 +685,6 @@ Partial Class frmMonitor
         Me.Panel1.Size = New System.Drawing.Size(1344, 161)
         Me.Panel1.TabIndex = 269
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Gainsboro
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Location = New System.Drawing.Point(234, 23)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1107, 44)
-        Me.PictureBox1.TabIndex = 247
-        Me.PictureBox1.TabStop = False
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -795,36 +785,6 @@ Partial Class frmMonitor
         Me.Label30.Size = New System.Drawing.Size(28, 16)
         Me.Label30.TabIndex = 0
         Me.Label30.Text = "M1"
-        '
-        'pbm1p400
-        '
-        Me.pbm1p400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pbm1p400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbm1p400.Location = New System.Drawing.Point(234, 68)
-        Me.pbm1p400.Name = "pbm1p400"
-        Me.pbm1p400.Size = New System.Drawing.Size(1107, 44)
-        Me.pbm1p400.TabIndex = 259
-        Me.pbm1p400.TabStop = False
-        '
-        'pbm1p700
-        '
-        Me.pbm1p700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pbm1p700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbm1p700.Location = New System.Drawing.Point(234, 112)
-        Me.pbm1p700.Name = "pbm1p700"
-        Me.pbm1p700.Size = New System.Drawing.Size(1107, 44)
-        Me.pbm1p700.TabIndex = 255
-        Me.pbm1p700.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.DTMS.My.Resources.Resources.cuad3
-        Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1338, 155)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
         '
         'p1700
         '
@@ -965,16 +925,6 @@ Partial Class frmMonitor
         Me.l2400.Tipo = UCStatus.UCLed.Type.Online
         Me.l2400.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
         '
-        'pb2700
-        '
-        Me.pb2700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb2700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb2700.Location = New System.Drawing.Point(233, 112)
-        Me.pb2700.Name = "pb2700"
-        Me.pb2700.Size = New System.Drawing.Size(1108, 44)
-        Me.pb2700.TabIndex = 255
-        Me.pb2700.TabStop = False
-        '
         'l2100
         '
         Me.l2100.Estado = UCStatus.UCLed.Status.Apagado
@@ -983,36 +933,6 @@ Partial Class frmMonitor
         Me.l2100.Size = New System.Drawing.Size(138, 42)
         Me.l2100.Tipo = UCStatus.UCLed.Type.Online
         Me.l2100.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
-        '
-        'pb2400
-        '
-        Me.pb2400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb2400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb2400.Location = New System.Drawing.Point(233, 67)
-        Me.pb2400.Name = "pb2400"
-        Me.pb2400.Size = New System.Drawing.Size(1108, 44)
-        Me.pb2400.TabIndex = 254
-        Me.pb2400.TabStop = False
-        '
-        'pbm2p100
-        '
-        Me.pbm2p100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pbm2p100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbm2p100.Location = New System.Drawing.Point(233, 21)
-        Me.pbm2p100.Name = "pbm2p100"
-        Me.pbm2p100.Size = New System.Drawing.Size(1108, 44)
-        Me.pbm2p100.TabIndex = 247
-        Me.pbm2p100.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.DTMS.My.Resources.Resources.M2
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(1338, 155)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 0
-        Me.PictureBox4.TabStop = False
         '
         'p2700
         '
@@ -1159,46 +1079,6 @@ Partial Class frmMonitor
         Me.Label32.TabIndex = 0
         Me.Label32.Text = "M3"
         '
-        'pb3700
-        '
-        Me.pb3700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb3700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb3700.Location = New System.Drawing.Point(233, 112)
-        Me.pb3700.Name = "pb3700"
-        Me.pb3700.Size = New System.Drawing.Size(1110, 44)
-        Me.pb3700.TabIndex = 255
-        Me.pb3700.TabStop = False
-        '
-        'pb3400
-        '
-        Me.pb3400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb3400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb3400.Location = New System.Drawing.Point(233, 66)
-        Me.pb3400.Name = "pb3400"
-        Me.pb3400.Size = New System.Drawing.Size(1110, 44)
-        Me.pb3400.TabIndex = 254
-        Me.pb3400.TabStop = False
-        '
-        'pb3100
-        '
-        Me.pb3100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb3100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb3100.Location = New System.Drawing.Point(233, 21)
-        Me.pb3100.Name = "pb3100"
-        Me.pb3100.Size = New System.Drawing.Size(1110, 44)
-        Me.pb3100.TabIndex = 247
-        Me.pb3100.TabStop = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.DTMS.My.Resources.Resources.M3
-        Me.PictureBox6.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(1340, 155)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 0
-        Me.PictureBox6.TabStop = False
-        '
         'p3700
         '
         Me.p3700.ContextMenuStrip = Me.ContextMenuStrip3
@@ -1326,16 +1206,6 @@ Partial Class frmMonitor
         Me.l4400.Tipo = UCStatus.UCLed.Type.Online
         Me.l4400.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
         '
-        'pb4700
-        '
-        Me.pb4700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb4700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb4700.Location = New System.Drawing.Point(233, 111)
-        Me.pb4700.Name = "pb4700"
-        Me.pb4700.Size = New System.Drawing.Size(1108, 44)
-        Me.pb4700.TabIndex = 255
-        Me.pb4700.TabStop = False
-        '
         'l4100
         '
         Me.l4100.Estado = UCStatus.UCLed.Status.Apagado
@@ -1344,36 +1214,6 @@ Partial Class frmMonitor
         Me.l4100.Size = New System.Drawing.Size(138, 42)
         Me.l4100.Tipo = UCStatus.UCLed.Type.Online
         Me.l4100.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
-        '
-        'pb4400
-        '
-        Me.pb4400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb4400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb4400.Location = New System.Drawing.Point(233, 66)
-        Me.pb4400.Name = "pb4400"
-        Me.pb4400.Size = New System.Drawing.Size(1108, 44)
-        Me.pb4400.TabIndex = 254
-        Me.pb4400.TabStop = False
-        '
-        'pb4100
-        '
-        Me.pb4100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb4100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb4100.Location = New System.Drawing.Point(233, 21)
-        Me.pb4100.Name = "pb4100"
-        Me.pb4100.Size = New System.Drawing.Size(1108, 44)
-        Me.pb4100.TabIndex = 247
-        Me.pb4100.TabStop = False
-        '
-        'PictureBox8
-        '
-        Me.PictureBox8.Image = Global.DTMS.My.Resources.Resources.M4
-        Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(1340, 155)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox8.TabIndex = 0
-        Me.PictureBox8.TabStop = False
         '
         'p4100
         '
@@ -1510,46 +1350,6 @@ Partial Class frmMonitor
         Me.Label34.Size = New System.Drawing.Size(28, 16)
         Me.Label34.TabIndex = 0
         Me.Label34.Text = "M5"
-        '
-        'pb5700
-        '
-        Me.pb5700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb5700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb5700.Location = New System.Drawing.Point(233, 112)
-        Me.pb5700.Name = "pb5700"
-        Me.pb5700.Size = New System.Drawing.Size(1108, 44)
-        Me.pb5700.TabIndex = 255
-        Me.pb5700.TabStop = False
-        '
-        'pb5400
-        '
-        Me.pb5400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb5400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb5400.Location = New System.Drawing.Point(233, 66)
-        Me.pb5400.Name = "pb5400"
-        Me.pb5400.Size = New System.Drawing.Size(1108, 44)
-        Me.pb5400.TabIndex = 254
-        Me.pb5400.TabStop = False
-        '
-        'pb5100
-        '
-        Me.pb5100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb5100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb5100.Location = New System.Drawing.Point(233, 21)
-        Me.pb5100.Name = "pb5100"
-        Me.pb5100.Size = New System.Drawing.Size(1108, 44)
-        Me.pb5100.TabIndex = 247
-        Me.pb5100.TabStop = False
-        '
-        'PictureBox10
-        '
-        Me.PictureBox10.Image = Global.DTMS.My.Resources.Resources.M5
-        Me.PictureBox10.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(1340, 155)
-        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox10.TabIndex = 0
-        Me.PictureBox10.TabStop = False
         '
         'p5100
         '
@@ -2614,7 +2414,7 @@ Partial Class frmMonitor
         '
         Me.Panel11.Controls.Add(Me.Label36)
         Me.Panel11.Controls.Add(Me.ProgressBar1)
-        Me.Panel11.Location = New System.Drawing.Point(662, 8)
+        Me.Panel11.Location = New System.Drawing.Point(716, 8)
         Me.Panel11.Name = "Panel11"
         Me.Panel11.Size = New System.Drawing.Size(166, 24)
         Me.Panel11.TabIndex = 421
@@ -2655,7 +2455,7 @@ Partial Class frmMonitor
         Me.cboMinutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMinutes.FormattingEnabled = True
         Me.cboMinutes.Items.AddRange(New Object() {"00:00", "00:15", "00:30", "00:45", "01:00", "01:15", "01:30", "01:45", "02:00", "02:15", "02:30", "02:45", "03:00", "03:15", "03:30", "03:45", "04:00", "04:15", "04:30", "04:45", "05:00", "05:15", "05:30", "05:45", "06:00", "06:15", "06:30", "06:45", "07:00", "07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00", "17:15", "17:30", "17:45", "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45", "20:00", "20:15", "20:30", "20:45", "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45"})
-        Me.cboMinutes.Location = New System.Drawing.Point(835, 12)
+        Me.cboMinutes.Location = New System.Drawing.Point(1379, 152)
         Me.cboMinutes.Name = "cboMinutes"
         Me.cboMinutes.Size = New System.Drawing.Size(48, 21)
         Me.cboMinutes.TabIndex = 424
@@ -3708,77 +3508,6 @@ Partial Class frmMonitor
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
-        'pbM1shift1
-        '
-        Me.pbM1shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
-        Me.pbM1shift1.Location = New System.Drawing.Point(237, 44)
-        Me.pbM1shift1.Name = "pbM1shift1"
-        Me.pbM1shift1.Size = New System.Drawing.Size(1109, 18)
-        Me.pbM1shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbM1shift1.TabIndex = 434
-        Me.pbM1shift1.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.DTMS.My.Resources.Resources.bmaIndex33
-        Me.PictureBox3.Location = New System.Drawing.Point(99, 3)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(547, 36)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 430
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox11
-        '
-        Me.PictureBox11.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.PictureBox11.Image = Global.DTMS.My.Resources.Resources.bmaIndex1Mod
-        Me.PictureBox11.Location = New System.Drawing.Point(1349, 38)
-        Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(479, 26)
-        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox11.TabIndex = 327
-        Me.PictureBox11.TabStop = False
-        '
-        'pbm2shift1
-        '
-        Me.pbm2shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
-        Me.pbm2shift1.Location = New System.Drawing.Point(237, 231)
-        Me.pbm2shift1.Name = "pbm2shift1"
-        Me.pbm2shift1.Size = New System.Drawing.Size(1109, 18)
-        Me.pbm2shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbm2shift1.TabIndex = 435
-        Me.pbm2shift1.TabStop = False
-        '
-        'pbm3shift1
-        '
-        Me.pbm3shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
-        Me.pbm3shift1.Location = New System.Drawing.Point(235, 421)
-        Me.pbm3shift1.Name = "pbm3shift1"
-        Me.pbm3shift1.Size = New System.Drawing.Size(1109, 18)
-        Me.pbm3shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbm3shift1.TabIndex = 436
-        Me.pbm3shift1.TabStop = False
-        '
-        'pbm4shift1
-        '
-        Me.pbm4shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
-        Me.pbm4shift1.Location = New System.Drawing.Point(237, 612)
-        Me.pbm4shift1.Name = "pbm4shift1"
-        Me.pbm4shift1.Size = New System.Drawing.Size(1109, 18)
-        Me.pbm4shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbm4shift1.TabIndex = 437
-        Me.pbm4shift1.TabStop = False
-        '
-        'pbM5shift1
-        '
-        Me.pbM5shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
-        Me.pbM5shift1.Location = New System.Drawing.Point(235, 802)
-        Me.pbM5shift1.Name = "pbM5shift1"
-        Me.pbM5shift1.Size = New System.Drawing.Size(1109, 18)
-        Me.pbM5shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbM5shift1.TabIndex = 438
-        Me.pbM5shift1.TabStop = False
-        '
         'dgvm1shift1
         '
         Me.dgvm1shift1.AllowUserToAddRows = False
@@ -4145,11 +3874,282 @@ Partial Class frmMonitor
         Me.cbShift1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbShift1.FormattingEnabled = True
         Me.cbShift1.Items.AddRange(New Object() {"07:00", "07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00"})
-        Me.cbShift1.Location = New System.Drawing.Point(913, 13)
+        Me.cbShift1.Location = New System.Drawing.Point(1379, 108)
         Me.cbShift1.Name = "cbShift1"
         Me.cbShift1.Size = New System.Drawing.Size(48, 21)
         Me.cbShift1.TabIndex = 443
         Me.cbShift1.Visible = False
+        '
+        'pbM5shift1
+        '
+        Me.pbM5shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbM5shift1.Location = New System.Drawing.Point(235, 802)
+        Me.pbM5shift1.Name = "pbM5shift1"
+        Me.pbM5shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbM5shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbM5shift1.TabIndex = 438
+        Me.pbM5shift1.TabStop = False
+        '
+        'pbm4shift1
+        '
+        Me.pbm4shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbm4shift1.Location = New System.Drawing.Point(237, 612)
+        Me.pbm4shift1.Name = "pbm4shift1"
+        Me.pbm4shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbm4shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbm4shift1.TabIndex = 437
+        Me.pbm4shift1.TabStop = False
+        '
+        'pbm3shift1
+        '
+        Me.pbm3shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbm3shift1.Location = New System.Drawing.Point(235, 421)
+        Me.pbm3shift1.Name = "pbm3shift1"
+        Me.pbm3shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbm3shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbm3shift1.TabIndex = 436
+        Me.pbm3shift1.TabStop = False
+        '
+        'pbm2shift1
+        '
+        Me.pbm2shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbm2shift1.Location = New System.Drawing.Point(237, 231)
+        Me.pbm2shift1.Name = "pbm2shift1"
+        Me.pbm2shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbm2shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbm2shift1.TabIndex = 435
+        Me.pbm2shift1.TabStop = False
+        '
+        'pbM1shift1
+        '
+        Me.pbM1shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
+        Me.pbM1shift1.Location = New System.Drawing.Point(237, 44)
+        Me.pbM1shift1.Name = "pbM1shift1"
+        Me.pbM1shift1.Size = New System.Drawing.Size(1109, 18)
+        Me.pbM1shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbM1shift1.TabIndex = 434
+        Me.pbM1shift1.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.DTMS.My.Resources.Resources.indexNuevo
+        Me.PictureBox3.Location = New System.Drawing.Point(99, 3)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(611, 36)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 430
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.PictureBox11.Image = Global.DTMS.My.Resources.Resources.bmaIndex1Mod
+        Me.PictureBox11.Location = New System.Drawing.Point(1349, 38)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(479, 26)
+        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox11.TabIndex = 327
+        Me.PictureBox11.TabStop = False
+        '
+        'pb5700
+        '
+        Me.pb5700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb5700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb5700.Location = New System.Drawing.Point(233, 112)
+        Me.pb5700.Name = "pb5700"
+        Me.pb5700.Size = New System.Drawing.Size(1108, 44)
+        Me.pb5700.TabIndex = 255
+        Me.pb5700.TabStop = False
+        '
+        'pb5400
+        '
+        Me.pb5400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb5400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb5400.Location = New System.Drawing.Point(233, 66)
+        Me.pb5400.Name = "pb5400"
+        Me.pb5400.Size = New System.Drawing.Size(1108, 44)
+        Me.pb5400.TabIndex = 254
+        Me.pb5400.TabStop = False
+        '
+        'pb5100
+        '
+        Me.pb5100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb5100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb5100.Location = New System.Drawing.Point(233, 21)
+        Me.pb5100.Name = "pb5100"
+        Me.pb5100.Size = New System.Drawing.Size(1108, 44)
+        Me.pb5100.TabIndex = 247
+        Me.pb5100.TabStop = False
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = Global.DTMS.My.Resources.Resources.M5
+        Me.PictureBox10.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(1340, 155)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox10.TabIndex = 0
+        Me.PictureBox10.TabStop = False
+        '
+        'pb4700
+        '
+        Me.pb4700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb4700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb4700.Location = New System.Drawing.Point(233, 111)
+        Me.pb4700.Name = "pb4700"
+        Me.pb4700.Size = New System.Drawing.Size(1108, 44)
+        Me.pb4700.TabIndex = 255
+        Me.pb4700.TabStop = False
+        '
+        'pb4400
+        '
+        Me.pb4400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb4400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb4400.Location = New System.Drawing.Point(233, 66)
+        Me.pb4400.Name = "pb4400"
+        Me.pb4400.Size = New System.Drawing.Size(1108, 44)
+        Me.pb4400.TabIndex = 254
+        Me.pb4400.TabStop = False
+        '
+        'pb4100
+        '
+        Me.pb4100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb4100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb4100.Location = New System.Drawing.Point(233, 21)
+        Me.pb4100.Name = "pb4100"
+        Me.pb4100.Size = New System.Drawing.Size(1108, 44)
+        Me.pb4100.TabIndex = 247
+        Me.pb4100.TabStop = False
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = Global.DTMS.My.Resources.Resources.M4
+        Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(1340, 155)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox8.TabIndex = 0
+        Me.PictureBox8.TabStop = False
+        '
+        'pb3700
+        '
+        Me.pb3700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb3700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb3700.Location = New System.Drawing.Point(233, 112)
+        Me.pb3700.Name = "pb3700"
+        Me.pb3700.Size = New System.Drawing.Size(1110, 44)
+        Me.pb3700.TabIndex = 255
+        Me.pb3700.TabStop = False
+        '
+        'pb3400
+        '
+        Me.pb3400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb3400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb3400.Location = New System.Drawing.Point(233, 66)
+        Me.pb3400.Name = "pb3400"
+        Me.pb3400.Size = New System.Drawing.Size(1110, 44)
+        Me.pb3400.TabIndex = 254
+        Me.pb3400.TabStop = False
+        '
+        'pb3100
+        '
+        Me.pb3100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb3100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb3100.Location = New System.Drawing.Point(233, 21)
+        Me.pb3100.Name = "pb3100"
+        Me.pb3100.Size = New System.Drawing.Size(1110, 44)
+        Me.pb3100.TabIndex = 247
+        Me.pb3100.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.DTMS.My.Resources.Resources.M3
+        Me.PictureBox6.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(1340, 155)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 0
+        Me.PictureBox6.TabStop = False
+        '
+        'pb2700
+        '
+        Me.pb2700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb2700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb2700.Location = New System.Drawing.Point(233, 112)
+        Me.pb2700.Name = "pb2700"
+        Me.pb2700.Size = New System.Drawing.Size(1108, 44)
+        Me.pb2700.TabIndex = 255
+        Me.pb2700.TabStop = False
+        '
+        'pb2400
+        '
+        Me.pb2400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb2400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb2400.Location = New System.Drawing.Point(233, 67)
+        Me.pb2400.Name = "pb2400"
+        Me.pb2400.Size = New System.Drawing.Size(1108, 44)
+        Me.pb2400.TabIndex = 254
+        Me.pb2400.TabStop = False
+        '
+        'pbm2p100
+        '
+        Me.pbm2p100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pbm2p100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pbm2p100.Location = New System.Drawing.Point(233, 21)
+        Me.pbm2p100.Name = "pbm2p100"
+        Me.pbm2p100.Size = New System.Drawing.Size(1108, 44)
+        Me.pbm2p100.TabIndex = 247
+        Me.pbm2p100.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.DTMS.My.Resources.Resources.M2
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(1338, 155)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 0
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Gainsboro
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Location = New System.Drawing.Point(234, 23)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1107, 44)
+        Me.PictureBox1.TabIndex = 247
+        Me.PictureBox1.TabStop = False
+        '
+        'pbm1p400
+        '
+        Me.pbm1p400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pbm1p400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pbm1p400.Location = New System.Drawing.Point(234, 68)
+        Me.pbm1p400.Name = "pbm1p400"
+        Me.pbm1p400.Size = New System.Drawing.Size(1107, 44)
+        Me.pbm1p400.TabIndex = 259
+        Me.pbm1p400.TabStop = False
+        '
+        'pbm1p700
+        '
+        Me.pbm1p700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pbm1p700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pbm1p700.Location = New System.Drawing.Point(234, 112)
+        Me.pbm1p700.Name = "pbm1p700"
+        Me.pbm1p700.Size = New System.Drawing.Size(1107, 44)
+        Me.pbm1p700.TabIndex = 255
+        Me.pbm1p700.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.DTMS.My.Resources.Resources.cuad3
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1338, 155)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
         '
         'frmMonitor
         '
@@ -4292,46 +4292,26 @@ Partial Class frmMonitor
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip2.ResumeLayout(False)
         Me.pm1.ResumeLayout(False)
         Me.pm1.PerformLayout()
-        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip3.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel11.ResumeLayout(False)
         Me.Panel11.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
@@ -4340,18 +4320,38 @@ Partial Class frmMonitor
         CType(Me.dgv3700, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv4700, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv5700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm2shift1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm3shift1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm4shift1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbM5shift1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvm1shift1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvm2Shift1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvM3shift1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.pbM5shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm4shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm3shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm2shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
