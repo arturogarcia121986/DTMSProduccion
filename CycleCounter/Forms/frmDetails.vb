@@ -16,66 +16,70 @@
     End Sub
 
     Public iResult As Boolean = False
+
+    Private Sub asignarStringDesdeLinea()
+        Select Case _linea
+            Case "M1"
+                procesos = " (process='1100' OR process='1400' or process='1700') "
+            Case "M2"
+                procesos = " (process='2100' OR process='2400' or process='2700') "
+            Case "M3"
+                procesos = " (process='3100' OR process='3400' or process='3700') "
+            Case "M4"
+                procesos = " (process='4100' OR process='4400' or process='4700') "
+            Case "M5"
+                procesos = " (process='5100' OR process='5400' or process='5700') "
+            Case "1100"
+                procesos = " (process='1100') "
+                _linea = "M1"
+            Case "1400"
+                procesos = " (process='1400') "
+                _linea = "M1"
+            Case "1700"
+                procesos = " (process='1700') "
+                _linea = "M1"
+            Case "2100"
+                procesos = " (process='2100') "
+                _linea = "M2"
+            Case "2400"
+                procesos = " (process='2400') "
+                _linea = "M2"
+            Case "2700"
+                procesos = " (process='2700') "
+                _linea = "M2"
+            Case "3100"
+                procesos = " (process='3100') "
+                _linea = "M3"
+            Case "3400"
+                procesos = " (process='3400') "
+                _linea = "M3"
+            Case "3700"
+                procesos = " (process='3700') "
+                _linea = "M3"
+            Case "4100"
+                procesos = " (process='4100') "
+                _linea = "M4"
+            Case "4400"
+                procesos = " (process='4400') "
+                _linea = "M4"
+            Case "4700"
+                procesos = " (process='4700') "
+                _linea = "M4"
+            Case "5100"
+                procesos = " (process='5100') "
+                _linea = "M5"
+            Case "5400"
+                procesos = " (process='5400') "
+                _linea = "M5"
+            Case "5700"
+                procesos = " (process='5700') "
+                _linea = "M5"
+        End Select
+    End Sub
     Private Sub frmDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Me.Text = " DETAILS FOR " & _linea
-            Select Case _linea
-                Case "M1"
-                    procesos = " (process='1100' OR process='1400' or process='1700') "
-                Case "M2"
-                    procesos = " (process='2100' OR process='2400' or process='2700') "
-                Case "M3"
-                    procesos = " (process='3100' OR process='3400' or process='3700') "
-                Case "M4"
-                    procesos = " (process='4100' OR process='4400' or process='4700') "
-                Case "M5"
-                    procesos = " (process='5100' OR process='5400' or process='5700') "
-                Case "1100"
-                    procesos = " (process='1100') "
-                    _linea = "M1"
-                Case "1400"
-                    procesos = " (process='1400') "
-                    _linea = "M1"
-                Case "1700"
-                    procesos = " (process='1700') "
-                    _linea = "M1"
-                Case "2100"
-                    procesos = " (process='2100') "
-                    _linea = "M2"
-                Case "2400"
-                    procesos = " (process='2400') "
-                    _linea = "M2"
-                Case "2700"
-                    procesos = " (process='2700') "
-                    _linea = "M2"
-                Case "3100"
-                    procesos = " (process='3100') "
-                    _linea = "M3"
-                Case "3400"
-                    procesos = " (process='3400') "
-                    _linea = "M3"
-                Case "3700"
-                    procesos = " (process='3700') "
-                    _linea = "M3"
-                Case "4100"
-                    procesos = " (process='4100') "
-                    _linea = "M4"
-                Case "4400"
-                    procesos = " (process='4400') "
-                    _linea = "M4"
-                Case "4700"
-                    procesos = " (process='4700') "
-                    _linea = "M4"
-                Case "5100"
-                    procesos = " (process='5100') "
-                    _linea = "M5"
-                Case "5400"
-                    procesos = " (process='5400') "
-                    _linea = "M5"
-                Case "5700"
-                    procesos = " (process='5700') "
-                    _linea = "M5"
-            End Select
+            asignarStringDesdeLinea()
 
             Dim query As String = "SELECT TOP (1000) do.id,
                                 CASE
@@ -201,6 +205,8 @@
                 colores()
 
             End If
+            dtpDesde.Value = Date.Now.ToShortDateString
+            dtpHasta.Value = Date.Now.ToShortDateString
             'LoadCombos()
             'dgv.DataSource = EjecutaSelects(query, "buscahistorial")
             ResizeCols(dgv)
@@ -265,6 +271,110 @@
         End If
     End Sub
 
+    Private Sub bntFiltrar_Click(sender As Object, e As EventArgs) Handles bntFiltrar.Click
+        Try
+            dgv.Rows.Clear()
+            Dim desde As String = Convert.ToDateTime(dtpDesde.Value).ToString("yyyy-MM-dd")
+            Dim hasta As String = Convert.ToDateTime(dtpHasta.Value).ToString("yyyy-MM-dd")
+            Dim query, querycompl As String
+
+            If rbIncomplete.Checked = True Then
+                querycompl &= " AND (depto='' or depto is null or alarmedDepto='' or alarmedDepto is null or ec1='') "
+            Else
+                querycompl = ""
+            End If
+
+            If cbDepto.Text <> "" Then
+                querycompl &= " AND (depto='" & cbDepto.Text & "' or alarmedDepto='" & cbDepto.Text & "')"
+            End If
+
+            query = "SELECT id,[process]
+                  ,[status]
+                  ,[startTime]
+                  ,[endTime]
+                  ,[AcumTime]
+                  ,[insert_date]
+                  ,[remarks]
+                  ,[depto]
+                  ,[alarmedDepto]
+                  ,[ec1]
+                  ,[ec2]
+                  ,[ec3]
+                  ,[ec4]
+                  ,[ec5]
+              FROM [db_kyungshin].[dbo].[t_bma_downtime] 
+              WHERE 1=1 AND AcumTime>='00:05:00' and STATUS='DOWN' 
+                AND  CONVERT(DATE ,insert_date) BETWEEN '" & desde & "' AND '" & hasta & "' AND  " & procesos & querycompl & " ORDER BY process"
+
+
+            Dim arre2 As DataRowCollection = GetRows(query)
+
+            If Not IsNothing(arre2) Then
+
+
+                For Each item As DataRow In arre2
+                    Dim newRow As DataGridViewRow = dgv.Rows(dgv.Rows.Add())
+
+                    ' Asignar valores a las celdas normales
+                    newRow.Cells("id").Value = item("id").ToString.Trim
+                    newRow.Cells("depto").Value = item("depto").ToString.Trim
+                    newRow.Cells("fecha").Value = ConvierteFechaMySQL(item("insert_date").ToString.Trim)
+                    newRow.Cells("process").Value = item("process").ToString.Trim
+                    newRow.Cells("machinestatus").Value = item("status").ToString.Trim
+                    newRow.Cells("start").Value = item("startTime").ToString.Trim
+                    newRow.Cells("endtime").Value = item("endtime").ToString.Trim
+                    newRow.Cells("lead").Value = item("AcumTime").ToString.Trim
+                    newRow.Cells("detail").Value = item("remarks").ToString.Trim
+
+                    newRow.Cells("EC1").Value = item("EC1").ToString.Trim
+                    newRow.Cells("EC2").Value = item("EC2").ToString.Trim
+                    newRow.Cells("EC3").Value = item("EC3").ToString.Trim
+                    newRow.Cells("EC4").Value = item("EC4").ToString.Trim
+                    newRow.Cells("EC5").Value = item("EC5").ToString.Trim
+
+                    ' ... (otros valores)
+                    Dim cellDepto As DataGridViewComboBoxCell = CType(newRow.Cells("depto"), DataGridViewComboBoxCell)
+
+                    If Not cellDepto.Items.Contains(item("depto").ToString.Trim) Then
+                        cellDepto.Items.Add(item("depto").ToString.Trim)
+                    End If
+
+                    cellDepto.Value = item("depto").ToString.Trim
+
+
+                    If Not String.IsNullOrEmpty(newRow.Cells("EC1").Value) Then
+                        newRow.Cells("EC1").ReadOnly = True
+                    End If
+
+                    If Not String.IsNullOrEmpty(cellDepto.Value) Then
+                        ' cellDepto.ReadOnly = True
+                        IIf(cellDepto.Value <> "MATERIAL", cellDepto.Items.Add("MATERIAL"), Nothing)
+                        IIf(cellDepto.Value <> "MAINTENANCE", cellDepto.Items.Add("MAINTENANCE"), Nothing)
+                        IIf(cellDepto.Value <> "PRODUCTION", cellDepto.Items.Add("PRODUCTION"), Nothing)
+                        IIf(cellDepto.Value <> "QUALITY", cellDepto.Items.Add("QUALITY"), Nothing)
+                        IIf(cellDepto.Value <> "OTHER", cellDepto.Items.Add("OTHER"), Nothing)
+
+                    Else
+                        cellDepto.ReadOnly = False
+                        cellDepto.Items.Add("MATERIAL")
+                        cellDepto.Items.Add("MAINTENANCE")
+                        cellDepto.Items.Add("PRODUCTION")
+                        cellDepto.Items.Add("QUALITY")
+                        cellDepto.Items.Add("OTHER")
+                    End If
+                Next
+
+
+                ' colores()
+
+            End If
+
+            ResizeCols(dgv)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Dim query As String
 
     Private Sub LoadCombos()
@@ -313,9 +423,6 @@
                 'End If
             End If
         Next
-    End Sub
-    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles dgv.RowsAdded
-
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
