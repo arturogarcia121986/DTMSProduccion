@@ -8,11 +8,28 @@ Imports System.Net.Mail
 Imports System.Drawing
 Imports System.Timers
 Imports System.Xml
-
+Imports System.Runtime.InteropServices ' Importar este espacio de nombres
+Imports System.Drawing.Imaging
 
 Public Class frmMonitor
 
+    ' Declaración de la función PrintWindow
+    <DllImport("user32.dll")>
+    Private Shared Function PrintWindow(hWnd As IntPtr, hdcBlt As IntPtr, nFlags As Integer) As Boolean
+    End Function
+
+    ' Declaración de las funciones GetDC y ReleaseDC
+    <DllImport("user32.dll")>
+    Private Shared Function GetDC(hWnd As IntPtr) As IntPtr
+    End Function
+
+    <DllImport("user32.dll")>
+    Private Shared Function ReleaseDC(hWnd As IntPtr, hDC As IntPtr) As Integer
+    End Function
+
     Public versionSistema As String = ""
+    Dim capturarPantalla As Integer = 0
+    Private contadorSegundos As Integer = 0
     Dim m_log As String = ""
     Dim n = 0
     Dim lastCode As String = ""
@@ -38,6 +55,8 @@ Public Class frmMonitor
     Dim segundosTotales As Integer = 0
     Dim horasTotales As Integer = 24
     Dim blinkBar As Boolean = False
+
+    Dim ProductionPhones As String = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='PRODUCTION'", "celulares", "buscacels")
 
     'PROGRESS BAR M1 100-------------------------------------
     Dim progressbarrunit As Double
@@ -258,9 +277,36 @@ Public Class frmMonitor
     Public warning5400 As Boolean = False
     Public warning5700 As Boolean = False
 
+
+    'variables para mensajes de whatsapp
+    Dim w2100Help As Boolean = False
+    Dim w2100Panic As Boolean = False
+    Dim w2100Online As Boolean = False
+
+    Dim w2400Help As Boolean = False
+    Dim w2400Panic As Boolean = False
+    Dim w2400Online As Boolean = False
+
+    Dim w2700Help As Boolean = False
+    Dim w2700Panic As Boolean = False
+    Dim w2700Online As Boolean = False
+
+
+
     Dim w3100Help As Boolean = False
     Dim w3100Panic As Boolean = False
     Dim w3100Online As Boolean = False
+
+    Dim w3400Help As Boolean = False
+    Dim w3400Panic As Boolean = False
+    Dim w3400Online As Boolean = False
+
+    Dim w3700Help As Boolean = False
+    Dim w3700Panic As Boolean = False
+    Dim w3700Online As Boolean = False
+
+    'variables para los numeros de whatsapp
+    Dim productionNumbers, managersNumbers As String
 
 
 
@@ -537,7 +583,9 @@ WHERE CONVERT(date, insert_date) = '" & Date.Now.ToShortDateString() & "' and ST
 
         Erase horaSeparada
         horaAcum = ""
-
+        If NumProceso = "2700" Then
+            Console.WriteLine("here")
+        End If
         'ACUMULADO DE TIEMPO MUERTO POR TURNOS, 7AM A 7PM
 
         Try
@@ -706,8 +754,9 @@ primeraVez:
     End Sub
 
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnProgress.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         'ProgresoGuardadoLineas()
+
         Dim frm As New frmResultHour()
         frm.ShowDialog()
     End Sub
@@ -1535,6 +1584,226 @@ primeraVez:
         Call Ejecuta("UPDATE t_bma_downtime SET step=1,alarmeddepto='PRODUCTION' WHERE id='" & get2ndID & "'", "updStep1SecondID")
 
     End Sub
+
+    Private Sub screenCapture()
+
+        ' 1. Obtener el identificador de la ventana
+        Dim hWnd As IntPtr = Me.Handle
+
+        ' *** 2. Obtener el tamaño de la ventana (incluyendo los controles dinámicos) ***
+        Dim rect As New Rectangle(0, 0, Me.Width, Me.Height)
+
+        Dim hdc As IntPtr = GetDC(hWnd)
+
+        Using captura As New Bitmap(rect.Width, rect.Height)
+            ' *** Obtener el objeto Graphics del bitmap ***
+            Using g As Graphics = Graphics.FromImage(captura)
+
+                ' 4. Obtener el contexto de dispositivo del bitmap
+                Dim hdcCaptura As IntPtr = g.GetHdc()
+
+                ' 5. Llamar a la función PrintWindow
+                PrintWindow(hWnd, hdcCaptura, 0)
+
+                ' 6. Liberar los contextos de dispositivo
+                ReleaseDC(hWnd, hdc)
+                g.ReleaseHdc() ' Liberar el contexto del bitmap
+
+                ' *** Guardar la captura en la base de datos ***
+                GuardarImagenEnBaseDeDatos(captura)
+
+            End Using ' El bloque Using libera el objeto Graphics automáticamente
+        End Using ' El bloque Using libera el objeto Bitmap automáticamente
+
+
+    End Sub
+
+    Private Sub GuardarImagenEnBaseDeDatos(imagen As Bitmap)
+
+
+        ' 1. Declarar la variable imagenBytes fuera del bloque Using
+        Dim imagenBytes As Byte() = Nothing ' Inicializar a Nothing
+
+        ' 2. Convertir la imagen a un array de bytes
+        Using ms As New MemoryStream()
+            imagen.Save(ms, Imaging.ImageFormat.Png)
+            ' 3. Asignar el array de bytes a la variable declarada
+            imagenBytes = ms.ToArray()
+        End Using
+
+        ' 3. Crear el comando SQL
+        Using comando As New SqlCommand("INSERT INTO t_bma_downtime_sc (imagen, fecha) VALUES (@imagen, @fecha)", conexion)
+            comando.Parameters.AddWithValue("@imagen", imagenBytes)
+            comando.Parameters.AddWithValue("@fecha", ConvierteAdateMySQL(Date.Now.ToShortDateString))
+
+
+            comando.ExecuteNonQuery()
+        End Using
+
+
+    End Sub
+
+    Private Sub enviarWhatsappLineasActivas()
+        Try
+            'whatsapp API
+            'M3
+            'versionSistema = "PRODUCTION"
+            If versionSistema = "PRODUCTION" Then
+
+                'M2========================================================================================
+                If l2100.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w2100Panic = False Then
+                        sendWhatsapp("M2 (100)", 2)
+                        w2100Panic = True
+                        w2100Online = True
+                    End If
+
+                ElseIf l2100.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w2100Help = False Then
+                        sendWhatsapp("M2 (100)", 1)
+                        w2100Help = True
+                        w2100Online = True
+                    End If
+
+                ElseIf l2100.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w2100Online = True Then
+                        w2100Panic = False
+                        w2100Help = False
+                        sendWhatsapp("M2 (100)", 0)
+                        w2100Online = False
+                    End If
+
+                End If
+
+                If l2400.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w2400Panic = False Then
+                        sendWhatsapp("M2 (400)", 2)
+                        w2400Panic = True
+                        w2400Online = True
+                    End If
+
+                ElseIf l2400.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w2400Help = False Then
+                        sendWhatsapp("M2 (400)", 1)
+                        w2400Help = True
+                        w2400Online = True
+                    End If
+
+                ElseIf l2400.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w2400Online = True Then
+                        w2400Panic = False
+                        w2400Help = False
+                        sendWhatsapp("M2 (400)", 0)
+                        w2400Online = False
+                    End If
+                End If
+
+
+                If l2700.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w2700Panic = False Then
+                        sendWhatsapp("M2 (700)", 2)
+                        w2700Panic = True
+                        w2700Online = True
+                    End If
+
+                ElseIf l2700.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w2700Help = False Then
+                        sendWhatsapp("M2 (700)", 1)
+                        w2700Help = True
+                        w2700Online = True
+                    End If
+
+                ElseIf l2700.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w2700Online = True Then
+                        w2700Panic = False
+                        w2700Help = False
+                        sendWhatsapp("M2 (700)", 0)
+                        w2700Online = False
+                    End If
+                End If
+
+
+
+
+                'M3========================================================================================
+                If l3100.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w3100Panic = False Then
+                        sendWhatsapp("M3 (100)", 2)
+                        w3100Panic = True
+                        w3100Online = True
+                    End If
+
+                ElseIf l3100.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w3100Help = False Then
+                        sendWhatsapp("M3 (100)", 1)
+                        w3100Help = True
+                        w3100Online = True
+                    End If
+
+                ElseIf l3100.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w3100Online = True Then
+                        w3100Panic = False
+                        w3100Help = False
+                        sendWhatsapp("M3 (100)", 0)
+                        w3100Online = False
+                    End If
+
+                End If
+
+
+                If l3400.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w3400Panic = False Then
+                        sendWhatsapp("M3 (400)", 2)
+                        w3400Panic = True
+                        w3400Online = True
+                    End If
+
+                ElseIf l3400.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w3400Help = False Then
+                        sendWhatsapp("M3 (400)", 1)
+                        w3400Help = True
+                        w3400Online = True
+                    End If
+
+                ElseIf l3400.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w3400Online = True Then
+                        w3400Panic = False
+                        w3400Help = False
+                        sendWhatsapp("M3 (400)", 0)
+                        w3400Online = False
+                    End If
+                End If
+
+
+                If l3700.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w3700Panic = False Then
+                        sendWhatsapp("M3 (700)", 2)
+                        w3700Panic = True
+                        w3700Online = True
+                    End If
+
+                ElseIf l3700.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w3700Help = False Then
+                        sendWhatsapp("M3 (700)", 1)
+                        w3700Help = True
+                        w3700Online = True
+                    End If
+
+                ElseIf l3700.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w3700Online = True Then
+                        w3700Panic = False
+                        w3700Help = False
+                        sendWhatsapp("M3 (700)", 0)
+                        w3700Online = False
+                    End If
+                End If
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub tGeneral_Tick(sender As Object, e As EventArgs) Handles tGeneral.Tick
         tGeneral.Stop()
         lbCounter.Text = CInt(lbCounter.Text) - 1
@@ -1543,31 +1812,7 @@ primeraVez:
             lbCounter.Text = "200"
         End If
 
-        'whatsapp API
-
-        'If l2100.Tipo = UCStatus.UCLed.Type.Panic Then
-        '    If w3100Panic = False Then
-        '        sendWhatsapp("M2 (100)", 2)
-        '        w3100Panic = True
-        '        w3100Online = True
-        '    End If
-
-        'ElseIf l2100.Tipo = UCStatus.UCLed.Type.Help Then
-        '    If w3100Help = False Then
-        '        sendWhatsapp("M2 (100)", 1)
-        '        w3100Help = True
-        '        w3100Online = True
-        '    End If
-
-        'ElseIf l2100.Tipo = UCStatus.UCLed.Type.Online Then
-        '    If w3100Online = True Then
-        '        w3100Panic = False
-        '        w3100Help = False
-        '        sendWhatsapp("M2 (100)", 0)
-        '        w3100Online = False
-        '    End If
-
-        'End If
+        enviarWhatsappLineasActivas()
 
         If versionSistema = "PRODUCTION" Then
             If m100.Tipo = UCStatus.UCLed.Type.Help Or m100.Tipo = UCStatus.UCLed.Type.Panic Then
@@ -1744,12 +1989,73 @@ primeraVez:
             End If
         End If
 
+        ' Obtener la hora actual
+        Dim horaActual As DateTime = DateTime.Now
+
+
+        ' Especificar la hora para la captura de pantalla (16:30)
+        Dim horaCaptura As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, 17, 27, 0)
+        ' Mostrar las horas para verificar
+        Console.WriteLine("Hora actual: " & horaActual.ToString("HH:mm:ss"))
+        Console.WriteLine("Hora captura: " & horaCaptura.ToString("HH:mm:ss"))
+        ' Comparar la hora actual con la hora de captura (rango de 1 segundo)
+        Dim horaActualRedondeada As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, horaActual.Hour, horaActual.Minute, 0)
+
+        ' 5. Verificar si existe un registro para la fecha actual en la base de datos
+
+        Try
+            Dim query As String = "SELECT 1 FROM [db_kyungshin].[dbo].[t_bma_downtime_sc] WHERE CONVERT(DATE, fecha) = @fecha"
+            Using command As New SqlCommand(query, conexion)
+                command.Parameters.AddWithValue("@fecha", horaActual.Date)
+
+                Dim resultado As Object = command.ExecuteScalar()
+
+                ' 6. Si NO existe un registro y la hora coincide, realizar la captura de pantalla
+                If resultado Is Nothing AndAlso horaActualRedondeada.TimeOfDay = horaCaptura.TimeOfDay AndAlso Not capturaRealizada Then
+                    If capturarPantalla = 1 Then
+                        screenCapture()
+                        capturaRealizada = True
+                    End If
+                End If
+            End Using
+        Catch ex As Exception
+            Console.WriteLine("Error al verificar la fecha en la base de datos: " & ex.Message)
+        End Try
+
+
+
+        ' 7. Incrementar el contador y reiniciar si es necesario
+        If capturaRealizada Then
+            contadorSegundos += 1
+            If contadorSegundos >= 60 Then
+                capturaRealizada = False
+                contadorSegundos = 0 ' Reiniciar el contador
+            End If
+        End If
+
+
+        'If horaActualRedondeada.TimeOfDay = horaCaptura.TimeOfDay AndAlso Not capturaRealizada Then
+        '    If capturarPantalla = 1 Then
+        '        screenCapture()
+        '        capturaRealizada = True
+        '    End If
+
+        'End If
+
+        '' Incrementar el contador
+        'If capturaRealizada Then
+        '    contadorSegundos += 1
+        '    If contadorSegundos >= 60 Then
+        '        capturaRealizada = False
+        '        contadorSegundos = 0 ' Reiniciar el contador
+        '    End If
+        'End If
 
 
         tGeneral.Start()
     End Sub
 
-
+    Private capturaRealizada As Boolean = False
     Private Sub OpenDetails(line As String)
         Try
             Dim frm As New frmDetails(line)
@@ -1769,26 +2075,42 @@ primeraVez:
 
     Private Sub sendWhatsapp(line As String, type As String)
         Try
-            Dim WebRequest As HttpWebRequest
-            WebRequest = HttpWebRequest.Create("https://api.ultramsg.com/instance81482/messages/chat")
-            Dim postdata As String = ""
-            Select Case type
-                Case 0
-                    postdata = "token=ihs8oh4i2dpn83iq&to=+528711626091,+13343246666&body=WhatsApp Business API (Trial Version): DOWNTIME MONITORING SYSTEM: " & line & " - RUNNING TIME STARTED "
-                Case 1
-                    postdata = "token=ihs8oh4i2dpn83iq&to=+528711626091,+13343246666&body=WhatsApp Business API (Trial Version): DOWNTIME MONITORING SYSTEM: " & line & " - YELLOW FLAG STARTED (5 MINUTES STOPPED) "
-                Case 2
-                    postdata = "token=ihs8oh4i2dpn83iq&to=+528711626091,+13343246666&body=WhatsApp Business API (Trial Version): DOWNTIME MONITORING SYSTEM: " & line & " - RED FLAG STARTED (15 MINUTES STOPPED) "
-            End Select
-            'Dim postdata As String = "token=ihs8oh4i2dpn83iq&to=+528711626091&body= DOWNTIME MONITORING SYSTEM: " & line & " - YELLOW FLAG STARTED (5 MINUTES STOPPED) "
-            Dim enc As UTF8Encoding = New System.Text.UTF8Encoding()
-            Dim postdatabytes As Byte() = enc.GetBytes(postdata)
-            WebRequest.Method = "POST"
-            WebRequest.ContentType = "application/x-www-form-urlencoded"
-            ' WebRequest.GetRequestStream().Write(postdatabytes)
-            WebRequest.GetRequestStream().Write(postdatabytes, 0, postdatabytes.Length)
-            Dim ret As New System.IO.StreamReader(WebRequest.GetResponse().GetResponseStream())
-            'MsgBox(ret.ReadToEnd())
+            ' Obtener la hora actual
+            Dim horaActual As DateTime = DateTime.Now
+            ' Especificar la hora para la captura de pantalla (16:30)
+            Dim horaWhatsappTurno1 As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, 16, 45, 0) 'fin del turno 1
+
+            Dim inicioTurno1 As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, 7, 0, 0) 'fin del turno 1
+
+
+            Dim horaActualRedondeada As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, horaActual.Hour, horaActual.Minute, 0)
+
+            If horaActualRedondeada.TimeOfDay >= inicioTurno1.TimeOfDay And horaActualRedondeada.TimeOfDay <= horaWhatsappTurno1.TimeOfDay Then
+
+                Dim WebRequest As HttpWebRequest
+                '  WebRequest = HttpWebRequest.Create("https://api.ultramsg.com/instance81482/messages/chat")
+                WebRequest = HttpWebRequest.Create("https://api.ultramsg.com/instance107253/messages/chat")
+                Dim postdata As String = ""
+                Select Case type
+                    Case 0
+                        postdata = "token=qm1998bshgxcr8dd&to=" & productionNumbers & "&body=DOWNTIME MONITORING SYSTEM: " & line & " - RUNNING TIME STARTED 🟢 "
+                    Case 1
+                        postdata = "token=qm1998bshgxcr8dd&to=" & productionNumbers & "&body=DOWNTIME MONITORING SYSTEM: " & line & " - MORE THAN 5 MINUTES STOPPED 🟡 "
+                    Case 2
+                        postdata = "token=qm1998bshgxcr8dd&to=" & productionNumbers & "," & managersNumbers & "&body=DOWNTIME MONITORING SYSTEM: " & line & " - MORE THAN 15 MINUTES STOPPED 🔴 "
+                End Select
+                'Dim postdata As String = "token=ihs8oh4i2dpn83iq&to=+528711626091&body= DOWNTIME MONITORING SYSTEM: " & line & " - YELLOW FLAG STARTED (5 MINUTES STOPPED) "
+                Dim enc As UTF8Encoding = New System.Text.UTF8Encoding()
+                Dim postdatabytes As Byte() = enc.GetBytes(postdata)
+                WebRequest.Method = "POST"
+                WebRequest.ContentType = "application/x-www-form-urlencoded"
+                ' WebRequest.GetRequestStream().Write(postdatabytes)
+                WebRequest.GetRequestStream().Write(postdatabytes, 0, postdatabytes.Length)
+                Dim ret As New System.IO.StreamReader(WebRequest.GetResponse().GetResponseStream())
+                'MsgBox(ret.ReadToEnd())
+
+            End If
+
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -1809,6 +2131,8 @@ primeraVez:
     Private Sub frmMonitor_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         Try
             Select Case e.KeyCode
+                Case Keys.F1
+                    copyDGV2To1()
                 Case Keys.F2
                     copyDGV()
                 Case Keys.F3
@@ -1854,6 +2178,40 @@ primeraVez:
         End Try
     End Sub
 
+    Private Sub copyDGV2To1()
+        Try
+            dgv1700.Rows.Add(dgv1700.Rows(0).Cells("titulo1700").Value,
+                              dgv1700.Rows(0).Cells("t0").Value,
+                             dgv1700.Rows(0).Cells("t1").Value,
+                             dgv1700.Rows(0).Cells("t2").Value,
+                             dgv1700.Rows(0).Cells("t3").Value,
+                             dgv1700.Rows(0).Cells("t4").Value,
+                             dgv1700.Rows(0).Cells("t5").Value,
+                             dgv1700.Rows(0).Cells("t6").Value,
+                             dgv1700.Rows(0).Cells("t7").Value,
+                             dgv1700.Rows(0).Cells("t8").Value,
+                             dgv1700.Rows(0).Cells("t9").Value,
+                             dgv1700.Rows(0).Cells("t10").Value,
+                             dgv1700.Rows(0).Cells("t11").Value,
+                             dgv1700.Rows(0).Cells("t12").Value,
+                             dgv1700.Rows(0).Cells("t13").Value,
+                             dgv1700.Rows(0).Cells("t14").Value,
+                             dgv1700.Rows(0).Cells("t15").Value,
+                             dgv1700.Rows(0).Cells("t16").Value,
+                             dgv1700.Rows(0).Cells("t17").Value,
+                             dgv1700.Rows(0).Cells("t18").Value,
+                             dgv1700.Rows(0).Cells("t19").Value,
+                             dgv1700.Rows(0).Cells("t20").Value,
+                             dgv1700.Rows(0).Cells("t21").Value,
+                             dgv1700.Rows(0).Cells("t22").Value,
+                             dgv1700.Rows(0).Cells("t23").Value
+)
+            dgv2700.Rows.Clear()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Private Sub copyDGV2()
         Try
             dgv3700.Rows.Add(dgv2700.Rows(0).Cells("titulo2").Value,
@@ -1890,8 +2248,6 @@ primeraVez:
 
     Friend IncrementoX As Integer = 0
     Friend IncrementoY As Integer = 0
-
-
 
     Private WithEvents _formularioHijo As frmInputDepto
 
@@ -2247,6 +2603,15 @@ primeraVez:
                         .host = objXMLDoc.GetElementsByTagName("Host").Item(0).InnerText
                     End With
 
+                    ' Verificar si la etiqueta <sc> existe
+                    Dim scNode As XmlNode = objXMLDoc.GetElementsByTagName("sc").Item(0)
+                    If scNode IsNot Nothing Then
+                        ' Asignar el valor de <sc> a la variable capturarPantalla
+                        capturarPantalla = Integer.Parse(scNode.InnerText)
+                    Else
+                        ' Si no existe, capturarPantalla = 0 (ya está asignado por defecto)
+                    End If
+
                 Catch ex As Exception
                     MessageBox.Show("Error al Leer el archivo de configuración XML, Consulte con el administrador del sistema.", "Error de Lectura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
@@ -2265,7 +2630,8 @@ primeraVez:
             posX = Me.Location.X
             posY = Me.Location.Y
             pantallaPrincipal = Screen.FromControl(Me)
-
+            productionNumbers = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='PRODUCTION'", "celulares", "CELS")
+            managersNumbers = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='MANAGERS'", "celulares", "CELS")
             IniciarParpadeo()
         Catch ex As Exception
 
@@ -2336,9 +2702,9 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    '  If blinkBar = True Then
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
+                                    '  End If
 
                                 End If
                             End If
@@ -2364,9 +2730,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2391,9 +2755,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2418,9 +2780,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2445,9 +2805,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2473,9 +2831,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
 
                                 End If
                             End If
@@ -2502,9 +2858,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2529,9 +2883,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2556,9 +2908,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2583,9 +2933,7 @@ primeraVez:
                             If IsOrange(pixelColor) Or IsBlack(pixelColor) Or IsBrown(pixelColor) Or IsDarkGray(pixelColor) Or isPurple(pixelColor) Or isTurquesa(pixelColor) Or isDarkRed(pixelColor) Then
                                 ' Si está en el estado de parpadeo, cambiar el color del píxel
                                 If isOrangeBlink Then
-                                    If blinkBar = True Then
-                                        bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
-                                    End If
+                                    bmp.SetPixel(x, y, Color.Yellow) ' Cambiar el color a blanco para el parpadeo
                                 End If
                             End If
                         Next
@@ -2607,6 +2955,18 @@ primeraVez:
         End If
         Return False
     End Function
+
+    Private Sub GunaAdvenceButton2_Click(sender As Object, e As EventArgs) Handles btnProgress.Click
+        Dim frm As New frmResultHour()
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub GunaAdvenceButton1_Click(sender As Object, e As EventArgs) Handles GunaAdvenceButton1.Click
+
+        Dim frm As New frmOEE()
+        frm.ShowDialog()
+        ' sendWhatsapp("1100", "1")
+    End Sub
 
     Private Function isPurple(color As Color) As Boolean
         ' Comparar los componentes RGB del color con el naranja
@@ -3318,6 +3678,104 @@ INSERT INTO [dbo].[t_bma_downtime]
         End Try
 
     End Function
+    Dim queryPercentage As String = ""
+    Private Function calcularRunPercentage(proceso As String) As String
+        Try
+            queryPercentage = ""
+            queryPercentage = "
+WITH times AS (
+    -- Calcular totaltime
+    SELECT 
+        SUM(DATEDIFF(SECOND, '00:00:00', CONVERT(TIME, AcumTime))) AS total_seconds
+    FROM [db_kyungshin].[dbo].[t_bma_downtime]
+    WHERE process='" & proceso & "' 
+    AND CONVERT(DATE, insert_date)='" & Date.Now.ToShortDateString & "'
+    AND startTime >= '07:00:00'
+),
+runtime AS (
+    -- Calcular runtime
+    SELECT 
+        SUM(DATEDIFF(SECOND, '00:00:00', CONVERT(TIME, AcumTime))) AS runtime_seconds
+    FROM [db_kyungshin].[dbo].[t_bma_downtime]
+    WHERE process='" & proceso & "' 
+    AND CONVERT(DATE, insert_date)='" & Date.Now.ToShortDateString & "'
+    AND status = 'RUN'
+    AND startTime >= '07:00:00'
+),
+downtime AS (
+    -- Calcular downtime
+    SELECT 
+        SUM(DATEDIFF(SECOND, '00:00:00', CONVERT(TIME, AcumTime))) AS downtime_seconds
+    FROM [db_kyungshin].[dbo].[t_bma_downtime]
+    WHERE process='" & proceso & "' 
+    AND CONVERT(DATE, insert_date)='" & Date.Now.ToShortDateString & "'
+    AND status = 'DOWN'
+    AND startTime >= '07:00:00'
+)
+SELECT 
+
+    
+    -- Porcentaje de RUN respecto a TotalTime
+    CAST((r.runtime_seconds * 100.0 / NULLIF(t.total_seconds, 0)) AS DECIMAL(5,2)) AS RunTime_Percentage
+    
+FROM times t
+LEFT JOIN runtime r ON 1=1
+LEFT JOIN downtime d ON 1=1;
+"
+            Return QueryRow(queryPercentage, "RunTime_Percentage", "runPercentage")
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
+
+    Private Function calcularDownPercentage(proceso As String) As String
+        Try
+            queryPercentage = ""
+            queryPercentage = "
+WITH times AS (
+    -- Calcular totaltime
+    SELECT 
+        SUM(DATEDIFF(SECOND, '00:00:00', CONVERT(TIME, AcumTime))) AS total_seconds
+    FROM [db_kyungshin].[dbo].[t_bma_downtime]
+    WHERE process='" & proceso & "' 
+    AND CONVERT(DATE, insert_date)='" & Date.Now.ToShortDateString & "'
+    AND startTime >= '07:00:00'
+),
+runtime AS (
+    -- Calcular runtime
+    SELECT 
+        SUM(DATEDIFF(SECOND, '00:00:00', CONVERT(TIME, AcumTime))) AS runtime_seconds
+    FROM [db_kyungshin].[dbo].[t_bma_downtime]
+    WHERE process='" & proceso & "' 
+    AND CONVERT(DATE, insert_date)='" & Date.Now.ToShortDateString & "'
+    AND status = 'RUN'
+    AND startTime >= '07:00:00'
+),
+downtime AS (
+    -- Calcular downtime
+    SELECT 
+        SUM(DATEDIFF(SECOND, '00:00:00', CONVERT(TIME, AcumTime))) AS downtime_seconds
+    FROM [db_kyungshin].[dbo].[t_bma_downtime]
+    WHERE process='" & proceso & "' 
+    AND CONVERT(DATE, insert_date)='" & Date.Now.ToShortDateString & "'
+    AND status = 'DOWN'
+    AND startTime >= '07:00:00'
+)
+SELECT 
+
+    
+     -- Porcentaje de DOWN respecto a TotalTime
+    CAST((d.downtime_seconds * 100.0 / NULLIF(t.total_seconds, 0)) AS DECIMAL(5,2)) AS DownTime_Percentage
+    
+FROM times t
+LEFT JOIN runtime r ON 1=1
+LEFT JOIN downtime d ON 1=1;
+"
+            Return QueryRow(queryPercentage, "DownTime_Percentage", "downPerc")
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
 
     Dim rectangulo As Rectangle
     Private Sub ProgresoGuardado(NumProceso As String, totalprogreso As Double, progresobarunidad As Double, estatus As String, progresoCompletado As Double,
@@ -3478,7 +3936,7 @@ INSERT INTO [dbo].[t_bma_downtime]
                                         'Else
                                         '    g.FillRectangle(Brushes.Yellow, rectangulo)
                                         'End If
-                                        blinkBar = True
+                                        ' blinkBar = True
                                         'en esta seccion se cambio el ultimo ddigito de cada color para que deje de parpadear en los metodos isblack, isbrown, etc
                                         Select Case rw.Cells("alarmedDepto").Value
                                             Case "PRODUCTION" : g.FillRectangle(Brushes.DarkGray, rectangulo)
@@ -3544,8 +4002,14 @@ INSERT INTO [dbo].[t_bma_downtime]
                             progresoCompletado = 0
                         End If
                         estatus = "O"
+                        Dim newColor As Color = Color.FromArgb(&HFF66CFD3)
+                        Dim progressBarBrush As New SolidBrush(newColor)
+
                         g = Graphics.FromImage(bitmap)
-                        g.FillRectangle(Brushes.SlateGray, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 1, alturaprogres))
+                        g.FillRectangle(progressBarBrush, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 1, alturaprogres))
+
+                        'g = Graphics.FromImage(bitmap)
+                        'g.FillRectangle(Brushes.SlateGray, New Rectangle(xposicion, 0, CDbl(progresoCompletado * progresobarunidad) + 1, alturaprogres))
                         picbox.Image = bitmap
                         progresoCompletado += 1
                         totalprogreso += 1
@@ -3669,59 +4133,65 @@ WHERE CONVERT(date, insert_date) = '" & Date.Now.ToShortDateString() & "'  " & q
                 currentStatusm2_100 = estatus
                 totalProgress_M2_100 = totalprogreso
                 'lbPorDT2100.Text = CalcularPorcentaje(lbDT2100.Text, lbOT2100.Text)
-                lbPorDT2100.Text = CalcularPorcentajeTurno1("2100")
-                lbPorRT2100.Text = Math.Round(100 - CDbl(lbPorDT2100.Text), 1) & "%"
-                'lbPorRT2100.Text = CalcularPorcentaje(lbRT2100.Text)
-                ' lbPorOT2100.Text = CalcularPorcentaje(lbOT2100.Text)
-                lbPorDT2100.Text &= "%"
+                lbPorDT2100.Text = calcularDownPercentage("2100") & "%"
+                lbPorRT2100.Text = calcularRunPercentage("2100") & "%"
             ElseIf NumProceso = "2400" Then
                 xpos2400 = xposicion
                 currentStatus2400 = estatus
                 totalProgress_2400 = totalprogreso
-                'lbPORDt2400.Text = CalcularPorcentaje(lbDt2400.Text, lbOT2400.Text)
-                lbPORDt2400.Text = CalcularPorcentajeTurno1("2400")
-                lbPOrRT2400.Text = Math.Round(100 - CDbl(lbPORDt2400.Text), 1) & "%"
-                lbPORDt2400.Text &= "%"
+
+                lbPORDt2400.Text = calcularDownPercentage("2400") & "%"
+                lbPOrRT2400.Text = calcularRunPercentage("2400") & "%"
+
             ElseIf NumProceso = "2700" Then
                 xpos2700 = xposicion
                 currentStatus2700 = estatus
                 totalProgress_2700 = totalprogreso
                 'lbPorDT2700.Text = CalcularPorcentaje(lbDT2700.Text, lbOT2700.Text)
-                lbPorDT2700.Text = CalcularPorcentajeTurno1("2700")
-                lbPorRT2700.Text = Math.Round(100 - CDbl(lbPorDT2700.Text), 1) & "%"
-                'lbPorRT2700.Text = CalcularPorcentaje(lbRt2700.Text)
-                'lbPorOT2700.Text = CalcularPorcentaje(lbOT2700.Text)
-                lbPorDT2700.Text &= "%"
+                'lbPorDT2700.Text = CalcularPorcentajeTurno1("2700")
+
+                lbPorDT2700.Text = calcularDownPercentage("2700") & "%"
+                lbPorRT2700.Text = calcularRunPercentage("2700") & "%"
+
             ElseIf NumProceso = "3100" Then
                 xpos3100 = xposicion
                 currentStatus3100 = estatus
                 totalProgress_3100 = totalprogreso
                 'lbPorDT3100.Text = CalcularPorcentaje(lbDT3100.Text, lbOT3100.Text)
-                lbPorDT3100.Text = CalcularPorcentajeTurno1("3100")
-                lbPorRT3100.Text = Math.Round(100 - CDbl(lbPorDT3100.Text), 1) & "%"
-                'lbPorRT3100.Text = CalcularPorcentaje(lbRT3100.Text)
-                'lbPorOT3100.Text = CalcularPorcentaje(lbOT3100.Text)
-                lbPorDT3100.Text &= "%"
+                'lbPorDT3100.Text = CalcularPorcentajeTurno1("3100")
+                'lbPorRT3100.Text = Math.Round(100 - CDbl(lbPorDT3100.Text), 1) & "%"
+                ''lbPorRT3100.Text = CalcularPorcentaje(lbRT3100.Text)
+                ''lbPorOT3100.Text = CalcularPorcentaje(lbOT3100.Text)
+                'lbPorDT3100.Text &= "%"
+
+                lbPorDT3100.Text = calcularDownPercentage("3100") & "%"
+                lbPorRT3100.Text = calcularRunPercentage("3100") & "%"
             ElseIf NumProceso = "3400" Then
                 xpos3400 = xposicion
                 currentStatus3400 = estatus
                 totalProgress_3400 = totalprogreso
                 'lbPorDT3400.Text = CalcularPorcentaje(lbDT3400.Text, lbOT3400.Text)
-                lbPorDT3400.Text = CalcularPorcentajeTurno1("3400")
-                lbPorRT3400.Text = Math.Round(100 - CDbl(lbPorDT3400.Text), 1) & "%"
-                'lbPorRT3400.Text = CalcularPorcentaje(lbRT3400.Text)
-                'lbPorOt3400.Text = CalcularPorcentaje(lbOT3400.Text)
-                lbPorDT3400.Text &= "%"
+                'lbPorDT3400.Text = CalcularPorcentajeTurno1("3400")
+                'lbPorRT3400.Text = Math.Round(100 - CDbl(lbPorDT3400.Text), 1) & "%"
+                ''lbPorRT3400.Text = CalcularPorcentaje(lbRT3400.Text)
+                ''lbPorOt3400.Text = CalcularPorcentaje(lbOT3400.Text)
+                'lbPorDT3400.Text &= "%"
+
+                lbPorDT3400.Text = calcularDownPercentage("3400") & "%"
+                lbPorRT3400.Text = calcularRunPercentage("3400") & "%"
             ElseIf NumProceso = "3700" Then
                 xpos3700 = xposicion
                 currentStatus3700 = estatus
                 totalProgress_3700 = totalprogreso
                 'lbPorDT3700.Text = CalcularPorcentaje(lbDT3700.Text, lbOT3700.Text)
-                lbPorDT3700.Text = CalcularPorcentajeTurno1("3700")
-                lbPorRt3700.Text = Math.Round(100 - CDbl(lbPorDT3700.Text), 1) & "%"
-                'lbPorRt3700.Text = CalcularPorcentaje(lbRT3700.Text)
-                'lbPorOT3700.Text = CalcularPorcentaje(lbOT3700.Text)
-                lbPorDT3700.Text &= "%"
+                'lbPorDT3700.Text = CalcularPorcentajeTurno1("3700")
+                'lbPorRt3700.Text = Math.Round(100 - CDbl(lbPorDT3700.Text), 1) & "%"
+                ''lbPorRt3700.Text = CalcularPorcentaje(lbRT3700.Text)
+                ''lbPorOT3700.Text = CalcularPorcentaje(lbOT3700.Text)
+                'lbPorDT3700.Text &= "%"
+
+                lbPorDT3700.Text = calcularDownPercentage("3700") & "%"
+                lbPorRt3700.Text = calcularRunPercentage("3700") & "%"
             ElseIf NumProceso = "4100" Then
                 xpos4100 = xposicion
                 currentStatus4100 = estatus
@@ -3814,7 +4284,7 @@ WHERE CONVERT(date, insert_date) = '" & Date.Now.ToShortDateString() & "'  " & q
                 Case "1700"
                     queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE42'"
                 Case "2700"
-                    queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE43'"
+                    queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE42'"   ''LINE44'" temporary change M2 is running as M1
                 Case "3700"
                     queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE44'"
                 Case "4700"

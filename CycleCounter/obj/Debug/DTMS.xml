@@ -132,7 +132,17 @@ DTMS
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:DTMS.My.Resources.Resources.Text">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:DTMS.My.Resources.Resources.userAdmin">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:DTMS.My.Resources.Resources.xs2">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>

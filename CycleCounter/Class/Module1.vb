@@ -295,7 +295,7 @@ Module Module1
             adapter.Fill(dt)
             Return dt
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            ' MsgBox(ex.ToString)
         End Try
         Return sender
     End Function
@@ -336,7 +336,7 @@ Module Module1
             End If
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message & vbCrLf & "Sender : QueryRow(..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' MessageBox.Show(ex.Message & vbCrLf & "Sender : QueryRow(..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return ""
         Finally
             ds = Nothing

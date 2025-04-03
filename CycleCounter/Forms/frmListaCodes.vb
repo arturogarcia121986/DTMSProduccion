@@ -21,10 +21,11 @@
     Private Sub frmListaCodes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim sql As String = ""
 
-        sql = "SELECT TOP (1000) [id]
-      ,[code]
-      ,[description]
-  FROM [db_kyungshin].[dbo].[t_bma_dtms_codes] WHERE depto='" & _depto & "' AND nivel='" & _codeEC & "'"
+        sql = "SELECT [code]
+    ,(concat([description], ' / ', descriptionSPA)) as description
+  FROM [db_kyungshin].[dbo].[t_bma_dtms_codes] WHERE depto='" & _depto & "' AND nivel='" & _codeEC & "'
+    group by code, description, descriptionSPA
+order by code"
         dgv.DataSource = EjecutaSelects(sql, "fillDgv")
 
 
@@ -48,7 +49,6 @@
     Private Sub dgv_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellClick
         Try
             selectedIndex = dgv.CurrentRow.Index
-            folioSelected = dgv.Rows(selectedIndex).Cells("id").Value
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

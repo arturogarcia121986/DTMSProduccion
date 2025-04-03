@@ -81,27 +81,26 @@
             Me.Text = " DETAILS FOR " & _linea
             asignarStringDesdeLinea()
 
-            Dim query As String = "SELECT TOP (1000) do.id,
-                                CASE
-                                    WHEN process ='1100' or process='2100' or process='3100'  or process='4100' or process='5100' THEN '100'
-	                                 WHEN process ='1400' or process='2400' or process='3400'  or process='4400' or process='5400' THEN '400'
-	                                 WHEN process ='1700' or process='2700' or process='3700'  or process='4700' or process='5700' THEN '700'
-
-	                                 end as process
-                                  ,[status]
-                                  ,[startTime]
-                                  ,[endTime]
-                                  ,[AcumTime]
-                                  ,convert(date,do.[insert_date]) as insert_date,alarmedDepto as depto,remarks,EC1,ec2,ec3,ec4,ec5
-
-                            FROM [db_kyungshin].[dbo].[t_bma_downtime] as do
-                           
-                              WHERE (status='DOWN' and " & procesos & " AND acumtime>'00:05:00' AND convert(date, do.insert_date)='" &
-                              ConvierteAdateMySQL(Date.Now.ToShortDateString) & "') 
-                              OR (status='DOWN' and " & procesos & " AND acumtime='' AND convert(date, do.insert_date)='" &
-                              ConvierteAdateMySQL(Date.Now.ToShortDateString) & "' AND step=1)
-                              ORDER BY process,id"
-
+            Dim query As String = "SELECT TOP (1000) do.id," &
+                    "LEFT(process, 1) AS linea," & _ 'Nueva columna: línea
+                    "CASE" &
+                        " WHEN process LIKE '[1-5]100' THEN '100'" &
+                        " WHEN process LIKE '[1-5]400' THEN '400'" &
+                        " WHEN process LIKE '[1-5]700' THEN '700'" &
+                    " END AS process," &
+                    "[status]," &
+                    "[startTime]," &
+                    "[endTime]," &
+                    "[AcumTime]," &
+                    "CONVERT(DATE, do.[insert_date]) AS insert_date, " &
+                    "alarmedDepto AS depto, remarks, EC1, ec2, ec3, ec4, ec5, defects" &
+                " FROM [db_kyungshin].[dbo].[t_bma_downtime] AS do" &
+                " WHERE (" &
+                        " (status='DOWN' AND " & procesos & " AND acumtime>='00:05:00' AND CONVERT(DATE, do.insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "')" &
+                        " OR " &
+                        " (status='DOWN' AND " & procesos & " AND acumtime='' AND CONVERT(DATE, do.insert_date)='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "' AND step=1)" &
+                    ")" &
+                " ORDER BY process, id"
             'CODE
             '                ,(select distinct STRING_AGG(codigo,',') from t_bma_alarmCodes a
             'where  ((proceso = '1100e' ) and (process='1100')and (convert(time,horaDeInsert) between startTime and endTime) and convert(date,fecha) = convert(date,do.insert_date)) 
@@ -152,8 +151,13 @@
                 For Each item As DataRow In arre2
                     Dim newRow As DataGridViewRow = dgv.Rows(dgv.Rows.Add())
 
+                    ' Centrar el contenido de la columna "line"
+                    dgv.Columns("line").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    dgv.Columns("process").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+
                     ' Asignar valores a las celdas normales
                     newRow.Cells("id").Value = item("id").ToString.Trim
+                    newRow.Cells("line").Value = item("linea").ToString.Trim
                     newRow.Cells("depto").Value = item("depto").ToString.Trim
                     newRow.Cells("fecha").Value = ConvierteFechaMySQL(item("insert_date").ToString.Trim)
                     newRow.Cells("process").Value = item("process").ToString.Trim
@@ -168,6 +172,15 @@
                     newRow.Cells("EC3").Value = item("EC3").ToString.Trim
                     newRow.Cells("EC4").Value = item("EC4").ToString.Trim
                     newRow.Cells("EC5").Value = item("EC5").ToString.Trim
+
+                    newRow.Cells("defects").Value = item("defects").ToString.Trim
+
+                    ' Habilitar/Deshabilitar columna "defects" según el valor de "depto"
+                    If item("depto").ToString.Trim.ToUpper() = "QUALITY" Then  'Usar ToUpper() para evitar problemas de mayúsculas/minúsculas
+                        dgv.Columns("defects").ReadOnly = True 'O .ReadOnly = False si quieres que sea editable
+                    Else
+                        dgv.Columns("defects").ReadOnly = False 'O .ReadOnly = True si quieres que no sea editable
+                    End If
 
                     ' ... (otros valores)
                     Dim cellDepto As DataGridViewComboBoxCell = CType(newRow.Cells("depto"), DataGridViewComboBoxCell)
@@ -209,6 +222,7 @@
             dtpHasta.Value = Date.Now.ToShortDateString
             'LoadCombos()
             'dgv.DataSource = EjecutaSelects(query, "buscahistorial")
+            Call UpdateDefectsReadOnly()
             ResizeCols(dgv)
         Catch ex As Exception
 
@@ -288,7 +302,9 @@
                 querycompl &= " AND (depto='" & cbDepto.Text & "' or alarmedDepto='" & cbDepto.Text & "')"
             End If
 
-            query = "SELECT id,[process]
+            query = "SELECT id,
+    LEFT([process], 1) AS linea,  -- Extrae el primer dígito para la línea
+    RIGHT([process], 3) AS proceso -- Extrae los últimos 3 dígitos para el proceso
                   ,[status]
                   ,[startTime]
                   ,[endTime]
@@ -301,7 +317,7 @@
                   ,[ec2]
                   ,[ec3]
                   ,[ec4]
-                  ,[ec5]
+                  ,[ec5],defects
               FROM [db_kyungshin].[dbo].[t_bma_downtime] 
               WHERE 1=1 AND AcumTime>='00:05:00' and STATUS='DOWN' 
                 AND  CONVERT(DATE ,insert_date) BETWEEN '" & desde & "' AND '" & hasta & "' AND  " & procesos & querycompl & " ORDER BY process"
@@ -314,12 +330,14 @@
 
                 For Each item As DataRow In arre2
                     Dim newRow As DataGridViewRow = dgv.Rows(dgv.Rows.Add())
-
+                    dgv.Columns("line").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                    dgv.Columns("process").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
                     ' Asignar valores a las celdas normales
                     newRow.Cells("id").Value = item("id").ToString.Trim
+                    newRow.Cells("line").Value = item("linea").ToString.Trim
                     newRow.Cells("depto").Value = item("depto").ToString.Trim
                     newRow.Cells("fecha").Value = ConvierteFechaMySQL(item("insert_date").ToString.Trim)
-                    newRow.Cells("process").Value = item("process").ToString.Trim
+                    newRow.Cells("process").Value = item("proceso").ToString.Trim
                     newRow.Cells("machinestatus").Value = item("status").ToString.Trim
                     newRow.Cells("start").Value = item("startTime").ToString.Trim
                     newRow.Cells("endtime").Value = item("endtime").ToString.Trim
@@ -331,6 +349,15 @@
                     newRow.Cells("EC3").Value = item("EC3").ToString.Trim
                     newRow.Cells("EC4").Value = item("EC4").ToString.Trim
                     newRow.Cells("EC5").Value = item("EC5").ToString.Trim
+
+                    newRow.Cells("defects").Value = item("defects").ToString.Trim
+
+                    ' Habilitar/Deshabilitar columna "defects" según el valor de "depto"
+                    If item("depto").ToString.Trim.ToUpper() = "QUALITY" Then  'Usar ToUpper() para evitar problemas de mayúsculas/minúsculas
+                        dgv.Columns("defects").ReadOnly = True 'O .ReadOnly = False si quieres que sea editable
+                    Else
+                        dgv.Columns("defects").ReadOnly = False 'O .ReadOnly = True si quieres que no sea editable
+                    End If
 
                     ' ... (otros valores)
                     Dim cellDepto As DataGridViewComboBoxCell = CType(newRow.Cells("depto"), DataGridViewComboBoxCell)
@@ -368,7 +395,7 @@
                 ' colores()
 
             End If
-
+            Call UpdateDefectsReadOnly()
             ResizeCols(dgv)
         Catch ex As Exception
 
@@ -425,6 +452,37 @@
         Next
     End Sub
 
+    Private Sub btnExcel_Click(sender As Object, e As EventArgs) Handles btnExcel.Click
+        btnExcel.Enabled = False
+        GridAExcelGeneral(dgv, "")
+        btnExcel.Enabled = True
+    End Sub
+    ' Evento para cuando cambia el valor del ComboBox:
+    Private Sub dgv_DataBindingComplete(sender As Object, e As EventArgs) Handles dgv.DataBindingComplete
+        Call UpdateDefectsReadOnly() ' Llama a la función para actualizar ReadOnly
+    End Sub
+
+    Private Sub GunaAdvenceButton1_Click(sender As Object, e As EventArgs) Handles GunaAdvenceButton1.Click
+        Dim frm As New frmScreenshots
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub dgv_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
+        If e.ColumnIndex = dgv.Columns("depto")?.Index Then 'Manejo de nulos con ?
+            Call UpdateDefectsReadOnly() ' Llama a la función para actualizar ReadOnly
+        End If
+    End Sub
+
+    ' Función para actualizar ReadOnly (se llama desde Load y CellValueChanged)
+    Private Sub UpdateDefectsReadOnly()
+        If dgv.Columns.Contains("depto") AndAlso dgv.Columns.Contains("defects") Then
+            For Each row As DataGridViewRow In dgv.Rows
+                Dim deptoValue As String = row.Cells("depto")?.Value?.ToString()?.Trim()?.ToUpper()
+                row.Cells("defects").ReadOnly = deptoValue <> "QUALITY"
+            Next
+        End If
+    End Sub
+
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             iResult = True
@@ -438,6 +496,7 @@
                      "',ec4='" & rw.Cells("EC4").Value.ToString &
                      "',ec5='" & rw.Cells("EC5").Value.ToString &
                      "',alarmedDepto='" & rw.Cells("depto").Value.ToString &
+                      "',defects='" & rw.Cells("defects").Value.ToString &
                 "' WHERE id='" & rw.Cells("id").Value.ToString & "'"
 
                 Ejecuta(query, "updBMA DT")
@@ -451,4 +510,71 @@
 
         End Try
     End Sub
+
+    Function GridAExcelGeneral(ByVal ElGrid As DataGridView, Optional frmSender As String = "") As Boolean
+
+        'Creamos las variables
+        Dim exApp As New Microsoft.Office.Interop.Excel.Application
+        Dim exLibro As Microsoft.Office.Interop.Excel.Workbook
+        Dim exHoja As Microsoft.Office.Interop.Excel.Worksheet
+
+        Try
+            'Añadimos el Libro al programa, y la hoja al libro
+            exLibro = exApp.Workbooks.Add
+            exHoja = exLibro.Worksheets.Add()
+
+            ' ¿Cuantas columnas y cuantas filas?
+            Dim NCol As Integer = ElGrid.ColumnCount
+            Dim NRow As Integer = ElGrid.RowCount
+            'Dim i As Integer = 0
+
+            'For Each column As DataGridViewColumn In dgv.Columns
+            '    If column.Visible = True Then
+            '        exHoja.Cells.Item(1, i + 1) = ElGrid.Columns(i).Name.ToString
+            '        i += 1
+            '    End If
+            'Next
+
+            'Aqui recorremos todas las filas, y por cada fila todas las columnas y vamos escribiendo.
+            For i As Integer = 1 To NCol
+
+                exHoja.Cells.Item(1, i) = ElGrid.Columns(i - 1).Name.ToString.Trim
+                'exHoja.Cells.Item(1, i).HorizontalAlignment = 3
+
+            Next
+
+            Dim colDate As String = ""
+            For Fila As Integer = 0 To NRow - 1
+                For Col As Integer = 0 To NCol - 1
+                    Try
+
+                        exHoja.Cells.Item(Fila + 2, Col + 1) = ElGrid.Rows(Fila).Cells(Col).Value.ToString.Trim
+
+                        ' exHoja.Cells.Item(Fila + 2, Col + 1) = ElGrid.Rows(Fila).Cells(Col).Value.ToString.Trim
+                    Catch ex As Exception
+
+                    End Try
+                Next
+            Next
+
+            'Titulo en negrita, Alineado al centro y que el tamaño de la columna se
+            'ajuste al texto
+            exHoja.Rows.Item(1).Font.Bold = 1
+            exHoja.Rows.Item(1).HorizontalAlignment = 3
+            exHoja.Columns.AutoFit()
+
+            'Aplicación visible
+            exApp.Application.Visible = True
+
+            exHoja = Nothing
+            exLibro = Nothing
+            exApp = Nothing
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
+            'http://programaciontotal.blogspot.com
+            Return False
+        End Try
+
+        Return True
+    End Function
 End Class

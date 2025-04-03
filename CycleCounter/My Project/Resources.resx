@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="xs2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xs2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bmaIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmaIndex.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +144,9 @@
   </data>
   <data name="bmaIndex32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmaIndex3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="indexNuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\indexNuevo1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="M2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\M2.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,7 +190,7 @@
   <data name="bmaIndexV1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bmaIndexV.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="indexNuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\indexNuevo1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Text.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
