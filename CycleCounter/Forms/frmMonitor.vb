@@ -279,6 +279,19 @@ Public Class frmMonitor
 
 
     'variables para mensajes de whatsapp
+    Dim w1100Help As Boolean = False
+    Dim w1100Panic As Boolean = False
+    Dim w1100Online As Boolean = False
+
+    Dim w1400Help As Boolean = False
+    Dim w1400Panic As Boolean = False
+    Dim w1400Online As Boolean = False
+
+    Dim w1700Help As Boolean = False
+    Dim w1700Panic As Boolean = False
+    Dim w1700Online As Boolean = False
+
+
     Dim w2100Help As Boolean = False
     Dim w2100Panic As Boolean = False
     Dim w2100Online As Boolean = False
@@ -1650,6 +1663,78 @@ primeraVez:
             'versionSistema = "PRODUCTION"
             If versionSistema = "PRODUCTION" Then
 
+                'M1========================================================================================
+                If m100.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w1100Panic = False Then
+                        sendWhatsapp("M1 (100)", 2)
+                        w1100Panic = True
+                        w1100Online = True
+                    End If
+
+                ElseIf m100.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w1100Help = False Then
+                        sendWhatsapp("M1 (100)", 1)
+                        w1100Help = True
+                        w1100Online = True
+                    End If
+
+                ElseIf m100.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w1100Online = True Then
+                        w1100Panic = False
+                        w1100Help = False
+                        sendWhatsapp("M1 (100)", 0)
+                        w1100Online = False
+                    End If
+
+                End If
+
+                If l1400.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w1400Panic = False Then
+                        sendWhatsapp("M1 (400)", 2)
+                        w1400Panic = True
+                        w1400Online = True
+                    End If
+
+                ElseIf l1400.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w1400Help = False Then
+                        sendWhatsapp("M1 (400)", 1)
+                        w1400Help = True
+                        w1400Online = True
+                    End If
+
+                ElseIf l1400.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w1400Online = True Then
+                        w1400Panic = False
+                        w1400Help = False
+                        sendWhatsapp("M1 (400)", 0)
+                        w1400Online = False
+                    End If
+                End If
+
+
+                If l1700.Tipo = UCStatus.UCLed.Type.Panic Then
+                    If w1700Panic = False Then
+                        sendWhatsapp("M1 (700)", 2)
+                        w1700Panic = True
+                        w1700Online = True
+                    End If
+
+                ElseIf l1700.Tipo = UCStatus.UCLed.Type.Help Then
+                    If w1700Help = False Then
+                        sendWhatsapp("M1 (700)", 1)
+                        w1700Help = True
+                        w1700Online = True
+                    End If
+
+                ElseIf l1700.Tipo = UCStatus.UCLed.Type.Online Then
+                    If w1700Online = True Then
+                        w1700Panic = False
+                        w1700Help = False
+                        sendWhatsapp("M1 (700)", 0)
+                        w1700Online = False
+                    End If
+                End If
+
                 'M2========================================================================================
                 If l2100.Tipo = UCStatus.UCLed.Type.Panic Then
                     If w2100Panic = False Then
@@ -1809,6 +1894,7 @@ primeraVez:
         lbCounter.Text = CInt(lbCounter.Text) - 1
         If lbCounter.Text = "0" Then
             intialLoad()
+            loadWipresults()
             lbCounter.Text = "200"
         End If
 
@@ -1994,7 +2080,7 @@ primeraVez:
 
 
         ' Especificar la hora para la captura de pantalla (16:30)
-        Dim horaCaptura As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, 17, 27, 0)
+        Dim horaCaptura As DateTime = New DateTime(horaActual.Year, horaActual.Month, horaActual.Day, 16, 45, 0)
         ' Mostrar las horas para verificar
         Console.WriteLine("Hora actual: " & horaActual.ToString("HH:mm:ss"))
         Console.WriteLine("Hora captura: " & horaCaptura.ToString("HH:mm:ss"))
@@ -2053,6 +2139,7 @@ primeraVez:
 
 
         tGeneral.Start()
+
     End Sub
 
     Private capturaRealizada As Boolean = False
@@ -2138,6 +2225,8 @@ primeraVez:
                 Case Keys.F3
                     copyDGV2()
             End Select
+
+
         Catch ex As Exception
 
         End Try
@@ -2588,8 +2677,249 @@ primeraVez:
         End If
     End Sub
 
+    Private Sub configurarDGV(dgv As DataGridView)
+
+        dgv.Rows.Clear()
+
+        dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None
+        dgv.RowTemplate.Height = 44 ' Establecer antes de agregar filas
+
+        dgv.Rows.Add()  ' Fila 1
+        dgv.Rows.Add()  ' Fila 2
+
+        dgv.ResumeLayout()
+        dgv.Refresh()
+
+    End Sub
+
+
+    Private Sub configurarDGV2(dgv As DataGridView)
+
+        dgv.RowTemplate.Height = 44 ' Altura en píxeles
+        dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None ' Desactiva el ajuste automático de altura
+        dgv.Refresh()
+    End Sub
+
+    Private Sub CargarDatosDataGridView(ByVal dgv As DataGridView, ByVal primerDigito As Integer)
+        Dim process1 As String = $"{primerDigito}100"
+        Dim process2 As String = $"{primerDigito}400"
+
+        Dim fechaActual As Date = Date.Today ' Obtener la fecha actual
+        Dim fechaActualFormateada As String = fechaActual.ToString("yyyy-MM-dd") ' Formatear la fecha para SQL
+
+        Dim query As String = "SELECT [wipQty], [process] FROM [dbo].[t_bma_wip] WHERE [process] IN (@process1, @process2) AND CONVERT(DATE, [insertDate]) = @fechaActual"
+
+        Try
+            Using command As New SqlCommand(query, conexion)
+                command.Parameters.AddWithValue("@process1", process1)
+                command.Parameters.AddWithValue("@process2", process2)
+                command.Parameters.AddWithValue("@fechaActual", fechaActualFormateada)
+
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        Dim process As String = reader("process").ToString()
+                        Dim rowIndex As Integer = -1
+
+                        Select Case process
+                            Case process1
+                                rowIndex = 0
+                            Case process2
+                                rowIndex = 1
+                        End Select
+
+                        If rowIndex >= 0 AndAlso rowIndex < dgv.Rows.Count Then
+                            dgv.Rows(rowIndex).Cells("qwm1").Value = reader("wipQty")
+                        End If
+                    End While
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error al cargar datos: {ex.Message}")
+        End Try
+    End Sub
+
+
+    Private Function GetLastNonNullValue(processCode As String, linecode As String) As Integer
+        Dim query As String = "DECLARE @MesSiteCode INT = 11
+       ,@ResultDate NVARCHAR(10) = '2025-04-09'
+       ,@ViewTypeCode Nvarchar(30) = 'ByMachine'
+
+--검사 실적 테이블
+DECLARE @InspectResult TABLE (
+    MesSiteCode INT,
+    TimeTable NVARCHAR(20),
+    ProcessCode NVARCHAR(50),
+    MachineCode NVARCHAR(50),
+    LotNo NVARCHAR(20),
+    SubPno NVARCHAR(20),
+    QtyResult INT
+)
+
+--합격바코드 테이블
+DECLARE @PassBarCodeTable TABLE (
+    [MesSiteCode] [int] NOT NULL,
+    [ProcessCode] [nvarchar](20) NOT NULL,
+    [LotNo] [nvarchar](20) NOT NULL,
+    [SubPno] [nvarchar](50) NOT NULL,
+    [MachineCode] [nvarchar](20) NOT NULL,
+    [BarCode] [nvarchar](50) NOT NULL,
+    Primary Key([MesSiteCode], [ProcessCode], [LotNo], [SubPno], [MachineCode], [BarCode])
+)
+
+--조회 결과 테이블
+Declare @SearchResultTable Table (
+    MesSiteCode INT,
+    ProcessCode NVARCHAR(50),
+    LotNo NVARCHAR(20),
+    SubPno NVARCHAR(20),
+    MachineCode NVARCHAR(50),
+    [07:00~08:00] NVARCHAR(20),
+    [08:00~09:00] NVARCHAR(20),
+    [09:00~10:00] NVARCHAR(20),
+    [10:00~11:00] NVARCHAR(20),
+    [11:00~12:00] NVARCHAR(20),
+    [12:00~13:00] NVARCHAR(20),
+    [13:00~14:00] NVARCHAR(20),
+    [14:00~15:00] NVARCHAR(20),
+    [15:00~16:00] NVARCHAR(20),
+    [16:00~17:00] NVARCHAR(20),
+    [17:00~18:00] NVARCHAR(20),
+    [18:00~19:00] NVARCHAR(20),
+    [Shift1] NVARCHAR(20),
+    [19:00~20:00] NVARCHAR(20),
+    [20:00~21:00] NVARCHAR(20),
+    [21:00~22:00] NVARCHAR(20),
+    [22:00~23:00] NVARCHAR(20),
+    [23:00~24:00] NVARCHAR(20),
+    [00:00~01:00] NVARCHAR(20),
+    [01:00~02:00] NVARCHAR(20),
+    [02:00~03:00] NVARCHAR(20),
+    [03:00~04:00] NVARCHAR(20),
+    [04:00~05:00] NVARCHAR(20),
+    [05:00~06:00] NVARCHAR(20),
+    [06:00~07:00] NVARCHAR(20),
+    [Shift2] NVARCHAR(20),
+    [QtyPass] NVARCHAR(20),
+    [QtyFail] NVARCHAR(20)
+)
+
+--PCB 검사 실적 시간 별 수량
+INSERT INTO @InspectResult (MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], [dbo].[UF_GetShiftTimeTable](@MesSiteCode, T1.INSERT_DATE) AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], [dbo].[UF_GetShiftTimeTable](@MesSiteCode, T1.[INSERT_DATE]), T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--PCB 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult (MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END, T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--PCB 합격 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyPass' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS' AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--PCB 합격 바코드
+INSERT @PassBarCodeTable SELECT T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] T1
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS'
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+
+--PCB 불합격 수량, 불합격 후 합격된 바코드는 제외
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyFail' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN @PassBarCodeTable As T2 ON T2.[MesSiteCode] = T1.[MesSiteCode] AND T2.[ProcessCode] = T1.[ProcessCode] AND T2.[LotNo] = T1.[LotNo] AND T2.[SubPno] = T1.[SubPno] AND T2.[MachineCode] = T1.[MachineCode] AND T2.[BarCode] = T1.[BarCode]
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'FAIL' AND T2.[BarCode] Is Null AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 검사 실적 시간별 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], dbo.UF_GetShiftTimeTable(@MesSiteCode, T1.[INSERT_DATE]) AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], [dbo].[UF_GetShiftTimeTable](@MesSiteCode, T1.[INSERT_DATE]), T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END, T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 합격 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyPass' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS' AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 합격 바코드
+INSERT @PassBarCodeTable SELECT T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS'
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+
+--ASSY 불합격 수량, 불합격 후 합격된 바코드는 제외
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyFail' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN @PassBarCodeTable As T2 ON T2.[MesSiteCode] = T1.[MesSiteCode] AND T2.[ProcessCode] = T1.[ProcessCode] AND T2.[LotNo] = T1.[LotNo] AND T2.[SubPno] = T1.[SubPno] AND T2.[MachineCode] = T1.[MachineCode] AND T2.[BarCode] = T1.[BarCode]
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'FAIL' AND T2.[BarCode] Is Null AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--[TimeTable] 행렬 변환
+INSERT INTO @SearchResultTable SELECT * FROM (SELECT T1.[MesSiteCode], T1.[TimeTable], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[QtyResult] FROM @InspectResult AS T1) AS T1
+PIVOT (SUM(QtyResult) FOR [TimeTable] IN ([07:00~08:00], [08:00~09:00], [09:00~10:00], [10:00~11:00], [11:00~12:00], [12:00~13:00], [13:00~14:00], [14:00~15:00], [15:00~16:00], [16:00~17:00], [17:00~18:00], [18:00~19:00], [Shift1], [19:00~20:00], [20:00~21:00], [21:00~22:00], [22:00~23:00], [23:00~24:00], [00:00~01:00], [01:00~02:00], [02:00~03:00], [03:00~04:00], [04:00~05:00], [05:00~06:00], [06:00~07:00], [Shift2], [QtyPass], [QtyFail])) AS T2
+
+--Resultados Simplificados:
+SELECT
+    T1.ProcessCode,
+    T4.LineCode,
+    SUM(CONVERT(INT, T1.[QtyPass])) AS QtyPassSum
+FROM @SearchResultTable T1
+LEFT OUTER JOIN [dbo].[TMES_MACHINEMASTER] T4
+    ON T4.[MesSiteCode] = T1.[MesSiteCode]
+    AND T4.[MachineCode] = T1.[MachineCode]
+WHERE T1.ProcessCode = @ProcessCode AND T4.LineCode = @LineCode
+GROUP BY T1.ProcessCode, T4.LineCode, T1.MachineCode
+ORDER BY T1.ProcessCode, T1.MachineCode;"
+
+        Using command As New SqlCommand(query, conEISS)
+            command.Parameters.AddWithValue("@ProcessCode", processCode)
+            command.Parameters.AddWithValue("@LineCode", linecode)
+
+            Using reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    For i As Integer = reader.FieldCount - 1 To 0 Step -1 ' Revisa todas las columnas en orden inverso
+                        If Not reader.IsDBNull(i) Then
+                            Return Convert.ToInt32(reader.GetValue(i)) ' Devuelve el primer valor no nulo encontrado
+                        End If
+                    Next
+                End If
+            End Using
+        End Using
+
+        Return 0
+    End Function
+
     Private Sub frmMonitor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
+
             Panel11.Visible = True
 
             If (File.Exists("Config.xml")) Then
@@ -2633,6 +2963,7 @@ primeraVez:
             productionNumbers = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='PRODUCTION'", "celulares", "CELS")
             managersNumbers = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='MANAGERS'", "celulares", "CELS")
             IniciarParpadeo()
+
         Catch ex As Exception
 
         End Try
@@ -2961,6 +3292,145 @@ primeraVez:
         frm.ShowDialog()
     End Sub
 
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        'screenCapture()
+        configurarDGV2(dgvwipM1)
+    End Sub
+
+    Private Sub loadWipresults()
+
+        CargarDatosDataGridView(dgvwipM1, 1)
+        Dim lineCode As String = "LINE32"
+
+        ' Operación para BM0770 (suma en la fila 1)
+        Dim processCodeBM0770 As String = "BM0770"
+        Dim lastNonNullValueBM0770 As Integer = GetLastNonNullValue(processCodeBM0770, lineCode)
+        If dgvwipM1.Rows.Count > 1 Then
+            dgvwipM1.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(0).Cells(0).Value) + lastNonNullValueBM0770
+        End If
+
+        lineCode = "LINE42"
+        ' Operación para BM0843 (resta en la fila 1 y suma en la fila 2)
+        Dim processCodeBM0843 As String = "BM0843"
+        Dim lastNonNullValueBM0843 As Integer = GetLastNonNullValue(processCodeBM0843, lineCode)
+        If dgvwipM1.Rows.Count > 1 Then
+            dgvwipM1.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(0).Cells(0).Value) - lastNonNullValueBM0843
+            dgvwipM1.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(1).Cells(0).Value) + lastNonNullValueBM0843
+        End If
+
+        ' Operación para BM0874 (resta en la fila 2)
+        Dim processCodeBM0874 As String = "BM0874"
+        Dim lastNonNullValueBM0874 As Integer = GetLastNonNullValue(processCodeBM0874, lineCode)
+        If dgvwipM1.Rows.Count > 1 Then
+            dgvwipM1.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(1).Cells(0).Value) - lastNonNullValueBM0874
+        End If
+    End Sub
+
+    Private Sub frmMonitor_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        configurarDGV(dgvwipM1)
+        loadWipresults()
+    End Sub
+
+
+
+    Private Sub InsertarDatos(ByVal dgv As DataGridView) ' Ahora recibe el DataGridView como parámetro
+
+        ' Validar que hay datos en las celdas
+        If dgv.CurrentRow Is Nothing OrElse
+       String.IsNullOrWhiteSpace(dgv.CurrentRow.Cells("qwm1").Value?.ToString()) OrElse
+       Not IsNumeric(dgv.CurrentRow.Cells("qwm1").Value) Then
+            MessageBox.Show("Por favor complete todos los campos correctamente")
+            Return
+        End If
+
+        ' Obtener los valores de las celdas
+        Dim process As String = "" ' Inicializar process
+        Dim wipQty As Integer = CInt(dgv.CurrentRow.Cells("qwm1").Value)
+        Dim insertDate As Date = ConvierteAdateMySQL(Date.Now.ToShortDateString)
+
+        ' Determinar el valor de process según el DataGridView y la fila
+        Dim primerDigito As Integer = 0
+
+        Select Case dgv.Name
+            Case "dgvwipM1"
+                primerDigito = 1
+            Case "dgvwipM2"
+                primerDigito = 2
+            Case "dgvwipM3"
+                primerDigito = 3
+            Case "dgvwipM4"
+                primerDigito = 4
+            Case "dgvwipM5"
+                primerDigito = 5
+            Case Else
+                MessageBox.Show("DataGridView no válido")
+                Return
+        End Select
+
+        Select Case dgv.CurrentRow.Index
+            Case 0
+                process = $"{primerDigito}100"
+            Case 1
+                process = $"{primerDigito}400"
+            Case 2
+                process = $"{primerDigito}700"
+            Case Else
+                MessageBox.Show("Número de fila no válido")
+                Return
+        End Select
+
+        ' Consulta para verificar si existe el registro
+        Dim checkQuery As String = "SELECT COUNT(*) FROM [dbo].[t_bma_wip] WHERE [process] = @process AND [insertDate] = @insertDate"
+
+        Try
+            Using checkCommand As New SqlCommand(checkQuery, conexion)
+                checkCommand.Parameters.AddWithValue("@process", process)
+                checkCommand.Parameters.AddWithValue("@insertDate", insertDate)
+
+                Dim count As Integer = CInt(checkCommand.ExecuteScalar())
+
+                If count > 0 Then
+                    ' El registro existe, realizar un UPDATE
+                    Dim updateQuery As String = "UPDATE [dbo].[t_bma_wip] SET [wipQty] = @wipQty WHERE [process] = @process AND [insertDate] = @insertDate"
+
+                    Using updateCommand As New SqlCommand(updateQuery, conexion)
+                        updateCommand.Parameters.AddWithValue("@process", process)
+                        updateCommand.Parameters.AddWithValue("@wipQty", wipQty)
+                        updateCommand.Parameters.AddWithValue("@insertDate", insertDate)
+
+                        updateCommand.ExecuteNonQuery()
+                        MessageBox.Show("Datos actualizados correctamente")
+                    End Using
+                Else
+                    ' El registro no existe, realizar un INSERT
+                    Dim insertQuery As String = "INSERT INTO [dbo].[t_bma_wip] ([process], [wipQty], [insertDate]) VALUES (@process, @wipQty, @insertDate)"
+
+                    Using insertCommand As New SqlCommand(insertQuery, conexion)
+                        insertCommand.Parameters.AddWithValue("@process", process)
+                        insertCommand.Parameters.AddWithValue("@wipQty", wipQty)
+                        insertCommand.Parameters.AddWithValue("@insertDate", insertDate)
+
+                        insertCommand.ExecuteNonQuery()
+                        MessageBox.Show("Datos insertados correctamente")
+                    End Using
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error al insertar/actualizar datos: {ex.Message}")
+        End Try
+    End Sub
+
+
+    Private Sub dgvwip1100_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvwipM1.CellEndEdit
+        ' Verifica si la edición se realizó presionando Enter y en la primera columna
+        If e.ColumnIndex = 0 Then ' Verifica si la celda editada está en la primera columna
+            dgv.EndEdit() ' Fuerza la finalización de la edición
+            InsertarDatos(dgvwipM1) ' Llama a tu función
+        End If
+    End Sub
+
+
+
     Private Sub GunaAdvenceButton1_Click(sender As Object, e As EventArgs) Handles GunaAdvenceButton1.Click
 
         Dim frm As New frmOEE()
@@ -3278,6 +3748,7 @@ INSERT INTO [dbo].[t_bma_downtime]
         End If
 
         ProgresoGuardadoLineas()
+
         Panel11.Visible = False
     End Sub
     Private Sub ProgresoGuardadoLineas()
@@ -4284,7 +4755,7 @@ WHERE CONVERT(date, insert_date) = '" & Date.Now.ToShortDateString() & "'  " & q
                 Case "1700"
                     queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE42'"
                 Case "2700"
-                    queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE42'"   ''LINE44'" temporary change M2 is running as M1
+                    queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE43'"   ''LINE44'" temporary change M2 is running as M1
                 Case "3700"
                     queryComplement = " and t3.ProcessName='[ASSY] C/F Jig (최종검사/포장)' and t4.LineCode='LINE44'"
                 Case "4700"

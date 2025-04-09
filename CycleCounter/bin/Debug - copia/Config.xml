@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<Config>
-<Host>MONITORING</Host>
-<pass>1209</pass>
-<Bascula>COM2</Bascula>
-<sc>1</sc>
-</Config>

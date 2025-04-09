@@ -23,38 +23,38 @@ Partial Class frmMonitor
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle65 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle66 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle67 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle68 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle69 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle70 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle71 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle72 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle73 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle74 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle75 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle76 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle78 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle77 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle80 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle81 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle79 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle83 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle84 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle82 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle86 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle87 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle85 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle89 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle90 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle88 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle92 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle91 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle94 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle93 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle96 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle95 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle193 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle194 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle195 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle196 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle197 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle198 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle199 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle200 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle201 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle202 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle203 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle204 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle206 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle205 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle208 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle209 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle207 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle211 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle212 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle210 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle214 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle215 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle213 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle217 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle218 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle216 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle220 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle219 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle222 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle221 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle224 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle223 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMonitor))
         Me.dgvAux = New System.Windows.Forms.DataGridView()
         Me.dgv2 = New System.Windows.Forms.DataGridView()
@@ -64,6 +64,7 @@ Partial Class frmMonitor
         Me.dgv = New System.Windows.Forms.DataGridView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.HideToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -74,6 +75,9 @@ Partial Class frmMonitor
         Me.m100 = New UCStatus.UCLed()
         Me.pm1 = New System.Windows.Forms.Panel()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.pbm1p400 = New System.Windows.Forms.PictureBox()
+        Me.pbm1p700 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.p1700 = New System.Windows.Forms.Panel()
         Me.ContextMenuStrip3 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,7 +91,11 @@ Partial Class frmMonitor
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.l2400 = New UCStatus.UCLed()
+        Me.pb2700 = New System.Windows.Forms.PictureBox()
         Me.l2100 = New UCStatus.UCLed()
+        Me.pb2400 = New System.Windows.Forms.PictureBox()
+        Me.pbm2p100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.p2700 = New System.Windows.Forms.Panel()
         Me.p2400 = New System.Windows.Forms.Panel()
         Me.p2100 = New System.Windows.Forms.Panel()
@@ -101,6 +109,10 @@ Partial Class frmMonitor
         Me.l3100 = New UCStatus.UCLed()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label32 = New System.Windows.Forms.Label()
+        Me.pb3700 = New System.Windows.Forms.PictureBox()
+        Me.pb3400 = New System.Windows.Forms.PictureBox()
+        Me.pb3100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.p3700 = New System.Windows.Forms.Panel()
         Me.p3400 = New System.Windows.Forms.Panel()
         Me.p3100 = New System.Windows.Forms.Panel()
@@ -112,7 +124,11 @@ Partial Class frmMonitor
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.l4400 = New UCStatus.UCLed()
+        Me.pb4700 = New System.Windows.Forms.PictureBox()
         Me.l4100 = New UCStatus.UCLed()
+        Me.pb4400 = New System.Windows.Forms.PictureBox()
+        Me.pb4100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.p4100 = New System.Windows.Forms.Panel()
         Me.p4400 = New System.Windows.Forms.Panel()
         Me.p4700 = New System.Windows.Forms.Panel()
@@ -125,6 +141,10 @@ Partial Class frmMonitor
         Me.l5100 = New UCStatus.UCLed()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Label34 = New System.Windows.Forms.Label()
+        Me.pb5700 = New System.Windows.Forms.PictureBox()
+        Me.pb5400 = New System.Windows.Forms.PictureBox()
+        Me.pb5100 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.p5100 = New System.Windows.Forms.Panel()
         Me.p5400 = New System.Windows.Forms.Panel()
         Me.p5700 = New System.Windows.Forms.Panel()
@@ -425,41 +445,52 @@ Partial Class frmMonitor
         Me.pbM1shift1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
-        Me.pb5700 = New System.Windows.Forms.PictureBox()
-        Me.pb5400 = New System.Windows.Forms.PictureBox()
-        Me.pb5100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
-        Me.pb4700 = New System.Windows.Forms.PictureBox()
-        Me.pb4400 = New System.Windows.Forms.PictureBox()
-        Me.pb4100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.pb3700 = New System.Windows.Forms.PictureBox()
-        Me.pb3400 = New System.Windows.Forms.PictureBox()
-        Me.pb3100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.pb2700 = New System.Windows.Forms.PictureBox()
-        Me.pb2400 = New System.Windows.Forms.PictureBox()
-        Me.pbm2p100 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.pbm1p400 = New System.Windows.Forms.PictureBox()
-        Me.pbm1p700 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.dgvwipM1 = New System.Windows.Forms.DataGridView()
+        Me.qwm1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvwipM2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvwipM3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvAux, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.pm1.SuspendLayout()
+        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip3.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
+        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
         Me.Panel10.SuspendLayout()
+        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.dgv1700, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -478,65 +509,50 @@ Partial Class frmMonitor
         CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvwipM1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvwipM2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvwipM3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvAux
         '
         Me.dgvAux.AllowUserToAddRows = False
         Me.dgvAux.AllowUserToResizeRows = False
-        DataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle65.BackColor = System.Drawing.Color.White
-        Me.dgvAux.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle65
+        DataGridViewCellStyle193.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle193.BackColor = System.Drawing.Color.White
+        Me.dgvAux.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle193
         Me.dgvAux.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle66.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle66.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvAux.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle66
+        DataGridViewCellStyle194.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle194.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle194.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle194.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle194.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle194.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle194.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvAux.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle194
         Me.dgvAux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle67.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle67.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvAux.DefaultCellStyle = DataGridViewCellStyle67
+        DataGridViewCellStyle195.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle195.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle195.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle195.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle195.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle195.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle195.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvAux.DefaultCellStyle = DataGridViewCellStyle195
         Me.dgvAux.Location = New System.Drawing.Point(1503, 4)
         Me.dgvAux.Margin = New System.Windows.Forms.Padding(5)
         Me.dgvAux.Name = "dgvAux"
         Me.dgvAux.ReadOnly = True
-        DataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle68.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvAux.RowHeadersDefaultCellStyle = DataGridViewCellStyle68
+        DataGridViewCellStyle196.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle196.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle196.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle196.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle196.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle196.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle196.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvAux.RowHeadersDefaultCellStyle = DataGridViewCellStyle196
         Me.dgvAux.RowHeadersVisible = False
         Me.dgvAux.RowHeadersWidth = 51
         Me.dgvAux.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -548,39 +564,39 @@ Partial Class frmMonitor
         '
         Me.dgv2.AllowUserToAddRows = False
         Me.dgv2.AllowUserToResizeRows = False
-        DataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle69.BackColor = System.Drawing.Color.White
-        Me.dgv2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle69
+        DataGridViewCellStyle197.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle197.BackColor = System.Drawing.Color.White
+        Me.dgv2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle197
         Me.dgv2.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle70.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle70.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle70
+        DataGridViewCellStyle198.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle198.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle198.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle198.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle198.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle198.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle198.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle198
         Me.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle71.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv2.DefaultCellStyle = DataGridViewCellStyle71
+        DataGridViewCellStyle199.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle199.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle199.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle199.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle199.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle199.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle199.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv2.DefaultCellStyle = DataGridViewCellStyle199
         Me.dgv2.Location = New System.Drawing.Point(1595, 9)
         Me.dgv2.Margin = New System.Windows.Forms.Padding(5)
         Me.dgv2.Name = "dgv2"
         Me.dgv2.ReadOnly = True
-        DataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle72.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv2.RowHeadersDefaultCellStyle = DataGridViewCellStyle72
+        DataGridViewCellStyle200.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle200.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle200.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle200.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle200.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle200.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle200.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv2.RowHeadersDefaultCellStyle = DataGridViewCellStyle200
         Me.dgv2.RowHeadersVisible = False
         Me.dgv2.RowHeadersWidth = 51
         Me.dgv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -601,20 +617,20 @@ Partial Class frmMonitor
         'LBrUN
         '
         Me.LBrUN.AutoSize = True
-        Me.LBrUN.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBrUN.Location = New System.Drawing.Point(1354, 73)
+        Me.LBrUN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBrUN.Location = New System.Drawing.Point(1394, 72)
         Me.LBrUN.Name = "LBrUN"
-        Me.LBrUN.Size = New System.Drawing.Size(19, 20)
+        Me.LBrUN.Size = New System.Drawing.Size(16, 16)
         Me.LBrUN.TabIndex = 256
         Me.LBrUN.Text = "_"
         '
         'lbDT
         '
         Me.lbDT.AutoSize = True
-        Me.lbDT.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT.Location = New System.Drawing.Point(1534, 70)
+        Me.lbDT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT.Location = New System.Drawing.Point(1568, 70)
         Me.lbDT.Name = "lbDT"
-        Me.lbDT.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT.Size = New System.Drawing.Size(16, 16)
         Me.lbDT.TabIndex = 254
         Me.lbDT.Text = "_"
         '
@@ -622,39 +638,39 @@ Partial Class frmMonitor
         '
         Me.dgv.AllowUserToAddRows = False
         Me.dgv.AllowUserToResizeRows = False
-        DataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle73.BackColor = System.Drawing.Color.White
-        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle73
+        DataGridViewCellStyle201.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle201.BackColor = System.Drawing.Color.White
+        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle201
         Me.dgv.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle74.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle74.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle74.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle74.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle74.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle74
+        DataGridViewCellStyle202.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle202.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle202.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle202.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle202.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle202.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle202.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle202
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle75.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle75.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle75.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle75.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle75.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle75.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv.DefaultCellStyle = DataGridViewCellStyle75
+        DataGridViewCellStyle203.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle203.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle203.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle203.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle203.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle203.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle203.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv.DefaultCellStyle = DataGridViewCellStyle203
         Me.dgv.Location = New System.Drawing.Point(1557, 8)
         Me.dgv.Margin = New System.Windows.Forms.Padding(5)
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
-        DataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle76.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle76.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle76.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle76.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle76.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle76.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv.RowHeadersDefaultCellStyle = DataGridViewCellStyle76
+        DataGridViewCellStyle204.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle204.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle204.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle204.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle204.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle204.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle204.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv.RowHeadersDefaultCellStyle = DataGridViewCellStyle204
         Me.dgv.RowHeadersVisible = False
         Me.dgv.RowHeadersWidth = 51
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -684,8 +700,18 @@ Partial Class frmMonitor
         Me.Panel1.Controls.Add(Me.p1100)
         Me.Panel1.Location = New System.Drawing.Point(4, 39)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1344, 161)
+        Me.Panel1.Size = New System.Drawing.Size(1384, 161)
         Me.Panel1.TabIndex = 269
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Gainsboro
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Location = New System.Drawing.Point(272, 23)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1107, 44)
+        Me.PictureBox1.TabIndex = 247
+        Me.PictureBox1.TabStop = False
         '
         'Label6
         '
@@ -764,7 +790,7 @@ Partial Class frmMonitor
         Me.m100.Estado = UCStatus.UCLed.Status.Apagado
         Me.m100.Location = New System.Drawing.Point(95, 24)
         Me.m100.Name = "m100"
-        Me.m100.Size = New System.Drawing.Size(138, 42)
+        Me.m100.Size = New System.Drawing.Size(137, 43)
         Me.m100.Tipo = UCStatus.UCLed.Type.Online
         Me.m100.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
         '
@@ -787,6 +813,36 @@ Partial Class frmMonitor
         Me.Label30.Size = New System.Drawing.Size(28, 16)
         Me.Label30.TabIndex = 0
         Me.Label30.Text = "M1"
+        '
+        'pbm1p400
+        '
+        Me.pbm1p400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pbm1p400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pbm1p400.Location = New System.Drawing.Point(272, 68)
+        Me.pbm1p400.Name = "pbm1p400"
+        Me.pbm1p400.Size = New System.Drawing.Size(1107, 44)
+        Me.pbm1p400.TabIndex = 259
+        Me.pbm1p400.TabStop = False
+        '
+        'pbm1p700
+        '
+        Me.pbm1p700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pbm1p700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pbm1p700.Location = New System.Drawing.Point(272, 112)
+        Me.pbm1p700.Name = "pbm1p700"
+        Me.pbm1p700.Size = New System.Drawing.Size(1107, 44)
+        Me.pbm1p700.TabIndex = 255
+        Me.pbm1p700.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.DTMS.My.Resources.Resources.cuad3
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1338, 155)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
         '
         'p1700
         '
@@ -927,6 +983,16 @@ Partial Class frmMonitor
         Me.l2400.Tipo = UCStatus.UCLed.Type.Online
         Me.l2400.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
         '
+        'pb2700
+        '
+        Me.pb2700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb2700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb2700.Location = New System.Drawing.Point(233, 112)
+        Me.pb2700.Name = "pb2700"
+        Me.pb2700.Size = New System.Drawing.Size(1108, 44)
+        Me.pb2700.TabIndex = 255
+        Me.pb2700.TabStop = False
+        '
         'l2100
         '
         Me.l2100.Estado = UCStatus.UCLed.Status.Apagado
@@ -935,6 +1001,36 @@ Partial Class frmMonitor
         Me.l2100.Size = New System.Drawing.Size(138, 42)
         Me.l2100.Tipo = UCStatus.UCLed.Type.Online
         Me.l2100.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
+        '
+        'pb2400
+        '
+        Me.pb2400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb2400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb2400.Location = New System.Drawing.Point(233, 67)
+        Me.pb2400.Name = "pb2400"
+        Me.pb2400.Size = New System.Drawing.Size(1108, 44)
+        Me.pb2400.TabIndex = 254
+        Me.pb2400.TabStop = False
+        '
+        'pbm2p100
+        '
+        Me.pbm2p100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pbm2p100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pbm2p100.Location = New System.Drawing.Point(233, 21)
+        Me.pbm2p100.Name = "pbm2p100"
+        Me.pbm2p100.Size = New System.Drawing.Size(1108, 44)
+        Me.pbm2p100.TabIndex = 247
+        Me.pbm2p100.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.DTMS.My.Resources.Resources.M2
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(1338, 155)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 0
+        Me.PictureBox4.TabStop = False
         '
         'p2700
         '
@@ -1081,6 +1177,46 @@ Partial Class frmMonitor
         Me.Label32.TabIndex = 0
         Me.Label32.Text = "M3"
         '
+        'pb3700
+        '
+        Me.pb3700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb3700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb3700.Location = New System.Drawing.Point(233, 112)
+        Me.pb3700.Name = "pb3700"
+        Me.pb3700.Size = New System.Drawing.Size(1110, 44)
+        Me.pb3700.TabIndex = 255
+        Me.pb3700.TabStop = False
+        '
+        'pb3400
+        '
+        Me.pb3400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb3400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb3400.Location = New System.Drawing.Point(233, 66)
+        Me.pb3400.Name = "pb3400"
+        Me.pb3400.Size = New System.Drawing.Size(1110, 44)
+        Me.pb3400.TabIndex = 254
+        Me.pb3400.TabStop = False
+        '
+        'pb3100
+        '
+        Me.pb3100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb3100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb3100.Location = New System.Drawing.Point(233, 21)
+        Me.pb3100.Name = "pb3100"
+        Me.pb3100.Size = New System.Drawing.Size(1110, 44)
+        Me.pb3100.TabIndex = 247
+        Me.pb3100.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.DTMS.My.Resources.Resources.M3
+        Me.PictureBox6.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(1340, 155)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 0
+        Me.PictureBox6.TabStop = False
+        '
         'p3700
         '
         Me.p3700.ContextMenuStrip = Me.ContextMenuStrip3
@@ -1208,6 +1344,16 @@ Partial Class frmMonitor
         Me.l4400.Tipo = UCStatus.UCLed.Type.Online
         Me.l4400.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
         '
+        'pb4700
+        '
+        Me.pb4700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb4700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb4700.Location = New System.Drawing.Point(233, 111)
+        Me.pb4700.Name = "pb4700"
+        Me.pb4700.Size = New System.Drawing.Size(1108, 44)
+        Me.pb4700.TabIndex = 255
+        Me.pb4700.TabStop = False
+        '
         'l4100
         '
         Me.l4100.Estado = UCStatus.UCLed.Status.Apagado
@@ -1216,6 +1362,36 @@ Partial Class frmMonitor
         Me.l4100.Size = New System.Drawing.Size(138, 42)
         Me.l4100.Tipo = UCStatus.UCLed.Type.Online
         Me.l4100.TxtAlign = UCStatus.UCLed.TextAlign.MiddleLeft
+        '
+        'pb4400
+        '
+        Me.pb4400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb4400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb4400.Location = New System.Drawing.Point(233, 66)
+        Me.pb4400.Name = "pb4400"
+        Me.pb4400.Size = New System.Drawing.Size(1108, 44)
+        Me.pb4400.TabIndex = 254
+        Me.pb4400.TabStop = False
+        '
+        'pb4100
+        '
+        Me.pb4100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb4100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb4100.Location = New System.Drawing.Point(233, 21)
+        Me.pb4100.Name = "pb4100"
+        Me.pb4100.Size = New System.Drawing.Size(1108, 44)
+        Me.pb4100.TabIndex = 247
+        Me.pb4100.TabStop = False
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = Global.DTMS.My.Resources.Resources.M4
+        Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(1340, 155)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox8.TabIndex = 0
+        Me.PictureBox8.TabStop = False
         '
         'p4100
         '
@@ -1353,6 +1529,46 @@ Partial Class frmMonitor
         Me.Label34.TabIndex = 0
         Me.Label34.Text = "M5"
         '
+        'pb5700
+        '
+        Me.pb5700.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb5700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb5700.Location = New System.Drawing.Point(233, 112)
+        Me.pb5700.Name = "pb5700"
+        Me.pb5700.Size = New System.Drawing.Size(1108, 44)
+        Me.pb5700.TabIndex = 255
+        Me.pb5700.TabStop = False
+        '
+        'pb5400
+        '
+        Me.pb5400.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb5400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb5400.Location = New System.Drawing.Point(233, 66)
+        Me.pb5400.Name = "pb5400"
+        Me.pb5400.Size = New System.Drawing.Size(1108, 44)
+        Me.pb5400.TabIndex = 254
+        Me.pb5400.TabStop = False
+        '
+        'pb5100
+        '
+        Me.pb5100.BackColor = System.Drawing.Color.Gainsboro
+        Me.pb5100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb5100.Location = New System.Drawing.Point(233, 21)
+        Me.pb5100.Name = "pb5100"
+        Me.pb5100.Size = New System.Drawing.Size(1108, 44)
+        Me.pb5100.TabIndex = 247
+        Me.pb5100.TabStop = False
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = Global.DTMS.My.Resources.Resources.M5
+        Me.PictureBox10.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(1340, 155)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox10.TabIndex = 0
+        Me.PictureBox10.TabStop = False
+        '
         'p5100
         '
         Me.p5100.ContextMenuStrip = Me.ContextMenuStrip3
@@ -1396,20 +1612,20 @@ Partial Class frmMonitor
         'lbRTm1700
         '
         Me.lbRTm1700.AutoSize = True
-        Me.lbRTm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRTm1700.Location = New System.Drawing.Point(1354, 168)
+        Me.lbRTm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRTm1700.Location = New System.Drawing.Point(1394, 167)
         Me.lbRTm1700.Name = "lbRTm1700"
-        Me.lbRTm1700.Size = New System.Drawing.Size(19, 20)
+        Me.lbRTm1700.Size = New System.Drawing.Size(16, 16)
         Me.lbRTm1700.TabIndex = 325
         Me.lbRTm1700.Text = "_"
         '
         'lbDTm1700
         '
         Me.lbDTm1700.AutoSize = True
-        Me.lbDTm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDTm1700.Location = New System.Drawing.Point(1534, 166)
+        Me.lbDTm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDTm1700.Location = New System.Drawing.Point(1568, 166)
         Me.lbDTm1700.Name = "lbDTm1700"
-        Me.lbDTm1700.Size = New System.Drawing.Size(19, 20)
+        Me.lbDTm1700.Size = New System.Drawing.Size(16, 16)
         Me.lbDTm1700.TabIndex = 323
         Me.lbDTm1700.Text = "_"
         '
@@ -1420,149 +1636,149 @@ Partial Class frmMonitor
         'lbRTm1400
         '
         Me.lbRTm1400.AutoSize = True
-        Me.lbRTm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRTm1400.Location = New System.Drawing.Point(1354, 121)
+        Me.lbRTm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRTm1400.Location = New System.Drawing.Point(1394, 121)
         Me.lbRTm1400.Name = "lbRTm1400"
-        Me.lbRTm1400.Size = New System.Drawing.Size(19, 20)
+        Me.lbRTm1400.Size = New System.Drawing.Size(16, 16)
         Me.lbRTm1400.TabIndex = 331
         Me.lbRTm1400.Text = "_"
         '
         'lbPorRTm1100
         '
         Me.lbPorRTm1100.AutoSize = True
-        Me.lbPorRTm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRTm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRTm1100.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRTm1100.Location = New System.Drawing.Point(1441, 72)
+        Me.lbPorRTm1100.Location = New System.Drawing.Point(1467, 72)
         Me.lbPorRTm1100.Name = "lbPorRTm1100"
-        Me.lbPorRTm1100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRTm1100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRTm1100.TabIndex = 330
         Me.lbPorRTm1100.Text = "_"
         '
         'lbDTm1400
         '
         Me.lbDTm1400.AutoSize = True
-        Me.lbDTm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDTm1400.Location = New System.Drawing.Point(1534, 119)
+        Me.lbDTm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDTm1400.Location = New System.Drawing.Point(1568, 119)
         Me.lbDTm1400.Name = "lbDTm1400"
-        Me.lbDTm1400.Size = New System.Drawing.Size(19, 20)
+        Me.lbDTm1400.Size = New System.Drawing.Size(16, 16)
         Me.lbDTm1400.TabIndex = 329
         Me.lbDTm1400.Text = "_"
         '
         'lbPorDTm1100
         '
         Me.lbPorDTm1100.AutoSize = True
-        Me.lbPorDTm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDTm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDTm1100.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDTm1100.Location = New System.Drawing.Point(1613, 70)
+        Me.lbPorDTm1100.Location = New System.Drawing.Point(1647, 70)
         Me.lbPorDTm1100.Name = "lbPorDTm1100"
-        Me.lbPorDTm1100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDTm1100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDTm1100.TabIndex = 328
         Me.lbPorDTm1100.Text = "_"
         '
         'lbPorRtm1400
         '
         Me.lbPorRtm1400.AutoSize = True
-        Me.lbPorRtm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRtm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRtm1400.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRtm1400.Location = New System.Drawing.Point(1441, 121)
+        Me.lbPorRtm1400.Location = New System.Drawing.Point(1467, 121)
         Me.lbPorRtm1400.Name = "lbPorRtm1400"
-        Me.lbPorRtm1400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRtm1400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRtm1400.TabIndex = 333
         Me.lbPorRtm1400.Text = "_"
         '
         'lbPorDTm1400
         '
         Me.lbPorDTm1400.AutoSize = True
-        Me.lbPorDTm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDTm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDTm1400.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDTm1400.Location = New System.Drawing.Point(1613, 119)
+        Me.lbPorDTm1400.Location = New System.Drawing.Point(1647, 119)
         Me.lbPorDTm1400.Name = "lbPorDTm1400"
-        Me.lbPorDTm1400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDTm1400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDTm1400.TabIndex = 332
         Me.lbPorDTm1400.Text = "_"
         '
         'lbPorRtm1700
         '
         Me.lbPorRtm1700.AutoSize = True
-        Me.lbPorRtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRtm1700.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRtm1700.Location = New System.Drawing.Point(1441, 167)
+        Me.lbPorRtm1700.Location = New System.Drawing.Point(1467, 167)
         Me.lbPorRtm1700.Name = "lbPorRtm1700"
-        Me.lbPorRtm1700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRtm1700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRtm1700.TabIndex = 335
         Me.lbPorRtm1700.Text = "_"
         '
         'lbPorDtm1700
         '
         Me.lbPorDtm1700.AutoSize = True
-        Me.lbPorDtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDtm1700.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDtm1700.Location = New System.Drawing.Point(1613, 165)
+        Me.lbPorDtm1700.Location = New System.Drawing.Point(1647, 165)
         Me.lbPorDtm1700.Name = "lbPorDtm1700"
-        Me.lbPorDtm1700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDtm1700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDtm1700.TabIndex = 334
         Me.lbPorDtm1700.Text = "_"
         '
         'lbPorOtm1700
         '
         Me.lbPorOtm1700.AutoSize = True
-        Me.lbPorOtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOtm1700.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOtm1700.Location = New System.Drawing.Point(1787, 166)
+        Me.lbPorOtm1700.Location = New System.Drawing.Point(1821, 166)
         Me.lbPorOtm1700.Name = "lbPorOtm1700"
-        Me.lbPorOtm1700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOtm1700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOtm1700.TabIndex = 342
         Me.lbPorOtm1700.Text = "_"
         '
         'lbPorOtm1400
         '
         Me.lbPorOtm1400.AutoSize = True
-        Me.lbPorOtm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOtm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOtm1400.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOtm1400.Location = New System.Drawing.Point(1787, 120)
+        Me.lbPorOtm1400.Location = New System.Drawing.Point(1821, 120)
         Me.lbPorOtm1400.Name = "lbPorOtm1400"
-        Me.lbPorOtm1400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOtm1400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOtm1400.TabIndex = 341
         Me.lbPorOtm1400.Text = "_"
         '
         'lbOtm1400
         '
         Me.lbOtm1400.AutoSize = True
-        Me.lbOtm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOtm1400.Location = New System.Drawing.Point(1703, 120)
+        Me.lbOtm1400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOtm1400.Location = New System.Drawing.Point(1737, 120)
         Me.lbOtm1400.Name = "lbOtm1400"
-        Me.lbOtm1400.Size = New System.Drawing.Size(19, 20)
+        Me.lbOtm1400.Size = New System.Drawing.Size(16, 16)
         Me.lbOtm1400.TabIndex = 340
         Me.lbOtm1400.Text = "_"
         '
         'lbPorOfm1100
         '
         Me.lbPorOfm1100.AutoSize = True
-        Me.lbPorOfm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOfm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOfm1100.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOfm1100.Location = New System.Drawing.Point(1787, 71)
+        Me.lbPorOfm1100.Location = New System.Drawing.Point(1821, 71)
         Me.lbPorOfm1100.Name = "lbPorOfm1100"
-        Me.lbPorOfm1100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOfm1100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOfm1100.TabIndex = 339
         Me.lbPorOfm1100.Text = "_"
         '
         'lbOtm1700
         '
         Me.lbOtm1700.AutoSize = True
-        Me.lbOtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOtm1700.Location = New System.Drawing.Point(1703, 167)
+        Me.lbOtm1700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOtm1700.Location = New System.Drawing.Point(1737, 167)
         Me.lbOtm1700.Name = "lbOtm1700"
-        Me.lbOtm1700.Size = New System.Drawing.Size(19, 20)
+        Me.lbOtm1700.Size = New System.Drawing.Size(16, 16)
         Me.lbOtm1700.TabIndex = 338
         Me.lbOtm1700.Text = "_"
         '
         'lbOtm1100
         '
         Me.lbOtm1100.AutoSize = True
-        Me.lbOtm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOtm1100.Location = New System.Drawing.Point(1703, 71)
+        Me.lbOtm1100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOtm1100.Location = New System.Drawing.Point(1737, 71)
         Me.lbOtm1100.Name = "lbOtm1100"
-        Me.lbOtm1100.Size = New System.Drawing.Size(19, 20)
+        Me.lbOtm1100.Size = New System.Drawing.Size(16, 16)
         Me.lbOtm1100.TabIndex = 337
         Me.lbOtm1100.Text = "_"
         '
@@ -1573,63 +1789,63 @@ Partial Class frmMonitor
         'lbPorOT2100
         '
         Me.lbPorOT2100.AutoSize = True
-        Me.lbPorOT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT2100.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT2100.Location = New System.Drawing.Point(1787, 261)
+        Me.lbPorOT2100.Location = New System.Drawing.Point(1821, 261)
         Me.lbPorOT2100.Name = "lbPorOT2100"
-        Me.lbPorOT2100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT2100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT2100.TabIndex = 349
         Me.lbPorOT2100.Text = "_"
         '
         'lbOT2100
         '
         Me.lbOT2100.AutoSize = True
-        Me.lbOT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT2100.Location = New System.Drawing.Point(1703, 262)
+        Me.lbOT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT2100.Location = New System.Drawing.Point(1737, 262)
         Me.lbOT2100.Name = "lbOT2100"
-        Me.lbOT2100.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT2100.Size = New System.Drawing.Size(16, 16)
         Me.lbOT2100.TabIndex = 348
         Me.lbOT2100.Text = "_"
         '
         'lbPorRT2100
         '
         Me.lbPorRT2100.AutoSize = True
-        Me.lbPorRT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRT2100.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRT2100.Location = New System.Drawing.Point(1441, 262)
+        Me.lbPorRT2100.Location = New System.Drawing.Point(1467, 262)
         Me.lbPorRT2100.Name = "lbPorRT2100"
-        Me.lbPorRT2100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRT2100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRT2100.TabIndex = 347
         Me.lbPorRT2100.Text = "_"
         '
         'lbPorDT2100
         '
         Me.lbPorDT2100.AutoSize = True
-        Me.lbPorDT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT2100.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT2100.Location = New System.Drawing.Point(1613, 260)
+        Me.lbPorDT2100.Location = New System.Drawing.Point(1647, 260)
         Me.lbPorDT2100.Name = "lbPorDT2100"
-        Me.lbPorDT2100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT2100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT2100.TabIndex = 346
         Me.lbPorDT2100.Text = "_"
         '
         'lbRT2100
         '
         Me.lbRT2100.AutoSize = True
-        Me.lbRT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT2100.Location = New System.Drawing.Point(1354, 263)
+        Me.lbRT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT2100.Location = New System.Drawing.Point(1394, 263)
         Me.lbRT2100.Name = "lbRT2100"
-        Me.lbRT2100.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT2100.Size = New System.Drawing.Size(16, 16)
         Me.lbRT2100.TabIndex = 345
         Me.lbRT2100.Text = "_"
         '
         'lbDT2100
         '
         Me.lbDT2100.AutoSize = True
-        Me.lbDT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT2100.Location = New System.Drawing.Point(1534, 261)
+        Me.lbDT2100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT2100.Location = New System.Drawing.Point(1568, 261)
         Me.lbDT2100.Name = "lbDT2100"
-        Me.lbDT2100.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT2100.Size = New System.Drawing.Size(16, 16)
         Me.lbDT2100.TabIndex = 344
         Me.lbDT2100.Text = "_"
         '
@@ -1640,63 +1856,63 @@ Partial Class frmMonitor
         'lbporOT2400
         '
         Me.lbporOT2400.AutoSize = True
-        Me.lbporOT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbporOT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbporOT2400.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbporOT2400.Location = New System.Drawing.Point(1787, 305)
+        Me.lbporOT2400.Location = New System.Drawing.Point(1821, 305)
         Me.lbporOT2400.Name = "lbporOT2400"
-        Me.lbporOT2400.Size = New System.Drawing.Size(19, 20)
+        Me.lbporOT2400.Size = New System.Drawing.Size(16, 16)
         Me.lbporOT2400.TabIndex = 355
         Me.lbporOT2400.Text = "_"
         '
         'lbOT2400
         '
         Me.lbOT2400.AutoSize = True
-        Me.lbOT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT2400.Location = New System.Drawing.Point(1703, 306)
+        Me.lbOT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT2400.Location = New System.Drawing.Point(1737, 306)
         Me.lbOT2400.Name = "lbOT2400"
-        Me.lbOT2400.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT2400.Size = New System.Drawing.Size(16, 16)
         Me.lbOT2400.TabIndex = 354
         Me.lbOT2400.Text = "_"
         '
         'lbPOrRT2400
         '
         Me.lbPOrRT2400.AutoSize = True
-        Me.lbPOrRT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPOrRT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPOrRT2400.ForeColor = System.Drawing.Color.Green
-        Me.lbPOrRT2400.Location = New System.Drawing.Point(1441, 306)
+        Me.lbPOrRT2400.Location = New System.Drawing.Point(1467, 306)
         Me.lbPOrRT2400.Name = "lbPOrRT2400"
-        Me.lbPOrRT2400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPOrRT2400.Size = New System.Drawing.Size(16, 16)
         Me.lbPOrRT2400.TabIndex = 353
         Me.lbPOrRT2400.Text = "_"
         '
         'lbPORDt2400
         '
         Me.lbPORDt2400.AutoSize = True
-        Me.lbPORDt2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPORDt2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPORDt2400.ForeColor = System.Drawing.Color.Red
-        Me.lbPORDt2400.Location = New System.Drawing.Point(1613, 308)
+        Me.lbPORDt2400.Location = New System.Drawing.Point(1647, 308)
         Me.lbPORDt2400.Name = "lbPORDt2400"
-        Me.lbPORDt2400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPORDt2400.Size = New System.Drawing.Size(16, 16)
         Me.lbPORDt2400.TabIndex = 352
         Me.lbPORDt2400.Text = "_"
         '
         'lbRT2400
         '
         Me.lbRT2400.AutoSize = True
-        Me.lbRT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT2400.Location = New System.Drawing.Point(1354, 307)
+        Me.lbRT2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT2400.Location = New System.Drawing.Point(1394, 307)
         Me.lbRT2400.Name = "lbRT2400"
-        Me.lbRT2400.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT2400.Size = New System.Drawing.Size(16, 16)
         Me.lbRT2400.TabIndex = 351
         Me.lbRT2400.Text = "_"
         '
         'lbDt2400
         '
         Me.lbDt2400.AutoSize = True
-        Me.lbDt2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDt2400.Location = New System.Drawing.Point(1534, 306)
+        Me.lbDt2400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDt2400.Location = New System.Drawing.Point(1568, 306)
         Me.lbDt2400.Name = "lbDt2400"
-        Me.lbDt2400.Size = New System.Drawing.Size(19, 20)
+        Me.lbDt2400.Size = New System.Drawing.Size(16, 16)
         Me.lbDt2400.TabIndex = 350
         Me.lbDt2400.Text = "_"
         '
@@ -1707,63 +1923,63 @@ Partial Class frmMonitor
         'lbPorOT2700
         '
         Me.lbPorOT2700.AutoSize = True
-        Me.lbPorOT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT2700.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT2700.Location = New System.Drawing.Point(1787, 353)
+        Me.lbPorOT2700.Location = New System.Drawing.Point(1821, 353)
         Me.lbPorOT2700.Name = "lbPorOT2700"
-        Me.lbPorOT2700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT2700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT2700.TabIndex = 361
         Me.lbPorOT2700.Text = "_"
         '
         'lbOT2700
         '
         Me.lbOT2700.AutoSize = True
-        Me.lbOT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT2700.Location = New System.Drawing.Point(1703, 353)
+        Me.lbOT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT2700.Location = New System.Drawing.Point(1737, 353)
         Me.lbOT2700.Name = "lbOT2700"
-        Me.lbOT2700.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT2700.Size = New System.Drawing.Size(16, 16)
         Me.lbOT2700.TabIndex = 360
         Me.lbOT2700.Text = "_"
         '
         'lbPorRT2700
         '
         Me.lbPorRT2700.AutoSize = True
-        Me.lbPorRT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRT2700.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRT2700.Location = New System.Drawing.Point(1441, 353)
+        Me.lbPorRT2700.Location = New System.Drawing.Point(1467, 353)
         Me.lbPorRT2700.Name = "lbPorRT2700"
-        Me.lbPorRT2700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRT2700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRT2700.TabIndex = 359
         Me.lbPorRT2700.Text = "_"
         '
         'lbPorDT2700
         '
         Me.lbPorDT2700.AutoSize = True
-        Me.lbPorDT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT2700.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT2700.Location = New System.Drawing.Point(1613, 354)
+        Me.lbPorDT2700.Location = New System.Drawing.Point(1647, 354)
         Me.lbPorDT2700.Name = "lbPorDT2700"
-        Me.lbPorDT2700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT2700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT2700.TabIndex = 358
         Me.lbPorDT2700.Text = "_"
         '
         'lbRt2700
         '
         Me.lbRt2700.AutoSize = True
-        Me.lbRt2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRt2700.Location = New System.Drawing.Point(1354, 354)
+        Me.lbRt2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRt2700.Location = New System.Drawing.Point(1394, 354)
         Me.lbRt2700.Name = "lbRt2700"
-        Me.lbRt2700.Size = New System.Drawing.Size(19, 20)
+        Me.lbRt2700.Size = New System.Drawing.Size(16, 16)
         Me.lbRt2700.TabIndex = 357
         Me.lbRt2700.Text = "_"
         '
         'lbDT2700
         '
         Me.lbDT2700.AutoSize = True
-        Me.lbDT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT2700.Location = New System.Drawing.Point(1534, 353)
+        Me.lbDT2700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT2700.Location = New System.Drawing.Point(1568, 353)
         Me.lbDT2700.Name = "lbDT2700"
-        Me.lbDT2700.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT2700.Size = New System.Drawing.Size(16, 16)
         Me.lbDT2700.TabIndex = 356
         Me.lbDT2700.Text = "_"
         '
@@ -1774,126 +1990,126 @@ Partial Class frmMonitor
         'lbPorOT3100
         '
         Me.lbPorOT3100.AutoSize = True
-        Me.lbPorOT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT3100.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT3100.Location = New System.Drawing.Point(1789, 447)
+        Me.lbPorOT3100.Location = New System.Drawing.Point(1823, 447)
         Me.lbPorOT3100.Name = "lbPorOT3100"
-        Me.lbPorOT3100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT3100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT3100.TabIndex = 367
         Me.lbPorOT3100.Text = "_"
         '
         'lbOT3100
         '
         Me.lbOT3100.AutoSize = True
-        Me.lbOT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT3100.Location = New System.Drawing.Point(1705, 447)
+        Me.lbOT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT3100.Location = New System.Drawing.Point(1739, 447)
         Me.lbOT3100.Name = "lbOT3100"
-        Me.lbOT3100.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT3100.Size = New System.Drawing.Size(16, 16)
         Me.lbOT3100.TabIndex = 366
         Me.lbOT3100.Text = "_"
         '
         'lbPorRT3100
         '
         Me.lbPorRT3100.AutoSize = True
-        Me.lbPorRT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRT3100.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRT3100.Location = New System.Drawing.Point(1443, 447)
+        Me.lbPorRT3100.Location = New System.Drawing.Point(1469, 447)
         Me.lbPorRT3100.Name = "lbPorRT3100"
-        Me.lbPorRT3100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRT3100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRT3100.TabIndex = 365
         Me.lbPorRT3100.Text = "_"
         '
         'lbPorDT3100
         '
         Me.lbPorDT3100.AutoSize = True
-        Me.lbPorDT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT3100.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT3100.Location = New System.Drawing.Point(1615, 448)
+        Me.lbPorDT3100.Location = New System.Drawing.Point(1649, 448)
         Me.lbPorDT3100.Name = "lbPorDT3100"
-        Me.lbPorDT3100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT3100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT3100.TabIndex = 364
         Me.lbPorDT3100.Text = "_"
         '
         'lbRT3100
         '
         Me.lbRT3100.AutoSize = True
-        Me.lbRT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT3100.Location = New System.Drawing.Point(1356, 448)
+        Me.lbRT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT3100.Location = New System.Drawing.Point(1396, 448)
         Me.lbRT3100.Name = "lbRT3100"
-        Me.lbRT3100.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT3100.Size = New System.Drawing.Size(16, 16)
         Me.lbRT3100.TabIndex = 363
         Me.lbRT3100.Text = "_"
         '
         'lbDT3100
         '
         Me.lbDT3100.AutoSize = True
-        Me.lbDT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT3100.Location = New System.Drawing.Point(1536, 447)
+        Me.lbDT3100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT3100.Location = New System.Drawing.Point(1570, 447)
         Me.lbDT3100.Name = "lbDT3100"
-        Me.lbDT3100.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT3100.Size = New System.Drawing.Size(16, 16)
         Me.lbDT3100.TabIndex = 362
         Me.lbDT3100.Text = "_"
         '
         'lbPorOt3400
         '
         Me.lbPorOt3400.AutoSize = True
-        Me.lbPorOt3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOt3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOt3400.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOt3400.Location = New System.Drawing.Point(1789, 497)
+        Me.lbPorOt3400.Location = New System.Drawing.Point(1823, 497)
         Me.lbPorOt3400.Name = "lbPorOt3400"
-        Me.lbPorOt3400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOt3400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOt3400.TabIndex = 373
         Me.lbPorOt3400.Text = "_"
         '
         'lbOT3400
         '
         Me.lbOT3400.AutoSize = True
-        Me.lbOT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT3400.Location = New System.Drawing.Point(1705, 497)
+        Me.lbOT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT3400.Location = New System.Drawing.Point(1739, 497)
         Me.lbOT3400.Name = "lbOT3400"
-        Me.lbOT3400.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT3400.Size = New System.Drawing.Size(16, 16)
         Me.lbOT3400.TabIndex = 372
         Me.lbOT3400.Text = "_"
         '
         'lbPorRT3400
         '
         Me.lbPorRT3400.AutoSize = True
-        Me.lbPorRT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRT3400.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRT3400.Location = New System.Drawing.Point(1443, 497)
+        Me.lbPorRT3400.Location = New System.Drawing.Point(1469, 497)
         Me.lbPorRT3400.Name = "lbPorRT3400"
-        Me.lbPorRT3400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRT3400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRT3400.TabIndex = 371
         Me.lbPorRT3400.Text = "_"
         '
         'lbPorDT3400
         '
         Me.lbPorDT3400.AutoSize = True
-        Me.lbPorDT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT3400.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT3400.Location = New System.Drawing.Point(1615, 498)
+        Me.lbPorDT3400.Location = New System.Drawing.Point(1649, 498)
         Me.lbPorDT3400.Name = "lbPorDT3400"
-        Me.lbPorDT3400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT3400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT3400.TabIndex = 370
         Me.lbPorDT3400.Text = "_"
         '
         'lbRT3400
         '
         Me.lbRT3400.AutoSize = True
-        Me.lbRT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT3400.Location = New System.Drawing.Point(1356, 498)
+        Me.lbRT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT3400.Location = New System.Drawing.Point(1396, 498)
         Me.lbRT3400.Name = "lbRT3400"
-        Me.lbRT3400.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT3400.Size = New System.Drawing.Size(16, 16)
         Me.lbRT3400.TabIndex = 369
         Me.lbRT3400.Text = "_"
         '
         'lbDT3400
         '
         Me.lbDT3400.AutoSize = True
-        Me.lbDT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT3400.Location = New System.Drawing.Point(1536, 497)
+        Me.lbDT3400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT3400.Location = New System.Drawing.Point(1570, 497)
         Me.lbDT3400.Name = "lbDT3400"
-        Me.lbDT3400.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT3400.Size = New System.Drawing.Size(16, 16)
         Me.lbDT3400.TabIndex = 368
         Me.lbDT3400.Text = "_"
         '
@@ -1908,126 +2124,126 @@ Partial Class frmMonitor
         'lbPorOT3700
         '
         Me.lbPorOT3700.AutoSize = True
-        Me.lbPorOT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT3700.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT3700.Location = New System.Drawing.Point(1789, 541)
+        Me.lbPorOT3700.Location = New System.Drawing.Point(1823, 541)
         Me.lbPorOT3700.Name = "lbPorOT3700"
-        Me.lbPorOT3700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT3700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT3700.TabIndex = 379
         Me.lbPorOT3700.Text = "_"
         '
         'lbOT3700
         '
         Me.lbOT3700.AutoSize = True
-        Me.lbOT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT3700.Location = New System.Drawing.Point(1705, 541)
+        Me.lbOT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT3700.Location = New System.Drawing.Point(1739, 541)
         Me.lbOT3700.Name = "lbOT3700"
-        Me.lbOT3700.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT3700.Size = New System.Drawing.Size(16, 16)
         Me.lbOT3700.TabIndex = 378
         Me.lbOT3700.Text = "_"
         '
         'lbPorRt3700
         '
         Me.lbPorRt3700.AutoSize = True
-        Me.lbPorRt3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRt3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRt3700.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRt3700.Location = New System.Drawing.Point(1443, 541)
+        Me.lbPorRt3700.Location = New System.Drawing.Point(1469, 541)
         Me.lbPorRt3700.Name = "lbPorRt3700"
-        Me.lbPorRt3700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRt3700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRt3700.TabIndex = 377
         Me.lbPorRt3700.Text = "_"
         '
         'lbPorDT3700
         '
         Me.lbPorDT3700.AutoSize = True
-        Me.lbPorDT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT3700.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT3700.Location = New System.Drawing.Point(1615, 542)
+        Me.lbPorDT3700.Location = New System.Drawing.Point(1649, 542)
         Me.lbPorDT3700.Name = "lbPorDT3700"
-        Me.lbPorDT3700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT3700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT3700.TabIndex = 376
         Me.lbPorDT3700.Text = "_"
         '
         'lbRT3700
         '
         Me.lbRT3700.AutoSize = True
-        Me.lbRT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT3700.Location = New System.Drawing.Point(1356, 542)
+        Me.lbRT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT3700.Location = New System.Drawing.Point(1396, 542)
         Me.lbRT3700.Name = "lbRT3700"
-        Me.lbRT3700.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT3700.Size = New System.Drawing.Size(16, 16)
         Me.lbRT3700.TabIndex = 375
         Me.lbRT3700.Text = "_"
         '
         'lbDT3700
         '
         Me.lbDT3700.AutoSize = True
-        Me.lbDT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT3700.Location = New System.Drawing.Point(1536, 541)
+        Me.lbDT3700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT3700.Location = New System.Drawing.Point(1570, 541)
         Me.lbDT3700.Name = "lbDT3700"
-        Me.lbDT3700.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT3700.Size = New System.Drawing.Size(16, 16)
         Me.lbDT3700.TabIndex = 374
         Me.lbDT3700.Text = "_"
         '
         'lbPorOT4100
         '
         Me.lbPorOT4100.AutoSize = True
-        Me.lbPorOT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT4100.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT4100.Location = New System.Drawing.Point(1789, 640)
+        Me.lbPorOT4100.Location = New System.Drawing.Point(1823, 640)
         Me.lbPorOT4100.Name = "lbPorOT4100"
-        Me.lbPorOT4100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT4100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT4100.TabIndex = 385
         Me.lbPorOT4100.Text = "_"
         '
         'lbOT4100
         '
         Me.lbOT4100.AutoSize = True
-        Me.lbOT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT4100.Location = New System.Drawing.Point(1705, 640)
+        Me.lbOT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT4100.Location = New System.Drawing.Point(1739, 640)
         Me.lbOT4100.Name = "lbOT4100"
-        Me.lbOT4100.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT4100.Size = New System.Drawing.Size(16, 16)
         Me.lbOT4100.TabIndex = 384
         Me.lbOT4100.Text = "_"
         '
         'lbPorRt4100
         '
         Me.lbPorRt4100.AutoSize = True
-        Me.lbPorRt4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRt4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRt4100.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRt4100.Location = New System.Drawing.Point(1443, 640)
+        Me.lbPorRt4100.Location = New System.Drawing.Point(1469, 640)
         Me.lbPorRt4100.Name = "lbPorRt4100"
-        Me.lbPorRt4100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRt4100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRt4100.TabIndex = 383
         Me.lbPorRt4100.Text = "_"
         '
         'lbPorDT4100
         '
         Me.lbPorDT4100.AutoSize = True
-        Me.lbPorDT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT4100.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT4100.Location = New System.Drawing.Point(1615, 641)
+        Me.lbPorDT4100.Location = New System.Drawing.Point(1649, 641)
         Me.lbPorDT4100.Name = "lbPorDT4100"
-        Me.lbPorDT4100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT4100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT4100.TabIndex = 382
         Me.lbPorDT4100.Text = "_"
         '
         'lbRT4100
         '
         Me.lbRT4100.AutoSize = True
-        Me.lbRT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT4100.Location = New System.Drawing.Point(1356, 641)
+        Me.lbRT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT4100.Location = New System.Drawing.Point(1396, 641)
         Me.lbRT4100.Name = "lbRT4100"
-        Me.lbRT4100.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT4100.Size = New System.Drawing.Size(16, 16)
         Me.lbRT4100.TabIndex = 381
         Me.lbRT4100.Text = "_"
         '
         'lbDT4100
         '
         Me.lbDT4100.AutoSize = True
-        Me.lbDT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT4100.Location = New System.Drawing.Point(1536, 640)
+        Me.lbDT4100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT4100.Location = New System.Drawing.Point(1570, 640)
         Me.lbDT4100.Name = "lbDT4100"
-        Me.lbDT4100.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT4100.Size = New System.Drawing.Size(16, 16)
         Me.lbDT4100.TabIndex = 380
         Me.lbDT4100.Text = "_"
         '
@@ -2038,63 +2254,63 @@ Partial Class frmMonitor
         'lbPorOT4400
         '
         Me.lbPorOT4400.AutoSize = True
-        Me.lbPorOT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT4400.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT4400.Location = New System.Drawing.Point(1789, 688)
+        Me.lbPorOT4400.Location = New System.Drawing.Point(1823, 688)
         Me.lbPorOT4400.Name = "lbPorOT4400"
-        Me.lbPorOT4400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT4400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT4400.TabIndex = 391
         Me.lbPorOT4400.Text = "_"
         '
         'lbOT4400
         '
         Me.lbOT4400.AutoSize = True
-        Me.lbOT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT4400.Location = New System.Drawing.Point(1703, 688)
+        Me.lbOT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT4400.Location = New System.Drawing.Point(1737, 688)
         Me.lbOT4400.Name = "lbOT4400"
-        Me.lbOT4400.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT4400.Size = New System.Drawing.Size(16, 16)
         Me.lbOT4400.TabIndex = 390
         Me.lbOT4400.Text = "_"
         '
         'lbPorRt4400
         '
         Me.lbPorRt4400.AutoSize = True
-        Me.lbPorRt4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRt4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRt4400.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRt4400.Location = New System.Drawing.Point(1443, 688)
+        Me.lbPorRt4400.Location = New System.Drawing.Point(1469, 688)
         Me.lbPorRt4400.Name = "lbPorRt4400"
-        Me.lbPorRt4400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRt4400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRt4400.TabIndex = 389
         Me.lbPorRt4400.Text = "_"
         '
         'lbporDT4400
         '
         Me.lbporDT4400.AutoSize = True
-        Me.lbporDT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbporDT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbporDT4400.ForeColor = System.Drawing.Color.Red
-        Me.lbporDT4400.Location = New System.Drawing.Point(1615, 688)
+        Me.lbporDT4400.Location = New System.Drawing.Point(1649, 688)
         Me.lbporDT4400.Name = "lbporDT4400"
-        Me.lbporDT4400.Size = New System.Drawing.Size(19, 20)
+        Me.lbporDT4400.Size = New System.Drawing.Size(16, 16)
         Me.lbporDT4400.TabIndex = 388
         Me.lbporDT4400.Text = "_"
         '
         'lbRt4400
         '
         Me.lbRt4400.AutoSize = True
-        Me.lbRt4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRt4400.Location = New System.Drawing.Point(1356, 688)
+        Me.lbRt4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRt4400.Location = New System.Drawing.Point(1396, 688)
         Me.lbRt4400.Name = "lbRt4400"
-        Me.lbRt4400.Size = New System.Drawing.Size(19, 20)
+        Me.lbRt4400.Size = New System.Drawing.Size(16, 16)
         Me.lbRt4400.TabIndex = 387
         Me.lbRt4400.Text = "_"
         '
         'lbDT4400
         '
         Me.lbDT4400.AutoSize = True
-        Me.lbDT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT4400.Location = New System.Drawing.Point(1536, 688)
+        Me.lbDT4400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT4400.Location = New System.Drawing.Point(1570, 688)
         Me.lbDT4400.Name = "lbDT4400"
-        Me.lbDT4400.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT4400.Size = New System.Drawing.Size(16, 16)
         Me.lbDT4400.TabIndex = 386
         Me.lbDT4400.Text = "_"
         '
@@ -2105,63 +2321,63 @@ Partial Class frmMonitor
         'lbPorOT4700
         '
         Me.lbPorOT4700.AutoSize = True
-        Me.lbPorOT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT4700.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT4700.Location = New System.Drawing.Point(1789, 732)
+        Me.lbPorOT4700.Location = New System.Drawing.Point(1823, 732)
         Me.lbPorOT4700.Name = "lbPorOT4700"
-        Me.lbPorOT4700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT4700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT4700.TabIndex = 397
         Me.lbPorOT4700.Text = "_"
         '
         'lbOT4700
         '
         Me.lbOT4700.AutoSize = True
-        Me.lbOT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT4700.Location = New System.Drawing.Point(1703, 732)
+        Me.lbOT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT4700.Location = New System.Drawing.Point(1737, 732)
         Me.lbOT4700.Name = "lbOT4700"
-        Me.lbOT4700.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT4700.Size = New System.Drawing.Size(16, 16)
         Me.lbOT4700.TabIndex = 396
         Me.lbOT4700.Text = "_"
         '
         'lbPorRT4700
         '
         Me.lbPorRT4700.AutoSize = True
-        Me.lbPorRT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRT4700.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRT4700.Location = New System.Drawing.Point(1443, 732)
+        Me.lbPorRT4700.Location = New System.Drawing.Point(1469, 732)
         Me.lbPorRT4700.Name = "lbPorRT4700"
-        Me.lbPorRT4700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRT4700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRT4700.TabIndex = 395
         Me.lbPorRT4700.Text = "_"
         '
         'lbPorDT4700
         '
         Me.lbPorDT4700.AutoSize = True
-        Me.lbPorDT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT4700.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT4700.Location = New System.Drawing.Point(1615, 732)
+        Me.lbPorDT4700.Location = New System.Drawing.Point(1649, 732)
         Me.lbPorDT4700.Name = "lbPorDT4700"
-        Me.lbPorDT4700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT4700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT4700.TabIndex = 394
         Me.lbPorDT4700.Text = "_"
         '
         'lbRT4700
         '
         Me.lbRT4700.AutoSize = True
-        Me.lbRT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT4700.Location = New System.Drawing.Point(1356, 732)
+        Me.lbRT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT4700.Location = New System.Drawing.Point(1396, 732)
         Me.lbRT4700.Name = "lbRT4700"
-        Me.lbRT4700.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT4700.Size = New System.Drawing.Size(16, 16)
         Me.lbRT4700.TabIndex = 393
         Me.lbRT4700.Text = "_"
         '
         'lbDT4700
         '
         Me.lbDT4700.AutoSize = True
-        Me.lbDT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT4700.Location = New System.Drawing.Point(1536, 732)
+        Me.lbDT4700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT4700.Location = New System.Drawing.Point(1570, 732)
         Me.lbDT4700.Name = "lbDT4700"
-        Me.lbDT4700.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT4700.Size = New System.Drawing.Size(16, 16)
         Me.lbDT4700.TabIndex = 392
         Me.lbDT4700.Text = "_"
         '
@@ -2172,63 +2388,63 @@ Partial Class frmMonitor
         'lbPorOT5100
         '
         Me.lbPorOT5100.AutoSize = True
-        Me.lbPorOT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT5100.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT5100.Location = New System.Drawing.Point(1789, 831)
+        Me.lbPorOT5100.Location = New System.Drawing.Point(1823, 831)
         Me.lbPorOT5100.Name = "lbPorOT5100"
-        Me.lbPorOT5100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT5100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT5100.TabIndex = 403
         Me.lbPorOT5100.Text = "_"
         '
         'lbOT5100
         '
         Me.lbOT5100.AutoSize = True
-        Me.lbOT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT5100.Location = New System.Drawing.Point(1703, 831)
+        Me.lbOT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT5100.Location = New System.Drawing.Point(1737, 831)
         Me.lbOT5100.Name = "lbOT5100"
-        Me.lbOT5100.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT5100.Size = New System.Drawing.Size(16, 16)
         Me.lbOT5100.TabIndex = 402
         Me.lbOT5100.Text = "_"
         '
         'lbPOrRT5100
         '
         Me.lbPOrRT5100.AutoSize = True
-        Me.lbPOrRT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPOrRT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPOrRT5100.ForeColor = System.Drawing.Color.Green
-        Me.lbPOrRT5100.Location = New System.Drawing.Point(1441, 831)
+        Me.lbPOrRT5100.Location = New System.Drawing.Point(1467, 831)
         Me.lbPOrRT5100.Name = "lbPOrRT5100"
-        Me.lbPOrRT5100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPOrRT5100.Size = New System.Drawing.Size(16, 16)
         Me.lbPOrRT5100.TabIndex = 401
         Me.lbPOrRT5100.Text = "_"
         '
         'lbPorDT5100
         '
         Me.lbPorDT5100.AutoSize = True
-        Me.lbPorDT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT5100.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT5100.Location = New System.Drawing.Point(1613, 831)
+        Me.lbPorDT5100.Location = New System.Drawing.Point(1647, 831)
         Me.lbPorDT5100.Name = "lbPorDT5100"
-        Me.lbPorDT5100.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT5100.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT5100.TabIndex = 400
         Me.lbPorDT5100.Text = "_"
         '
         'lbRT5100
         '
         Me.lbRT5100.AutoSize = True
-        Me.lbRT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT5100.Location = New System.Drawing.Point(1354, 831)
+        Me.lbRT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT5100.Location = New System.Drawing.Point(1394, 831)
         Me.lbRT5100.Name = "lbRT5100"
-        Me.lbRT5100.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT5100.Size = New System.Drawing.Size(16, 16)
         Me.lbRT5100.TabIndex = 399
         Me.lbRT5100.Text = "_"
         '
         'lbDT5100
         '
         Me.lbDT5100.AutoSize = True
-        Me.lbDT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT5100.Location = New System.Drawing.Point(1534, 831)
+        Me.lbDT5100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT5100.Location = New System.Drawing.Point(1568, 831)
         Me.lbDT5100.Name = "lbDT5100"
-        Me.lbDT5100.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT5100.Size = New System.Drawing.Size(16, 16)
         Me.lbDT5100.TabIndex = 398
         Me.lbDT5100.Text = "_"
         '
@@ -2239,63 +2455,63 @@ Partial Class frmMonitor
         'lbPorOT5400
         '
         Me.lbPorOT5400.AutoSize = True
-        Me.lbPorOT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOT5400.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOT5400.Location = New System.Drawing.Point(1789, 877)
+        Me.lbPorOT5400.Location = New System.Drawing.Point(1823, 877)
         Me.lbPorOT5400.Name = "lbPorOT5400"
-        Me.lbPorOT5400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOT5400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOT5400.TabIndex = 409
         Me.lbPorOT5400.Text = "_"
         '
         'lbOT5400
         '
         Me.lbOT5400.AutoSize = True
-        Me.lbOT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOT5400.Location = New System.Drawing.Point(1703, 877)
+        Me.lbOT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOT5400.Location = New System.Drawing.Point(1737, 877)
         Me.lbOT5400.Name = "lbOT5400"
-        Me.lbOT5400.Size = New System.Drawing.Size(19, 20)
+        Me.lbOT5400.Size = New System.Drawing.Size(16, 16)
         Me.lbOT5400.TabIndex = 408
         Me.lbOT5400.Text = "_"
         '
         'lbPORRT5400
         '
         Me.lbPORRT5400.AutoSize = True
-        Me.lbPORRT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPORRT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPORRT5400.ForeColor = System.Drawing.Color.Green
-        Me.lbPORRT5400.Location = New System.Drawing.Point(1441, 877)
+        Me.lbPORRT5400.Location = New System.Drawing.Point(1467, 877)
         Me.lbPORRT5400.Name = "lbPORRT5400"
-        Me.lbPORRT5400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPORRT5400.Size = New System.Drawing.Size(16, 16)
         Me.lbPORRT5400.TabIndex = 407
         Me.lbPORRT5400.Text = "_"
         '
         'lbPorDT5400
         '
         Me.lbPorDT5400.AutoSize = True
-        Me.lbPorDT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT5400.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT5400.Location = New System.Drawing.Point(1613, 877)
+        Me.lbPorDT5400.Location = New System.Drawing.Point(1647, 877)
         Me.lbPorDT5400.Name = "lbPorDT5400"
-        Me.lbPorDT5400.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT5400.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT5400.TabIndex = 406
         Me.lbPorDT5400.Text = "_"
         '
         'lbRT5400
         '
         Me.lbRT5400.AutoSize = True
-        Me.lbRT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT5400.Location = New System.Drawing.Point(1354, 877)
+        Me.lbRT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT5400.Location = New System.Drawing.Point(1394, 877)
         Me.lbRT5400.Name = "lbRT5400"
-        Me.lbRT5400.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT5400.Size = New System.Drawing.Size(16, 16)
         Me.lbRT5400.TabIndex = 405
         Me.lbRT5400.Text = "_"
         '
         'lbDT5400
         '
         Me.lbDT5400.AutoSize = True
-        Me.lbDT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT5400.Location = New System.Drawing.Point(1534, 877)
+        Me.lbDT5400.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT5400.Location = New System.Drawing.Point(1568, 877)
         Me.lbDT5400.Name = "lbDT5400"
-        Me.lbDT5400.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT5400.Size = New System.Drawing.Size(16, 16)
         Me.lbDT5400.TabIndex = 404
         Me.lbDT5400.Text = "_"
         '
@@ -2306,63 +2522,63 @@ Partial Class frmMonitor
         'lbPorOt5700
         '
         Me.lbPorOt5700.AutoSize = True
-        Me.lbPorOt5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorOt5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorOt5700.ForeColor = System.Drawing.Color.DarkKhaki
-        Me.lbPorOt5700.Location = New System.Drawing.Point(1789, 921)
+        Me.lbPorOt5700.Location = New System.Drawing.Point(1823, 921)
         Me.lbPorOt5700.Name = "lbPorOt5700"
-        Me.lbPorOt5700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorOt5700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorOt5700.TabIndex = 415
         Me.lbPorOt5700.Text = "_"
         '
         'lbOt5700
         '
         Me.lbOt5700.AutoSize = True
-        Me.lbOt5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOt5700.Location = New System.Drawing.Point(1703, 921)
+        Me.lbOt5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbOt5700.Location = New System.Drawing.Point(1737, 921)
         Me.lbOt5700.Name = "lbOt5700"
-        Me.lbOt5700.Size = New System.Drawing.Size(19, 20)
+        Me.lbOt5700.Size = New System.Drawing.Size(16, 16)
         Me.lbOt5700.TabIndex = 414
         Me.lbOt5700.Text = "_"
         '
         'lbPorRT5700
         '
         Me.lbPorRT5700.AutoSize = True
-        Me.lbPorRT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorRT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorRT5700.ForeColor = System.Drawing.Color.Green
-        Me.lbPorRT5700.Location = New System.Drawing.Point(1441, 921)
+        Me.lbPorRT5700.Location = New System.Drawing.Point(1467, 921)
         Me.lbPorRT5700.Name = "lbPorRT5700"
-        Me.lbPorRT5700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorRT5700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorRT5700.TabIndex = 413
         Me.lbPorRT5700.Text = "_"
         '
         'lbPorDT5700
         '
         Me.lbPorDT5700.AutoSize = True
-        Me.lbPorDT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPorDT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPorDT5700.ForeColor = System.Drawing.Color.Red
-        Me.lbPorDT5700.Location = New System.Drawing.Point(1613, 921)
+        Me.lbPorDT5700.Location = New System.Drawing.Point(1647, 921)
         Me.lbPorDT5700.Name = "lbPorDT5700"
-        Me.lbPorDT5700.Size = New System.Drawing.Size(19, 20)
+        Me.lbPorDT5700.Size = New System.Drawing.Size(16, 16)
         Me.lbPorDT5700.TabIndex = 412
         Me.lbPorDT5700.Text = "_"
         '
         'lbRT5700
         '
         Me.lbRT5700.AutoSize = True
-        Me.lbRT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbRT5700.Location = New System.Drawing.Point(1354, 921)
+        Me.lbRT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbRT5700.Location = New System.Drawing.Point(1394, 921)
         Me.lbRT5700.Name = "lbRT5700"
-        Me.lbRT5700.Size = New System.Drawing.Size(19, 20)
+        Me.lbRT5700.Size = New System.Drawing.Size(16, 16)
         Me.lbRT5700.TabIndex = 411
         Me.lbRT5700.Text = "_"
         '
         'lbDT5700
         '
         Me.lbDT5700.AutoSize = True
-        Me.lbDT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDT5700.Location = New System.Drawing.Point(1534, 921)
+        Me.lbDT5700.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDT5700.Location = New System.Drawing.Point(1568, 921)
         Me.lbDT5700.Name = "lbDT5700"
-        Me.lbDT5700.Size = New System.Drawing.Size(19, 20)
+        Me.lbDT5700.Size = New System.Drawing.Size(16, 16)
         Me.lbDT5700.TabIndex = 410
         Me.lbDT5700.Text = "_"
         '
@@ -2448,7 +2664,7 @@ Partial Class frmMonitor
         Me.cboMinutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMinutes.FormattingEnabled = True
         Me.cboMinutes.Items.AddRange(New Object() {"00:00", "00:15", "00:30", "00:45", "01:00", "01:15", "01:30", "01:45", "02:00", "02:15", "02:30", "02:45", "03:00", "03:15", "03:30", "03:45", "04:00", "04:15", "04:30", "04:45", "05:00", "05:15", "05:30", "05:45", "06:00", "06:15", "06:30", "06:45", "07:00", "07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00", "17:15", "17:30", "17:45", "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45", "20:00", "20:15", "20:30", "20:45", "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45"})
-        Me.cboMinutes.Location = New System.Drawing.Point(1379, 152)
+        Me.cboMinutes.Location = New System.Drawing.Point(1690, 7)
         Me.cboMinutes.Name = "cboMinutes"
         Me.cboMinutes.Size = New System.Drawing.Size(48, 21)
         Me.cboMinutes.TabIndex = 424
@@ -2464,24 +2680,24 @@ Partial Class frmMonitor
         Me.dgv1700.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv1700.ColumnHeadersVisible = False
         Me.dgv1700.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.qty, Me.h0, Me.h1, Me.h2, Me.h3, Me.h4, Me.h5, Me.h6, Me.h7, Me.h8, Me.h9, Me.h10, Me.h11, Me.h12, Me.Column1, Me.h14, Me.h15, Me.h16, Me.h17, Me.h18, Me.h19, Me.h20, Me.h21, Me.h22, Me.h23})
-        Me.dgv1700.Location = New System.Drawing.Point(98, 196)
+        Me.dgv1700.Location = New System.Drawing.Point(136, 196)
         Me.dgv1700.Name = "dgv1700"
         Me.dgv1700.ReadOnly = True
         Me.dgv1700.RowHeadersVisible = False
-        DataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle78.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle78.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle78.ForeColor = System.Drawing.Color.Black
-        Me.dgv1700.RowsDefaultCellStyle = DataGridViewCellStyle78
+        DataGridViewCellStyle206.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle206.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle206.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle206.ForeColor = System.Drawing.Color.Black
+        Me.dgv1700.RowsDefaultCellStyle = DataGridViewCellStyle206
         Me.dgv1700.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv1700.Size = New System.Drawing.Size(1246, 25)
         Me.dgv1700.TabIndex = 425
         '
         'qty
         '
-        DataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle77.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.qty.DefaultCellStyle = DataGridViewCellStyle77
+        DataGridViewCellStyle205.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle205.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.qty.DefaultCellStyle = DataGridViewCellStyle205
         Me.qty.HeaderText = "Column1"
         Me.qty.Name = "qty"
         Me.qty.ReadOnly = True
@@ -2668,29 +2884,29 @@ Partial Class frmMonitor
         Me.dgv2700.Location = New System.Drawing.Point(98, 385)
         Me.dgv2700.Name = "dgv2700"
         Me.dgv2700.ReadOnly = True
-        DataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle80.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle80.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle80.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle80.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle80.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv2700.RowHeadersDefaultCellStyle = DataGridViewCellStyle80
+        DataGridViewCellStyle208.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle208.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle208.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle208.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle208.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle208.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle208.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv2700.RowHeadersDefaultCellStyle = DataGridViewCellStyle208
         Me.dgv2700.RowHeadersVisible = False
-        DataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle81.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle81.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle81.ForeColor = System.Drawing.Color.Black
-        Me.dgv2700.RowsDefaultCellStyle = DataGridViewCellStyle81
+        DataGridViewCellStyle209.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle209.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle209.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle209.ForeColor = System.Drawing.Color.Black
+        Me.dgv2700.RowsDefaultCellStyle = DataGridViewCellStyle209
         Me.dgv2700.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv2700.Size = New System.Drawing.Size(1246, 25)
         Me.dgv2700.TabIndex = 426
         '
         'titulo2
         '
-        DataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle79.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo2.DefaultCellStyle = DataGridViewCellStyle79
+        DataGridViewCellStyle207.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle207.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo2.DefaultCellStyle = DataGridViewCellStyle207
         Me.titulo2.HeaderText = "Column1"
         Me.titulo2.Name = "titulo2"
         Me.titulo2.ReadOnly = True
@@ -2877,29 +3093,29 @@ Partial Class frmMonitor
         Me.dgv3700.Location = New System.Drawing.Point(98, 575)
         Me.dgv3700.Name = "dgv3700"
         Me.dgv3700.ReadOnly = True
-        DataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle83.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle83.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle83.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle83.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle83.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle83.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv3700.RowHeadersDefaultCellStyle = DataGridViewCellStyle83
+        DataGridViewCellStyle211.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle211.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle211.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle211.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle211.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle211.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle211.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv3700.RowHeadersDefaultCellStyle = DataGridViewCellStyle211
         Me.dgv3700.RowHeadersVisible = False
-        DataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle84.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle84.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle84.ForeColor = System.Drawing.Color.Black
-        Me.dgv3700.RowsDefaultCellStyle = DataGridViewCellStyle84
+        DataGridViewCellStyle212.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle212.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle212.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle212.ForeColor = System.Drawing.Color.Black
+        Me.dgv3700.RowsDefaultCellStyle = DataGridViewCellStyle212
         Me.dgv3700.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv3700.Size = New System.Drawing.Size(1246, 25)
         Me.dgv3700.TabIndex = 427
         '
         'titulo3700
         '
-        DataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle82.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo3700.DefaultCellStyle = DataGridViewCellStyle82
+        DataGridViewCellStyle210.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle210.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo3700.DefaultCellStyle = DataGridViewCellStyle210
         Me.titulo3700.HeaderText = "Column1"
         Me.titulo3700.Name = "titulo3700"
         Me.titulo3700.ReadOnly = True
@@ -3086,29 +3302,29 @@ Partial Class frmMonitor
         Me.dgv4700.Location = New System.Drawing.Point(97, 765)
         Me.dgv4700.Name = "dgv4700"
         Me.dgv4700.ReadOnly = True
-        DataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle86.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle86.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle86.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv4700.RowHeadersDefaultCellStyle = DataGridViewCellStyle86
+        DataGridViewCellStyle214.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle214.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle214.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle214.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle214.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle214.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle214.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv4700.RowHeadersDefaultCellStyle = DataGridViewCellStyle214
         Me.dgv4700.RowHeadersVisible = False
-        DataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle87.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle87.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle87.ForeColor = System.Drawing.Color.Black
-        Me.dgv4700.RowsDefaultCellStyle = DataGridViewCellStyle87
+        DataGridViewCellStyle215.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle215.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle215.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle215.ForeColor = System.Drawing.Color.Black
+        Me.dgv4700.RowsDefaultCellStyle = DataGridViewCellStyle215
         Me.dgv4700.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv4700.Size = New System.Drawing.Size(1246, 25)
         Me.dgv4700.TabIndex = 428
         '
         'DataGridViewTextBoxColumn51
         '
-        DataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle85.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn51.DefaultCellStyle = DataGridViewCellStyle85
+        DataGridViewCellStyle213.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle213.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn51.DefaultCellStyle = DataGridViewCellStyle213
         Me.DataGridViewTextBoxColumn51.HeaderText = "Column1"
         Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
         Me.DataGridViewTextBoxColumn51.ReadOnly = True
@@ -3295,29 +3511,29 @@ Partial Class frmMonitor
         Me.dgv5700.Location = New System.Drawing.Point(97, 956)
         Me.dgv5700.Name = "dgv5700"
         Me.dgv5700.ReadOnly = True
-        DataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle89.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv5700.RowHeadersDefaultCellStyle = DataGridViewCellStyle89
+        DataGridViewCellStyle217.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle217.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle217.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle217.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle217.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle217.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle217.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv5700.RowHeadersDefaultCellStyle = DataGridViewCellStyle217
         Me.dgv5700.RowHeadersVisible = False
-        DataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle90.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle90.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle90.ForeColor = System.Drawing.Color.Black
-        Me.dgv5700.RowsDefaultCellStyle = DataGridViewCellStyle90
+        DataGridViewCellStyle218.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle218.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle218.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle218.ForeColor = System.Drawing.Color.Black
+        Me.dgv5700.RowsDefaultCellStyle = DataGridViewCellStyle218
         Me.dgv5700.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv5700.Size = New System.Drawing.Size(1246, 25)
         Me.dgv5700.TabIndex = 429
         '
         'DataGridViewTextBoxColumn76
         '
-        DataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle88.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn76.DefaultCellStyle = DataGridViewCellStyle88
+        DataGridViewCellStyle216.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle216.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn76.DefaultCellStyle = DataGridViewCellStyle216
         Me.DataGridViewTextBoxColumn76.HeaderText = "Column1"
         Me.DataGridViewTextBoxColumn76.Name = "DataGridViewTextBoxColumn76"
         Me.DataGridViewTextBoxColumn76.ReadOnly = True
@@ -3511,24 +3727,24 @@ Partial Class frmMonitor
         Me.dgvm1shift1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvm1shift1.ColumnHeadersVisible = False
         Me.dgvm1shift1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19})
-        Me.dgvm1shift1.Location = New System.Drawing.Point(97, 196)
+        Me.dgvm1shift1.Location = New System.Drawing.Point(136, 196)
         Me.dgvm1shift1.Name = "dgvm1shift1"
         Me.dgvm1shift1.ReadOnly = True
         Me.dgvm1shift1.RowHeadersVisible = False
-        DataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle92.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle92.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle92.ForeColor = System.Drawing.Color.Black
-        Me.dgvm1shift1.RowsDefaultCellStyle = DataGridViewCellStyle92
+        DataGridViewCellStyle220.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle220.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle220.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle220.ForeColor = System.Drawing.Color.Black
+        Me.dgvm1shift1.RowsDefaultCellStyle = DataGridViewCellStyle220
         Me.dgvm1shift1.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgvm1shift1.Size = New System.Drawing.Size(1246, 25)
         Me.dgvm1shift1.TabIndex = 439
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle91.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle91
+        DataGridViewCellStyle219.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle219.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle219
         Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -3625,20 +3841,20 @@ Partial Class frmMonitor
         Me.dgvm2Shift1.Name = "dgvm2Shift1"
         Me.dgvm2Shift1.ReadOnly = True
         Me.dgvm2Shift1.RowHeadersVisible = False
-        DataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle94.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle94.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle94.ForeColor = System.Drawing.Color.Black
-        Me.dgvm2Shift1.RowsDefaultCellStyle = DataGridViewCellStyle94
+        DataGridViewCellStyle222.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle222.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle222.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle222.ForeColor = System.Drawing.Color.Black
+        Me.dgvm2Shift1.RowsDefaultCellStyle = DataGridViewCellStyle222
         Me.dgvm2Shift1.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgvm2Shift1.Size = New System.Drawing.Size(1246, 25)
         Me.dgvm2Shift1.TabIndex = 440
         '
         'DataGridViewTextBoxColumn2
         '
-        DataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle93.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle93
+        DataGridViewCellStyle221.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle221.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle221
         Me.DataGridViewTextBoxColumn2.HeaderText = "Column1"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
@@ -3735,20 +3951,20 @@ Partial Class frmMonitor
         Me.dgvM3shift1.Name = "dgvM3shift1"
         Me.dgvM3shift1.ReadOnly = True
         Me.dgvM3shift1.RowHeadersVisible = False
-        DataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle96.BackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle96.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle96.ForeColor = System.Drawing.Color.Black
-        Me.dgvM3shift1.RowsDefaultCellStyle = DataGridViewCellStyle96
+        DataGridViewCellStyle224.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle224.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle224.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle224.ForeColor = System.Drawing.Color.Black
+        Me.dgvM3shift1.RowsDefaultCellStyle = DataGridViewCellStyle224
         Me.dgvM3shift1.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgvM3shift1.Size = New System.Drawing.Size(1246, 25)
         Me.dgvM3shift1.TabIndex = 441
         '
         'DataGridViewTextBoxColumn25
         '
-        DataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle95.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle95
+        DataGridViewCellStyle223.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle223.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle223
         Me.DataGridViewTextBoxColumn25.HeaderText = "Column1"
         Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
         Me.DataGridViewTextBoxColumn25.ReadOnly = True
@@ -3867,7 +4083,7 @@ Partial Class frmMonitor
         Me.cbShift1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbShift1.FormattingEnabled = True
         Me.cbShift1.Items.AddRange(New Object() {"07:00", "07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00"})
-        Me.cbShift1.Location = New System.Drawing.Point(1379, 108)
+        Me.cbShift1.Location = New System.Drawing.Point(1625, 7)
         Me.cbShift1.Name = "cbShift1"
         Me.cbShift1.Size = New System.Drawing.Size(48, 21)
         Me.cbShift1.TabIndex = 443
@@ -3987,7 +4203,7 @@ Partial Class frmMonitor
         'pbM1shift1
         '
         Me.pbM1shift1.Image = Global.DTMS.My.Resources.Resources.shift1Hours
-        Me.pbM1shift1.Location = New System.Drawing.Point(237, 44)
+        Me.pbM1shift1.Location = New System.Drawing.Point(276, 44)
         Me.pbM1shift1.Name = "pbM1shift1"
         Me.pbM1shift1.Size = New System.Drawing.Size(1109, 18)
         Me.pbM1shift1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -4008,218 +4224,158 @@ Partial Class frmMonitor
         '
         Me.PictureBox11.ContextMenuStrip = Me.ContextMenuStrip1
         Me.PictureBox11.Image = Global.DTMS.My.Resources.Resources.bmaIndex1Mod
-        Me.PictureBox11.Location = New System.Drawing.Point(1349, 38)
+        Me.PictureBox11.Location = New System.Drawing.Point(1388, 38)
         Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(479, 26)
+        Me.PictureBox11.Size = New System.Drawing.Size(454, 26)
         Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox11.TabIndex = 327
         Me.PictureBox11.TabStop = False
         '
-        'pb5700
+        'Button2
         '
-        Me.pb5700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb5700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb5700.Location = New System.Drawing.Point(233, 112)
-        Me.pb5700.Name = "pb5700"
-        Me.pb5700.Size = New System.Drawing.Size(1108, 44)
-        Me.pb5700.TabIndex = 255
-        Me.pb5700.TabStop = False
+        Me.Button2.Location = New System.Drawing.Point(1744, 7)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 446
+        Me.Button2.Text = "Test ss"
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
-        'pb5400
+        'dgvwipM1
         '
-        Me.pb5400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb5400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb5400.Location = New System.Drawing.Point(233, 66)
-        Me.pb5400.Name = "pb5400"
-        Me.pb5400.Size = New System.Drawing.Size(1108, 44)
-        Me.pb5400.TabIndex = 254
-        Me.pb5400.TabStop = False
+        Me.dgvwipM1.AllowUserToAddRows = False
+        Me.dgvwipM1.AllowUserToDeleteRows = False
+        Me.dgvwipM1.AllowUserToOrderColumns = True
+        Me.dgvwipM1.AllowUserToResizeColumns = False
+        Me.dgvwipM1.AllowUserToResizeRows = False
+        Me.dgvwipM1.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvwipM1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvwipM1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvwipM1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.qwm1})
+        Me.dgvwipM1.Location = New System.Drawing.Point(238, 43)
+        Me.dgvwipM1.Name = "dgvwipM1"
+        Me.dgvwipM1.RowHeadersVisible = False
+        Me.dgvwipM1.RowHeadersWidth = 10
+        Me.dgvwipM1.Size = New System.Drawing.Size(39, 154)
+        Me.dgvwipM1.TabIndex = 449
         '
-        'pb5100
+        'qwm1
         '
-        Me.pb5100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb5100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb5100.Location = New System.Drawing.Point(233, 21)
-        Me.pb5100.Name = "pb5100"
-        Me.pb5100.Size = New System.Drawing.Size(1108, 44)
-        Me.pb5100.TabIndex = 247
-        Me.pb5100.TabStop = False
+        Me.qwm1.HeaderText = "WIP"
+        Me.qwm1.Name = "qwm1"
+        Me.qwm1.Width = 35
         '
-        'PictureBox10
+        'dgvwipM2
         '
-        Me.PictureBox10.Image = Global.DTMS.My.Resources.Resources.M5
-        Me.PictureBox10.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(1340, 155)
-        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox10.TabIndex = 0
-        Me.PictureBox10.TabStop = False
+        Me.dgvwipM2.AllowUserToAddRows = False
+        Me.dgvwipM2.AllowUserToDeleteRows = False
+        Me.dgvwipM2.AllowUserToOrderColumns = True
+        Me.dgvwipM2.AllowUserToResizeColumns = False
+        Me.dgvwipM2.AllowUserToResizeRows = False
+        Me.dgvwipM2.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvwipM2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvwipM2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvwipM2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn37})
+        Me.dgvwipM2.Location = New System.Drawing.Point(1346, 229)
+        Me.dgvwipM2.Name = "dgvwipM2"
+        Me.dgvwipM2.RowHeadersVisible = False
+        Me.dgvwipM2.RowHeadersWidth = 10
+        Me.dgvwipM2.Size = New System.Drawing.Size(39, 157)
+        Me.dgvwipM2.TabIndex = 450
+        Me.dgvwipM2.Visible = False
         '
-        'pb4700
+        'DataGridViewTextBoxColumn37
         '
-        Me.pb4700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb4700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb4700.Location = New System.Drawing.Point(233, 111)
-        Me.pb4700.Name = "pb4700"
-        Me.pb4700.Size = New System.Drawing.Size(1108, 44)
-        Me.pb4700.TabIndex = 255
-        Me.pb4700.TabStop = False
+        Me.DataGridViewTextBoxColumn37.HeaderText = "WIP"
+        Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
+        Me.DataGridViewTextBoxColumn37.Width = 35
         '
-        'pb4400
+        'dgvwipM3
         '
-        Me.pb4400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb4400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb4400.Location = New System.Drawing.Point(233, 66)
-        Me.pb4400.Name = "pb4400"
-        Me.pb4400.Size = New System.Drawing.Size(1108, 44)
-        Me.pb4400.TabIndex = 254
-        Me.pb4400.TabStop = False
+        Me.dgvwipM3.AllowUserToAddRows = False
+        Me.dgvwipM3.AllowUserToDeleteRows = False
+        Me.dgvwipM3.AllowUserToOrderColumns = True
+        Me.dgvwipM3.AllowUserToResizeColumns = False
+        Me.dgvwipM3.AllowUserToResizeRows = False
+        Me.dgvwipM3.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvwipM3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvwipM3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvwipM3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn38})
+        Me.dgvwipM3.Location = New System.Drawing.Point(1346, 418)
+        Me.dgvwipM3.Name = "dgvwipM3"
+        Me.dgvwipM3.RowHeadersVisible = False
+        Me.dgvwipM3.RowHeadersWidth = 10
+        Me.dgvwipM3.Size = New System.Drawing.Size(39, 157)
+        Me.dgvwipM3.TabIndex = 451
+        Me.dgvwipM3.Visible = False
         '
-        'pb4100
+        'DataGridViewTextBoxColumn38
         '
-        Me.pb4100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb4100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb4100.Location = New System.Drawing.Point(233, 21)
-        Me.pb4100.Name = "pb4100"
-        Me.pb4100.Size = New System.Drawing.Size(1108, 44)
-        Me.pb4100.TabIndex = 247
-        Me.pb4100.TabStop = False
+        Me.DataGridViewTextBoxColumn38.HeaderText = "WIP"
+        Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
+        Me.DataGridViewTextBoxColumn38.Width = 35
         '
-        'PictureBox8
+        'DataGridView3
         '
-        Me.PictureBox8.Image = Global.DTMS.My.Resources.Resources.M4
-        Me.PictureBox8.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(1340, 155)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox8.TabIndex = 0
-        Me.PictureBox8.TabStop = False
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.AllowUserToDeleteRows = False
+        Me.DataGridView3.AllowUserToOrderColumns = True
+        Me.DataGridView3.AllowUserToResizeColumns = False
+        Me.DataGridView3.AllowUserToResizeRows = False
+        Me.DataGridView3.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn39})
+        Me.DataGridView3.Location = New System.Drawing.Point(1346, 609)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.RowHeadersVisible = False
+        Me.DataGridView3.RowHeadersWidth = 10
+        Me.DataGridView3.Size = New System.Drawing.Size(39, 157)
+        Me.DataGridView3.TabIndex = 452
+        Me.DataGridView3.Visible = False
         '
-        'pb3700
+        'DataGridViewTextBoxColumn39
         '
-        Me.pb3700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb3700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb3700.Location = New System.Drawing.Point(233, 112)
-        Me.pb3700.Name = "pb3700"
-        Me.pb3700.Size = New System.Drawing.Size(1110, 44)
-        Me.pb3700.TabIndex = 255
-        Me.pb3700.TabStop = False
+        Me.DataGridViewTextBoxColumn39.HeaderText = "WIP"
+        Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
+        Me.DataGridViewTextBoxColumn39.Width = 35
         '
-        'pb3400
+        'DataGridView4
         '
-        Me.pb3400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb3400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb3400.Location = New System.Drawing.Point(233, 66)
-        Me.pb3400.Name = "pb3400"
-        Me.pb3400.Size = New System.Drawing.Size(1110, 44)
-        Me.pb3400.TabIndex = 254
-        Me.pb3400.TabStop = False
+        Me.DataGridView4.AllowUserToAddRows = False
+        Me.DataGridView4.AllowUserToDeleteRows = False
+        Me.DataGridView4.AllowUserToOrderColumns = True
+        Me.DataGridView4.AllowUserToResizeColumns = False
+        Me.DataGridView4.AllowUserToResizeRows = False
+        Me.DataGridView4.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn40})
+        Me.DataGridView4.Location = New System.Drawing.Point(1346, 802)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.RowHeadersVisible = False
+        Me.DataGridView4.RowHeadersWidth = 10
+        Me.DataGridView4.Size = New System.Drawing.Size(39, 157)
+        Me.DataGridView4.TabIndex = 453
+        Me.DataGridView4.Visible = False
         '
-        'pb3100
+        'DataGridViewTextBoxColumn40
         '
-        Me.pb3100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb3100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb3100.Location = New System.Drawing.Point(233, 21)
-        Me.pb3100.Name = "pb3100"
-        Me.pb3100.Size = New System.Drawing.Size(1110, 44)
-        Me.pb3100.TabIndex = 247
-        Me.pb3100.TabStop = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.DTMS.My.Resources.Resources.M3
-        Me.PictureBox6.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(1340, 155)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 0
-        Me.PictureBox6.TabStop = False
-        '
-        'pb2700
-        '
-        Me.pb2700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb2700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb2700.Location = New System.Drawing.Point(233, 112)
-        Me.pb2700.Name = "pb2700"
-        Me.pb2700.Size = New System.Drawing.Size(1108, 44)
-        Me.pb2700.TabIndex = 255
-        Me.pb2700.TabStop = False
-        '
-        'pb2400
-        '
-        Me.pb2400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pb2400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pb2400.Location = New System.Drawing.Point(233, 67)
-        Me.pb2400.Name = "pb2400"
-        Me.pb2400.Size = New System.Drawing.Size(1108, 44)
-        Me.pb2400.TabIndex = 254
-        Me.pb2400.TabStop = False
-        '
-        'pbm2p100
-        '
-        Me.pbm2p100.BackColor = System.Drawing.Color.Gainsboro
-        Me.pbm2p100.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbm2p100.Location = New System.Drawing.Point(233, 21)
-        Me.pbm2p100.Name = "pbm2p100"
-        Me.pbm2p100.Size = New System.Drawing.Size(1108, 44)
-        Me.pbm2p100.TabIndex = 247
-        Me.pbm2p100.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.DTMS.My.Resources.Resources.M2
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(1338, 155)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 0
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Gainsboro
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Location = New System.Drawing.Point(234, 23)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1107, 44)
-        Me.PictureBox1.TabIndex = 247
-        Me.PictureBox1.TabStop = False
-        '
-        'pbm1p400
-        '
-        Me.pbm1p400.BackColor = System.Drawing.Color.Gainsboro
-        Me.pbm1p400.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbm1p400.Location = New System.Drawing.Point(234, 68)
-        Me.pbm1p400.Name = "pbm1p400"
-        Me.pbm1p400.Size = New System.Drawing.Size(1107, 44)
-        Me.pbm1p400.TabIndex = 259
-        Me.pbm1p400.TabStop = False
-        '
-        'pbm1p700
-        '
-        Me.pbm1p700.BackColor = System.Drawing.Color.Gainsboro
-        Me.pbm1p700.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbm1p700.Location = New System.Drawing.Point(234, 112)
-        Me.pbm1p700.Name = "pbm1p700"
-        Me.pbm1p700.Size = New System.Drawing.Size(1107, 44)
-        Me.pbm1p700.TabIndex = 255
-        Me.pbm1p700.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.DTMS.My.Resources.Resources.cuad3
-        Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1338, 155)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
+        Me.DataGridViewTextBoxColumn40.HeaderText = "WIP"
+        Me.DataGridViewTextBoxColumn40.Name = "DataGridViewTextBoxColumn40"
+        Me.DataGridViewTextBoxColumn40.Width = 35
         '
         'frmMonitor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1505, 863)
+        Me.ClientSize = New System.Drawing.Size(1846, 971)
+        Me.Controls.Add(Me.DataGridView4)
+        Me.Controls.Add(Me.DataGridView3)
+        Me.Controls.Add(Me.dgvwipM3)
+        Me.Controls.Add(Me.dgvwipM2)
+        Me.Controls.Add(Me.dgvwipM1)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnProgress)
         Me.Controls.Add(Me.GunaAdvenceButton1)
         Me.Controls.Add(Me.cbShift1)
@@ -4357,26 +4513,46 @@ Partial Class frmMonitor
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip2.ResumeLayout(False)
         Me.pm1.ResumeLayout(False)
         Me.pm1.PerformLayout()
+        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip3.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
+        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
+        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel11.ResumeLayout(False)
         Me.Panel11.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
@@ -4397,26 +4573,11 @@ Partial Class frmMonitor
         CType(Me.pbM1shift1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb5700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb5400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb5100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb4700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb4400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb4100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb3700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb3400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb3100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb2700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pb2400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm2p100, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm1p400, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbm1p700, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvwipM1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvwipM2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvwipM3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -4811,4 +4972,15 @@ Partial Class frmMonitor
     Friend WithEvents ContextMenuStrip4 As ContextMenuStrip
     Friend WithEvents GunaAdvenceButton1 As Guna.UI.WinForms.GunaAdvenceButton
     Friend WithEvents btnProgress As Guna.UI.WinForms.GunaAdvenceButton
+    Friend WithEvents Button2 As Button
+    Friend WithEvents dgvwipM1 As DataGridView
+    Friend WithEvents qwm1 As DataGridViewTextBoxColumn
+    Friend WithEvents dgvwipM2 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn37 As DataGridViewTextBoxColumn
+    Friend WithEvents dgvwipM3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn38 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn39 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView4 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn40 As DataGridViewTextBoxColumn
 End Class
