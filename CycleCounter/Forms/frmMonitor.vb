@@ -2704,6 +2704,12 @@ primeraVez:
         Dim process1 As String = $"{primerDigito}100"
         Dim process2 As String = $"{primerDigito}400"
 
+        With dgv.DefaultCellStyle
+            .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            .Alignment = DataGridViewContentAlignment.MiddleRight
+        End With
+
+
         Dim fechaActual As Date = Date.Today ' Obtener la fecha actual
         Dim fechaActualFormateada As String = fechaActual.ToString("yyyy-MM-dd") ' Formatear la fecha para SQL
 
@@ -2727,8 +2733,9 @@ primeraVez:
                                 rowIndex = 1
                         End Select
 
+                        Dim cellname As String = GetCellName(dgv.Name)
                         If rowIndex >= 0 AndAlso rowIndex < dgv.Rows.Count Then
-                            dgv.Rows(rowIndex).Cells("qwm1").Value = reader("wipQty")
+                            dgv.Rows(rowIndex).Cells(cellname).Value = reader("wipQty")
                         End If
                     End While
                 End Using
@@ -2741,7 +2748,7 @@ primeraVez:
 
     Private Function GetLastNonNullValue(processCode As String, linecode As String) As Integer
         Dim query As String = "DECLARE @MesSiteCode INT = 11
-       ,@ResultDate NVARCHAR(10) = '2025-04-09'
+       ,@ResultDate NVARCHAR(10) = @insertDate
        ,@ViewTypeCode Nvarchar(30) = 'ByMachine'
 
 --검사 실적 테이블
@@ -2899,6 +2906,1595 @@ GROUP BY T1.ProcessCode, T4.LineCode, T1.MachineCode
 ORDER BY T1.ProcessCode, T1.MachineCode;"
 
         Using command As New SqlCommand(query, conEISS)
+            command.Parameters.AddWithValue("@insertDate", ConvierteAdateMySQL(Date.Now.ToShortDateString))
+            command.Parameters.AddWithValue("@ProcessCode", processCode)
+            command.Parameters.AddWithValue("@LineCode", linecode)
+
+            Using reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    For i As Integer = reader.FieldCount - 1 To 0 Step -1 ' Revisa todas las columnas en orden inverso
+                        If Not reader.IsDBNull(i) Then
+                            Return Convert.ToInt32(reader.GetValue(i)) ' Devuelve el primer valor no nulo encontrado
+                        End If
+                    Next
+                End If
+            End Using
+        End Using
+
+        Return 0
+    End Function
+
+    Private Function GetLastNonNullValue400(processCode As String, linecode As String) As Integer
+        Dim query As String = "------------------------------------------------------------------------------------------------------------------------------
+DECLARE  @MesSiteCode INT = 11
+		,@ResultDate NVARCHAR(10) = @insertDate
+		,@ViewTypeCode Nvarchar(30) = 'ByMachine'
+
+
+--검사 실적 테이블
+DECLARE @InspectResult TABLE (
+	MesSiteCode INT,
+	TimeTable NVARCHAR(20),
+	ProcessCode NVARCHAR(50),
+	MachineCode NVARCHAR(50),
+	LotNo NVARCHAR(20),
+	SubPno NVARCHAR(20),  	
+	QtyResult INT
+)
+
+--합격바코드 테이블
+DECLARE @PassBarCodeTable TABLE
+(
+	[MesSiteCode] [int] NOT NULL,
+	[ProcessCode] [nvarchar](20) NOT NULL,
+	[LotNo] [nvarchar](20) NOT NULL,
+	[SubPno] [nvarchar](50) NOT NULL,
+	[MachineCode] [nvarchar](20) NOT NULL,
+	[BarCode] [nvarchar](50) NOT NULL,
+	Primary Key([MesSiteCode]
+               ,[ProcessCode]
+			   ,[LotNo]
+			   ,[SubPno]
+			   ,[MachineCode]
+			   ,[BarCode])
+)
+
+--조회 결과 테이블
+Declare @SearchResultTable Table (
+	MesSiteCode INT,
+	--TimeTable NVARCHAR(20),
+	ProcessCode NVARCHAR(50),
+	LotNo NVARCHAR(20),
+	SubPno NVARCHAR(20),
+	MachineCode NVARCHAR(50),
+	[07:00~08:00] NVARCHAR(20),
+	[08:00~09:00] NVARCHAR(20),
+	[09:00~10:00] NVARCHAR(20),
+	[10:00~11:00] NVARCHAR(20),
+	[11:00~12:00] NVARCHAR(20),
+	[12:00~13:00] NVARCHAR(20),
+	[13:00~14:00] NVARCHAR(20),
+	[14:00~15:00] NVARCHAR(20),
+	[15:00~16:00] NVARCHAR(20),
+	[16:00~17:00] NVARCHAR(20),
+    [17:00~18:00] NVARCHAR(20),
+	[18:00~19:00] NVARCHAR(20),
+	[Shift1] NVARCHAR(20),	
+	[19:00~20:00] NVARCHAR(20),
+	[20:00~21:00] NVARCHAR(20),
+	[21:00~22:00] NVARCHAR(20),
+	[22:00~23:00] NVARCHAR(20),
+	[23:00~24:00] NVARCHAR(20),
+	[00:00~01:00] NVARCHAR(20),
+	[01:00~02:00] NVARCHAR(20),
+	[02:00~03:00] NVARCHAR(20),
+	[03:00~04:00] NVARCHAR(20),
+	[04:00~05:00] NVARCHAR(20),
+	[05:00~06:00] NVARCHAR(20),
+	[06:00~07:00] NVARCHAR(20),
+	[Shift2] NVARCHAR(20),
+	[QtyPass] NVARCHAR(20),
+	[QtyFail] NVARCHAR(20)
+)
+
+
+--PCB 검사 실적 시간 별 수량
+INSERT INTO @InspectResult (
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode, 
+	LotNo,
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	[dbo].[UF_GetShiftTimeTable](@MesSiteCode,T1.INSERT_DATE) AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	[dbo].[UF_GetShiftTimeTable](@MesSiteCode,T1.[INSERT_DATE]) ,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]             	
+
+
+--PCB 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult (
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode, 
+	LotNo,
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	CASE WHEN
+		LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' 
+		ELSE 'Shift2' END AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	CASE WHEN
+		LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' 
+		ELSE 'Shift2' END,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]     
+
+
+--PCB 합격 수량		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyPass' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'PASS'
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]  
+	
+
+--PCB 합격 바코드
+INSERT @PassBarCodeTable 
+SELECT 
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	T1.[MachineCode],
+	T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] T1
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	AND T1.[InspectResult] = 'PASS'
+	
+	
+	
+	
+	
+	
+	
+GROUP BY 
+	T1.[MesSiteCode], 
+	T1.[ProcessCode], 
+	T1.[LotNo], 
+	T1.[SubPno], 
+	T1.[MachineCode], 
+	T1.[BarCode]
+
+
+--PCB 불합격 수량, 불합격 후 합격된 바코드는 제외		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyFail' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join @PassBarCodeTable As T2
+	On T2.[MesSiteCode] = T1.[MesSiteCode]
+		And T2.[ProcessCode] = T1.[ProcessCode]
+		And T2.[LotNo] = T1.[LotNo]
+		And T2.[SubPno] = T1.[SubPno]
+		And T2.[MachineCode] = T1.[MachineCode]
+		And T2.[BarCode] = T1.[BarCode]
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'FAIL'
+	And T2.[BarCode] Is Null
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno] 
+
+
+
+
+--ASSY 검사 실적 시간별 수량
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	dbo.UF_GetShiftTimeTable(@MesSiteCode,T1.[INSERT_DATE]) AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	[dbo].[UF_GetShiftTimeTable](@MesSiteCode,T1.[INSERT_DATE]) ,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]      
+
+
+--ASSY 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	CASE WHEN
+	LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	CASE WHEN
+	LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]  
+
+
+--ASSY 합격 수량		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyPass' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'PASS'
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]  
+
+
+--ASSY 합격 바코드
+INSERT @PassBarCodeTable 
+SELECT 
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	T1.[MachineCode],
+	T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	AND T1.[InspectResult] = 'PASS'
+	
+	
+	
+	
+	
+	
+	
+GROUP BY 
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[LotNo],
+	T1.[SubPno], 
+	T1.[MachineCode], 
+	T1.[BarCode]
+
+
+--ASSY 불합격 수량, 불합격 후 합격된 바코드는 제외		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyFail' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join @PassBarCodeTable As T2
+	On T2.[MesSiteCode] = T1.[MesSiteCode]
+		And T2.[ProcessCode] = T1.[ProcessCode]
+		And T2.[LotNo] = T1.[LotNo]
+		And T2.[SubPno] = T1.[SubPno]
+		And T2.[MachineCode] = T1.[MachineCode]
+		And T2.[BarCode] = T1.[BarCode]
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'FAIL'
+	And T2.[BarCode] Is Null
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno] 
+
+
+--[TimeTable] 행렬 변환
+Insert into @SearchResultTable
+	SELECT * FROM (
+		Select 
+			T1.[MesSiteCode],
+			T1.[TimeTable],
+			T1.[ProcessCode],
+			T1.[LotNo],
+			T1.[SubPno],
+			T1.[MachineCode],
+			T1.[QtyResult]
+		FROM @InspectResult AS T1
+					) AS T1
+		PIVOT ( SUM(QtyResult) FOR [TimeTable] IN ( 
+				[07:00~08:00],
+				[08:00~09:00],
+				[09:00~10:00],
+				[10:00~11:00],
+				[11:00~12:00],
+				[12:00~13:00],
+				[13:00~14:00],
+				[14:00~15:00],
+				[15:00~16:00],
+				[16:00~17:00],
+                [17:00~18:00],
+				[18:00~19:00],
+				[Shift1],				
+				[19:00~20:00],
+				[20:00~21:00],
+				[21:00~22:00],
+				[22:00~23:00],
+				[23:00~24:00],
+				[00:00~01:00],
+				[01:00~02:00],
+				[02:00~03:00],
+				[03:00~04:00],
+				[04:00~05:00],
+				[05:00~06:00],
+				[06:00~07:00],
+				[Shift2],
+				[QtyPass],
+				[QtyFail]
+				)) AS T2
+
+
+--상세히
+If(@ViewTypeCode = 'Detail')
+Begin
+	Select
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+	    T5.[CarName],
+	    T5.[ItemName], 
+		T1.[LotNo],
+		T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName],
+		convert(Int, T1.[07:00~08:00]) As [07:00~08:00],
+		convert(Int, T1.[08:00~09:00]) As [08:00~09:00],
+		convert(Int, T1.[09:00~10:00]) As [09:00~10:00],
+		convert(Int, T1.[10:00~11:00]) As [10:00~11:00],
+		convert(Int, T1.[11:00~12:00]) As [11:00~12:00],
+		convert(Int, T1.[12:00~13:00]) As [12:00~13:00],
+		convert(Int, T1.[13:00~14:00]) As [13:00~14:00],
+		convert(Int, T1.[14:00~15:00]) As [14:00~15:00],
+		convert(Int, T1.[15:00~16:00]) As [15:00~16:00],
+		convert(Int, T1.[16:00~17:00]) As [16:00~17:00],
+	    convert(Int, T1.[17:00~18:00]) As [17:00~18:00],
+		convert(Int, T1.[18:00~19:00]) As [18:00~19:00],
+		convert(Int, T1.[Shift1]) As [Shift1],	
+		convert(Int, T1.[19:00~20:00]) As [19:00~20:00],
+		convert(Int, T1.[20:00~21:00]) As [20:00~21:00],
+		convert(Int, T1.[21:00~22:00]) As [21:00~22:00],
+		convert(Int, T1.[22:00~23:00]) As [22:00~23:00],
+		convert(Int, T1.[23:00~24:00]) As [23:00~24:00],
+		convert(Int, T1.[00:00~01:00]) As [00:00~01:00],
+		convert(Int, T1.[01:00~02:00]) As [01:00~02:00],
+		convert(Int, T1.[02:00~03:00]) As [02:00~03:00],
+		convert(Int, T1.[03:00~04:00]) As [03:00~04:00],
+		convert(Int, T1.[04:00~05:00]) As [04:00~05:00],
+		convert(Int, T1.[05:00~06:00]) As [05:00~06:00],
+		convert(Int, T1.[06:00~07:00]) As [06:00~07:00],
+		convert(Int, T1.[Shift2]) As [Shift2],
+		convert(Int, T1.[QtyPass]) As [QtyPass],
+		convert(Int, T1.[QtyFail]) As [QtyFail]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		
+		
+		
+	Order By T1.[ProcessCode], T1.[MachineCode], T1.[SubPno], T1.[LotNo]
+End
+--로트별
+Else If(@ViewTypeCode = 'ByLotNo') 
+Begin
+	SELECT 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		MAX(T5.[CarName]) AS [CarName],
+	    MAX(T5.[ItemName]) AS [ItemName],
+		T1.[LotNo],
+		--T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName],
+		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
+		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
+		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
+		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
+		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
+		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
+		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
+		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
+		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
+		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00],
+	    sum(convert(Int, T1.[17:00~18:00])) As [17:00~18:00],
+		sum(convert(Int, T1.[18:00~19:00])) As [18:00~19:00],
+		sum(convert(Int, T1.[Shift1])) As [Shift1],	
+		sum(convert(Int, T1.[19:00~20:00])) As [19:00~20:00],
+		sum(convert(Int, T1.[20:00~21:00])) As [20:00~21:00],
+		sum(convert(Int, T1.[21:00~22:00])) As [21:00~22:00],
+		sum(convert(Int, T1.[22:00~23:00])) As [22:00~23:00],
+		sum(convert(Int, T1.[23:00~24:00])) As [23:00~24:00],
+		sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
+		sum(convert(Int, T1.[01:00~02:00])) As [01:00~02:00],
+		sum(convert(Int, T1.[02:00~03:00])) As [02:00~03:00],
+		sum(convert(Int, T1.[03:00~04:00])) As [03:00~04:00],
+		sum(convert(Int, T1.[04:00~05:00])) As [04:00~05:00],
+		sum(convert(Int, T1.[05:00~06:00])) As [05:00~06:00],
+		sum(convert(Int, T1.[06:00~07:00])) As [06:00~07:00],
+		sum(convert(Int, T1.[Shift2])) As [Shift2],
+		sum(convert(Int, T1.[QtyPass])) As [QtyPass],
+		sum(convert(Int, T1.[QtyFail])) As [QtyFail]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		
+		
+		
+    GROUP BY 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+        T1.[LotNo],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName]
+	Order By T1.[ProcessCode], T1.[MachineCode], T1.[LotNo]
+End
+--품번별
+Else If(@ViewTypeCode = 'BySubPno')
+Begin
+	SELECT 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		MAX(T5.[CarName]) AS [CarName],
+	    MAX(T5.[ItemName]) AS [ItemName],
+		--T1.[LotNo],
+		T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName],
+		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
+		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
+		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
+		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
+		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
+		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
+		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
+		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
+		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
+		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00],
+        sum(convert(Int, T1.[17:00~18:00])) As [17:00~18:00],
+		sum(convert(Int, T1.[18:00~19:00])) As [18:00~19:00],
+		sum(convert(Int, T1.[Shift1])) As [Shift1],		
+		sum(convert(Int, T1.[19:00~20:00])) As [19:00~20:00],
+		sum(convert(Int, T1.[20:00~21:00])) As [20:00~21:00],
+		sum(convert(Int, T1.[21:00~22:00])) As [21:00~22:00],
+		sum(convert(Int, T1.[22:00~23:00])) As [22:00~23:00],
+		sum(convert(Int, T1.[23:00~24:00])) As [23:00~24:00],
+		sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
+		sum(convert(Int, T1.[01:00~02:00])) As [01:00~02:00],
+		sum(convert(Int, T1.[02:00~03:00])) As [02:00~03:00],
+		sum(convert(Int, T1.[03:00~04:00])) As [03:00~04:00],
+		sum(convert(Int, T1.[04:00~05:00])) As [04:00~05:00],
+		sum(convert(Int, T1.[05:00~06:00])) As [05:00~06:00],
+		sum(convert(Int, T1.[06:00~07:00])) As [06:00~07:00],
+		sum(convert(Int, T1.[Shift2])) As [Shift2],
+		sum(convert(Int, T1.[QtyPass])) As [QtyPass],
+		sum(convert(Int, T1.[QtyFail])) As [QtyFail]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		
+		
+		
+    GROUP BY 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+        T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName]
+	Order By T1.[ProcessCode], T1.[MachineCode], T1.[SubPno]
+End
+--설비별
+Else If(@ViewTypeCode = 'ByMachine')
+Begin
+	SELECT 
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		--T5.[CarName],
+		--T5.[ItemName], 
+		--T1.[LotNo],
+		--T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		sum(convert(Int, T1.[QtyPass])) As [QtyPass]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		and T1.ProcessCode = @ProcessCode AND T4.LineCode = @LineCode
+		
+		
+    GROUP BY 
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName]
+	Order By T1.[ProcessCode], T1.[MachineCode]
+End"
+
+        Using command As New SqlCommand(query, conEISS)
+            command.Parameters.AddWithValue("@insertDate", ConvierteAdateMySQL(Date.Now.ToShortDateString))
+            command.Parameters.AddWithValue("@ProcessCode", processCode)
+            command.Parameters.AddWithValue("@LineCode", linecode)
+
+            Using reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    For i As Integer = reader.FieldCount - 1 To 0 Step -1 ' Revisa todas las columnas en orden inverso
+                        If Not reader.IsDBNull(i) Then
+                            Return Convert.ToInt32(reader.GetValue(i)) ' Devuelve el primer valor no nulo encontrado
+                        End If
+                    Next
+                End If
+            End Using
+        End Using
+
+        Return 0
+    End Function
+
+    Private Function GetLastNonNullValue700(processCode As String, linecode As String) As Integer
+        Dim query As String = "------------------------------------------------------------------------------------------------------------------------------
+DECLARE  @MesSiteCode INT = 11
+		,@ResultDate NVARCHAR(10) = @insertDate
+		,@ViewTypeCode Nvarchar(30) = 'ByMachine'
+
+
+--검사 실적 테이블
+DECLARE @InspectResult TABLE (
+	MesSiteCode INT,
+	TimeTable NVARCHAR(20),
+	ProcessCode NVARCHAR(50),
+	MachineCode NVARCHAR(50),
+	LotNo NVARCHAR(20),
+	SubPno NVARCHAR(20),  	
+	QtyResult INT
+)
+
+--합격바코드 테이블
+DECLARE @PassBarCodeTable TABLE
+(
+	[MesSiteCode] [int] NOT NULL,
+	[ProcessCode] [nvarchar](20) NOT NULL,
+	[LotNo] [nvarchar](20) NOT NULL,
+	[SubPno] [nvarchar](50) NOT NULL,
+	[MachineCode] [nvarchar](20) NOT NULL,
+	[BarCode] [nvarchar](50) NOT NULL,
+	Primary Key([MesSiteCode]
+               ,[ProcessCode]
+			   ,[LotNo]
+			   ,[SubPno]
+			   ,[MachineCode]
+			   ,[BarCode])
+)
+
+--조회 결과 테이블
+Declare @SearchResultTable Table (
+	MesSiteCode INT,
+	--TimeTable NVARCHAR(20),
+	ProcessCode NVARCHAR(50),
+	LotNo NVARCHAR(20),
+	SubPno NVARCHAR(20),
+	MachineCode NVARCHAR(50),
+	[07:00~08:00] NVARCHAR(20),
+	[08:00~09:00] NVARCHAR(20),
+	[09:00~10:00] NVARCHAR(20),
+	[10:00~11:00] NVARCHAR(20),
+	[11:00~12:00] NVARCHAR(20),
+	[12:00~13:00] NVARCHAR(20),
+	[13:00~14:00] NVARCHAR(20),
+	[14:00~15:00] NVARCHAR(20),
+	[15:00~16:00] NVARCHAR(20),
+	[16:00~17:00] NVARCHAR(20),
+    [17:00~18:00] NVARCHAR(20),
+	[18:00~19:00] NVARCHAR(20),
+	[Shift1] NVARCHAR(20),	
+	[19:00~20:00] NVARCHAR(20),
+	[20:00~21:00] NVARCHAR(20),
+	[21:00~22:00] NVARCHAR(20),
+	[22:00~23:00] NVARCHAR(20),
+	[23:00~24:00] NVARCHAR(20),
+	[00:00~01:00] NVARCHAR(20),
+	[01:00~02:00] NVARCHAR(20),
+	[02:00~03:00] NVARCHAR(20),
+	[03:00~04:00] NVARCHAR(20),
+	[04:00~05:00] NVARCHAR(20),
+	[05:00~06:00] NVARCHAR(20),
+	[06:00~07:00] NVARCHAR(20),
+	[Shift2] NVARCHAR(20),
+	[QtyPass] NVARCHAR(20),
+	[QtyFail] NVARCHAR(20)
+)
+
+
+--PCB 검사 실적 시간 별 수량
+INSERT INTO @InspectResult (
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode, 
+	LotNo,
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	[dbo].[UF_GetShiftTimeTable](@MesSiteCode,T1.INSERT_DATE) AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	[dbo].[UF_GetShiftTimeTable](@MesSiteCode,T1.[INSERT_DATE]) ,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]             	
+
+
+--PCB 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult (
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode, 
+	LotNo,
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	CASE WHEN
+		LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' 
+		ELSE 'Shift2' END AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	CASE WHEN
+		LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' 
+		ELSE 'Shift2' END,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]     
+
+
+--PCB 합격 수량		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyPass' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'PASS'
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]  
+	
+
+--PCB 합격 바코드
+INSERT @PassBarCodeTable 
+SELECT 
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	T1.[MachineCode],
+	T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] T1
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	AND T1.[InspectResult] = 'PASS'
+	
+	
+	
+	
+	
+	
+	
+GROUP BY 
+	T1.[MesSiteCode], 
+	T1.[ProcessCode], 
+	T1.[LotNo], 
+	T1.[SubPno], 
+	T1.[MachineCode], 
+	T1.[BarCode]
+
+
+--PCB 불합격 수량, 불합격 후 합격된 바코드는 제외		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyFail' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+Left Outer Join @PassBarCodeTable As T2
+	On T2.[MesSiteCode] = T1.[MesSiteCode]
+		And T2.[ProcessCode] = T1.[ProcessCode]
+		And T2.[LotNo] = T1.[LotNo]
+		And T2.[SubPno] = T1.[SubPno]
+		And T2.[MachineCode] = T1.[MachineCode]
+		And T2.[BarCode] = T1.[BarCode]
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'FAIL'
+	And T2.[BarCode] Is Null
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno] 
+
+
+
+
+--ASSY 검사 실적 시간별 수량
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	dbo.UF_GetShiftTimeTable(@MesSiteCode,T1.[INSERT_DATE]) AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	[dbo].[UF_GetShiftTimeTable](@MesSiteCode,T1.[INSERT_DATE]) ,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]      
+
+
+--ASSY 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	CASE WHEN
+	LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	CASE WHEN
+	LEFT( REPLACE( CONVERT(NVARCHAR(10),T1.[INSERT_DATE],108),  ':' ,'') ,4 ) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END,
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]  
+
+
+--ASSY 합격 수량		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyPass' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'PASS'
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno]  
+
+
+--ASSY 합격 바코드
+INSERT @PassBarCodeTable 
+SELECT 
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	T1.[MachineCode],
+	T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	AND T1.[InspectResult] = 'PASS'
+	
+	
+	
+	
+	
+	
+	
+GROUP BY 
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[LotNo],
+	T1.[SubPno], 
+	T1.[MachineCode], 
+	T1.[BarCode]
+
+
+--ASSY 불합격 수량, 불합격 후 합격된 바코드는 제외		namjh0831@kyungshin.co.kr
+INSERT INTO @InspectResult(
+	MesSiteCode, 
+	TimeTable, 
+	ProcessCode, 
+	MachineCode,
+	LotNo, 
+	SubPno, 
+	QtyResult)
+SELECT 
+	T1.[MesSiteCode],
+	'QtyFail' AS [TimeTable],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno],
+	COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+Left Outer Join @PassBarCodeTable As T2
+	On T2.[MesSiteCode] = T1.[MesSiteCode]
+		And T2.[ProcessCode] = T1.[ProcessCode]
+		And T2.[LotNo] = T1.[LotNo]
+		And T2.[SubPno] = T1.[SubPno]
+		And T2.[MachineCode] = T1.[MachineCode]
+		And T2.[BarCode] = T1.[BarCode]
+Left Outer Join [dbo].[TMES_SAMPLECHECKBARCODE] T9
+	On T9.[MesSiteCode] = T1.[MesSiteCode]
+		And T9.[ProcessCode] = T1.[ProcessCode]
+		And T9.[MachineCode] = T1.[MachineCode]
+		And T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode
+	AND T1.[ResultDate] = @ResultDate
+	And T1.[InspectResult] = 'FAIL'
+	And T2.[BarCode] Is Null
+	And T9.[BarCode] Is Null
+	
+	
+	
+	
+	
+	
+	
+GROUP BY
+	T1.[MesSiteCode],
+	T1.[ProcessCode],
+	T1.[MachineCode],
+	T1.[LotNo],
+	T1.[SubPno] 
+
+
+--[TimeTable] 행렬 변환
+Insert into @SearchResultTable
+	SELECT * FROM (
+		Select 
+			T1.[MesSiteCode],
+			T1.[TimeTable],
+			T1.[ProcessCode],
+			T1.[LotNo],
+			T1.[SubPno],
+			T1.[MachineCode],
+			T1.[QtyResult]
+		FROM @InspectResult AS T1
+					) AS T1
+		PIVOT ( SUM(QtyResult) FOR [TimeTable] IN ( 
+				[07:00~08:00],
+				[08:00~09:00],
+				[09:00~10:00],
+				[10:00~11:00],
+				[11:00~12:00],
+				[12:00~13:00],
+				[13:00~14:00],
+				[14:00~15:00],
+				[15:00~16:00],
+				[16:00~17:00],
+                [17:00~18:00],
+				[18:00~19:00],
+				[Shift1],				
+				[19:00~20:00],
+				[20:00~21:00],
+				[21:00~22:00],
+				[22:00~23:00],
+				[23:00~24:00],
+				[00:00~01:00],
+				[01:00~02:00],
+				[02:00~03:00],
+				[03:00~04:00],
+				[04:00~05:00],
+				[05:00~06:00],
+				[06:00~07:00],
+				[Shift2],
+				[QtyPass],
+				[QtyFail]
+				)) AS T2
+
+
+--상세히
+If(@ViewTypeCode = 'Detail')
+Begin
+	Select
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+	    T5.[CarName],
+	    T5.[ItemName], 
+		T1.[LotNo],
+		T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName],
+		convert(Int, T1.[07:00~08:00]) As [07:00~08:00],
+		convert(Int, T1.[08:00~09:00]) As [08:00~09:00],
+		convert(Int, T1.[09:00~10:00]) As [09:00~10:00],
+		convert(Int, T1.[10:00~11:00]) As [10:00~11:00],
+		convert(Int, T1.[11:00~12:00]) As [11:00~12:00],
+		convert(Int, T1.[12:00~13:00]) As [12:00~13:00],
+		convert(Int, T1.[13:00~14:00]) As [13:00~14:00],
+		convert(Int, T1.[14:00~15:00]) As [14:00~15:00],
+		convert(Int, T1.[15:00~16:00]) As [15:00~16:00],
+		convert(Int, T1.[16:00~17:00]) As [16:00~17:00],
+	    convert(Int, T1.[17:00~18:00]) As [17:00~18:00],
+		convert(Int, T1.[18:00~19:00]) As [18:00~19:00],
+		convert(Int, T1.[Shift1]) As [Shift1],	
+		convert(Int, T1.[19:00~20:00]) As [19:00~20:00],
+		convert(Int, T1.[20:00~21:00]) As [20:00~21:00],
+		convert(Int, T1.[21:00~22:00]) As [21:00~22:00],
+		convert(Int, T1.[22:00~23:00]) As [22:00~23:00],
+		convert(Int, T1.[23:00~24:00]) As [23:00~24:00],
+		convert(Int, T1.[00:00~01:00]) As [00:00~01:00],
+		convert(Int, T1.[01:00~02:00]) As [01:00~02:00],
+		convert(Int, T1.[02:00~03:00]) As [02:00~03:00],
+		convert(Int, T1.[03:00~04:00]) As [03:00~04:00],
+		convert(Int, T1.[04:00~05:00]) As [04:00~05:00],
+		convert(Int, T1.[05:00~06:00]) As [05:00~06:00],
+		convert(Int, T1.[06:00~07:00]) As [06:00~07:00],
+		convert(Int, T1.[Shift2]) As [Shift2],
+		convert(Int, T1.[QtyPass]) As [QtyPass],
+		convert(Int, T1.[QtyFail]) As [QtyFail]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		
+		
+		
+	Order By T1.[ProcessCode], T1.[MachineCode], T1.[SubPno], T1.[LotNo]
+End
+--로트별
+Else If(@ViewTypeCode = 'ByLotNo') 
+Begin
+	SELECT 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		MAX(T5.[CarName]) AS [CarName],
+	    MAX(T5.[ItemName]) AS [ItemName],
+		T1.[LotNo],
+		--T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName],
+		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
+		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
+		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
+		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
+		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
+		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
+		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
+		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
+		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
+		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00],
+	    sum(convert(Int, T1.[17:00~18:00])) As [17:00~18:00],
+		sum(convert(Int, T1.[18:00~19:00])) As [18:00~19:00],
+		sum(convert(Int, T1.[Shift1])) As [Shift1],	
+		sum(convert(Int, T1.[19:00~20:00])) As [19:00~20:00],
+		sum(convert(Int, T1.[20:00~21:00])) As [20:00~21:00],
+		sum(convert(Int, T1.[21:00~22:00])) As [21:00~22:00],
+		sum(convert(Int, T1.[22:00~23:00])) As [22:00~23:00],
+		sum(convert(Int, T1.[23:00~24:00])) As [23:00~24:00],
+		sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
+		sum(convert(Int, T1.[01:00~02:00])) As [01:00~02:00],
+		sum(convert(Int, T1.[02:00~03:00])) As [02:00~03:00],
+		sum(convert(Int, T1.[03:00~04:00])) As [03:00~04:00],
+		sum(convert(Int, T1.[04:00~05:00])) As [04:00~05:00],
+		sum(convert(Int, T1.[05:00~06:00])) As [05:00~06:00],
+		sum(convert(Int, T1.[06:00~07:00])) As [06:00~07:00],
+		sum(convert(Int, T1.[Shift2])) As [Shift2],
+		sum(convert(Int, T1.[QtyPass])) As [QtyPass],
+		sum(convert(Int, T1.[QtyFail])) As [QtyFail]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		
+		
+		
+    GROUP BY 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+        T1.[LotNo],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName]
+	Order By T1.[ProcessCode], T1.[MachineCode], T1.[LotNo]
+End
+--품번별
+Else If(@ViewTypeCode = 'BySubPno')
+Begin
+	SELECT 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		MAX(T5.[CarName]) AS [CarName],
+	    MAX(T5.[ItemName]) AS [ItemName],
+		--T1.[LotNo],
+		T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName],
+		sum(convert(Int, T1.[07:00~08:00])) As [07:00~08:00],
+		sum(convert(Int, T1.[08:00~09:00])) As [08:00~09:00],
+		sum(convert(Int, T1.[09:00~10:00])) As [09:00~10:00],
+		sum(convert(Int, T1.[10:00~11:00])) As [10:00~11:00],
+		sum(convert(Int, T1.[11:00~12:00])) As [11:00~12:00],
+		sum(convert(Int, T1.[12:00~13:00])) As [12:00~13:00],
+		sum(convert(Int, T1.[13:00~14:00])) As [13:00~14:00],
+		sum(convert(Int, T1.[14:00~15:00])) As [14:00~15:00],
+		sum(convert(Int, T1.[15:00~16:00])) As [15:00~16:00],
+		sum(convert(Int, T1.[16:00~17:00])) As [16:00~17:00],
+        sum(convert(Int, T1.[17:00~18:00])) As [17:00~18:00],
+		sum(convert(Int, T1.[18:00~19:00])) As [18:00~19:00],
+		sum(convert(Int, T1.[Shift1])) As [Shift1],		
+		sum(convert(Int, T1.[19:00~20:00])) As [19:00~20:00],
+		sum(convert(Int, T1.[20:00~21:00])) As [20:00~21:00],
+		sum(convert(Int, T1.[21:00~22:00])) As [21:00~22:00],
+		sum(convert(Int, T1.[22:00~23:00])) As [22:00~23:00],
+		sum(convert(Int, T1.[23:00~24:00])) As [23:00~24:00],
+		sum(convert(Int, T1.[00:00~01:00])) As [00:00~01:00],
+		sum(convert(Int, T1.[01:00~02:00])) As [01:00~02:00],
+		sum(convert(Int, T1.[02:00~03:00])) As [02:00~03:00],
+		sum(convert(Int, T1.[03:00~04:00])) As [03:00~04:00],
+		sum(convert(Int, T1.[04:00~05:00])) As [04:00~05:00],
+		sum(convert(Int, T1.[05:00~06:00])) As [05:00~06:00],
+		sum(convert(Int, T1.[06:00~07:00])) As [06:00~07:00],
+		sum(convert(Int, T1.[Shift2])) As [Shift2],
+		sum(convert(Int, T1.[QtyPass])) As [QtyPass],
+		sum(convert(Int, T1.[QtyFail])) As [QtyFail]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+		
+		
+		
+    GROUP BY 
+		T1.[MesSiteCode],
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+        T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName]
+	Order By T1.[ProcessCode], T1.[MachineCode], T1.[SubPno]
+End
+--설비별
+Else If(@ViewTypeCode = 'ByMachine')
+Begin
+	SELECT 
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		--T5.[CarName],
+		--T5.[ItemName], 
+		--T1.[LotNo],
+		--T1.[SubPno],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		sum(convert(Int, T1.[QtyPass])) As [QtyPass]
+	From @SearchResultTable T1
+	Left Outer Join [dbo].[TMES_CODESITE] T2
+			On T2.[MesSiteCode] = T1.[MesSiteCode]
+	Left Outer Join [dbo].[TMES_PROCESS] T3
+		On T3.[MesSiteCode] = T1.[MesSiteCode]
+			And T3.[ProcessCode] = T1.[ProcessCode]
+	Left Outer Join [dbo].[TMES_MACHINEMASTER] T4
+		On T4.[MesSiteCode] = T1.[MesSiteCode]
+			And T4.[MachineCode] = T1.[MachineCode]
+	Outer Apply [dbo].[UF_GetProductInfoBySubPno](@MesSiteCode, T1.[SubPno]) T5
+	Where 1=1
+			and T1.ProcessCode = @ProcessCode AND T4.LineCode = @LineCode
+		
+		
+    GROUP BY 
+        T2.[MesSiteName],
+		T3.[ProcessKindName],
+		T1.[ProcessCode],
+		T3.[ProcessName],
+		T4.[LineCode], 
+		T1.[MachineCode],
+		T4.[MachineName]
+	Order By T1.[ProcessCode], T1.[MachineCode]
+End"
+
+        Using command As New SqlCommand(query, conEISS)
+            command.Parameters.AddWithValue("@insertDate", ConvierteAdateMySQL(Date.Now.ToShortDateString))
             command.Parameters.AddWithValue("@ProcessCode", processCode)
             command.Parameters.AddWithValue("@LineCode", linecode)
 
@@ -2918,6 +4514,7 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
 
     Private Sub frmMonitor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
 
 
             Panel11.Visible = True
@@ -2963,10 +4560,40 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
             productionNumbers = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='PRODUCTION'", "celulares", "CELS")
             managersNumbers = QueryRow("SELECT celulares FROM t_bma_downtime_celulares WHERE depto='MANAGERS'", "celulares", "CELS")
             IniciarParpadeo()
-
+            BuscarOInsertarDatos(conexion)
         Catch ex As Exception
 
         End Try
+    End Sub
+
+
+
+    Public Sub BuscarOInsertarDatos(conEISS As SqlConnection)
+        Dim fechaActual As Date = Date.Today ' Obtener la fecha actual
+        Dim fechaActualString As String = fechaActual.ToString("yyyy-MM-dd") ' Formato para SQL
+
+        ' 1. Verificar si existen datos para la fecha actual
+        Dim queryVerificar As String = "SELECT COUNT(*) FROM t_bma_wip WHERE CONVERT(DATE, insertDate) = @FechaActual"
+        Using cmdVerificar As New SqlCommand(queryVerificar, conEISS)
+            cmdVerificar.Parameters.AddWithValue("@FechaActual", fechaActualString)
+
+            Dim count As Integer = Convert.ToInt32(cmdVerificar.ExecuteScalar())
+            If count > 0 Then
+                ' Datos para la fecha actual existen, no hacer nada
+                Return
+            End If
+        End Using
+
+        Dim datosUltimoDIa As DataTable = EjecutaSelects("SELECT [id], [process], [wipQty], [insertDate]
+FROM [db_kyungshin].[dbo].[t_bma_wip]
+WHERE CONVERT(DATE, [insertDate]) = (SELECT MAX(CONVERT(DATE, [insertDate])) FROM [db_kyungshin].[dbo].[t_bma_wip]) ", "buscaUltimoDia")
+
+        For Each rw As DataRow In datosUltimoDIa.Rows
+            Call Ejecuta("INSERT INTO t_bma_wip (process, wipQty, insertDate) VALUES ('" &
+                         rw("process").ToString & "', '" & rw("wipQty").ToString & "', '" &
+                         ConvierteAdateMySQL(Date.Now.ToShortDateString) & "')", "insertaDatosDiaAnterior")
+        Next
+
     End Sub
 
     Private WithEvents blinkTimer As New Timer()
@@ -3297,55 +4924,368 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
         configurarDGV2(dgvwipM1)
     End Sub
 
+
+
     Private Sub loadWipresults()
 
-        CargarDatosDataGridView(dgvwipM1, 1)
+
+        'CargarDatosDataGridView(dgvwipM1, 1)
+        'CargarDatosDataGridView(dgvwipM2, 2)
+
+        'quitar estas lineas al finalizar las pruebas 
+
+        With dgvwipM1.DefaultCellStyle
+            .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            .Alignment = DataGridViewContentAlignment.MiddleRight
+        End With
+
+        With dgvwipM2.DefaultCellStyle
+            .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            .Alignment = DataGridViewContentAlignment.MiddleRight
+        End With
+        '------------------------------------------
+
+
+
+        '================================================M1
         Dim lineCode As String = "LINE32"
 
         ' Operación para BM0770 (suma en la fila 1)
         Dim processCodeBM0770 As String = "BM0770"
         Dim lastNonNullValueBM0770 As Integer = GetLastNonNullValue(processCodeBM0770, lineCode)
+        Dim lastQty As Integer = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0770 & "'
+  and lineCode='" & lineCode & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
         If dgvwipM1.Rows.Count > 1 Then
-            dgvwipM1.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(0).Cells(0).Value) + lastNonNullValueBM0770
+            dgvwipM1.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(0).Cells(0).Value) + (lastNonNullValueBM0770 - lastQty)
         End If
+        saveWIPQtys(processCodeBM0770, lineCode)
+
+
 
         lineCode = "LINE42"
         ' Operación para BM0843 (resta en la fila 1 y suma en la fila 2)
         Dim processCodeBM0843 As String = "BM0843"
-        Dim lastNonNullValueBM0843 As Integer = GetLastNonNullValue(processCodeBM0843, lineCode)
+        Dim lastNonNullValueBM0843 As Integer = GetLastNonNullValue400(processCodeBM0843, lineCode)
+
+        lastQty = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0843 & "'
+  and lineCode='" & lineCode & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
         If dgvwipM1.Rows.Count > 1 Then
-            dgvwipM1.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(0).Cells(0).Value) - lastNonNullValueBM0843
-            dgvwipM1.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(1).Cells(0).Value) + lastNonNullValueBM0843
+            dgvwipM1.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(0).Cells(0).Value) - (lastNonNullValueBM0843 - lastQty)
+            dgvwipM1.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(1).Cells(0).Value) + (lastNonNullValueBM0843 - lastQty)
         End If
+        saveWIPQtys(processCodeBM0843, lineCode)
 
         ' Operación para BM0874 (resta en la fila 2)
-        Dim processCodeBM0874 As String = "BM0874"
-        Dim lastNonNullValueBM0874 As Integer = GetLastNonNullValue(processCodeBM0874, lineCode)
+        Dim processCodeBM0874 As String = "BM0877"
+        Dim lastNonNullValueBM0874 As Integer = GetLastNonNullValue700(processCodeBM0874, lineCode)
+
+        lastQty = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0874 & "'
+  and lineCode='" & lineCode & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
         If dgvwipM1.Rows.Count > 1 Then
-            dgvwipM1.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(1).Cells(0).Value) - lastNonNullValueBM0874
+            dgvwipM1.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM1.Rows(1).Cells(0).Value) - (lastNonNullValueBM0874 - lastQty)
         End If
+        saveWIPQtys(processCodeBM0874, lineCode)
+
+        '================================================M2
+        Dim lineCodeM2 As String = "LINE33"
+
+        ' Operación para BM0770 (suma en la fila 1)
+        Dim processCodeBM0770M2 As String = "BM0770"
+        Dim lastNonNullValueBM0770M2 As Integer = GetLastNonNullValue(processCodeBM0770M2, lineCodeM2)
+
+        lastQty = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0770M2 & "'
+  and lineCode='" & lineCodeM2 & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
+        If dgvwipM2.Rows.Count > 1 Then
+            dgvwipM2.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM2.Rows(0).Cells(0).Value) + (lastNonNullValueBM0770M2 - lastQty)
+        End If
+        saveWIPQtys(processCodeBM0770M2, lineCodeM2)
+
+
+
+        lineCodeM2 = "LINE43"
+        ' Operación para BM0843 (resta en la fila 1 y suma en la fila 2)
+        Dim processCodeBM0843M2 As String = "BM0843"
+        Dim lastNonNullValueBM0843M2 As Integer = GetLastNonNullValue400(processCodeBM0843M2, lineCodeM2)
+
+        lastQty = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0843M2 & "'
+  and lineCode='" & lineCodeM2 & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
+
+        If dgvwipM2.Rows.Count > 1 Then
+            dgvwipM2.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM2.Rows(0).Cells(0).Value) - (lastNonNullValueBM0843M2 - lastQty)
+            dgvwipM2.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM2.Rows(1).Cells(0).Value) + (lastNonNullValueBM0843M2 - lastQty)
+        End If
+
+        saveWIPQtys(processCodeBM0843M2, lineCodeM2)
+
+        ' Operación para BM0874 (resta en la fila 2)
+        Dim processCodeBM0874M2 As String = "BM0877"
+        Dim lastNonNullValueBM0874M2 As Integer = GetLastNonNullValue700(processCodeBM0874M2, lineCodeM2)
+
+        lastQty = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0874M2 & "'
+  and lineCode='" & lineCodeM2 & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
+        If dgvwipM2.Rows.Count > 1 Then
+            dgvwipM2.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM2.Rows(1).Cells(0).Value) - (lastNonNullValueBM0874M2 - lastQty)
+        End If
+
+        saveWIPQtys(processCodeBM0874M2, lineCodeM2)
     End Sub
 
     Private Sub frmMonitor_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         configurarDGV(dgvwipM1)
-        loadWipresults()
+        configurarDGV(dgvwipM2)
+        configurarDGV(dgvwipM3)
+        configurarDGV(dgvwipM4)
+        configurarDGV(dgvwipm5)
+        CargarDatosDataGridView(dgvwipM1, 1)
+        CargarDatosDataGridView(dgvwipM2, 2)
+
+        '================================================M1
+        Dim lineCode As String = "LINE32"
+        Dim generalProcessCode As String = "BM0770"
+        saveWIPQtys(generalProcessCode, lineCode)
+
+        lineCode = "LINE42"
+        generalProcessCode = "BM0843"
+        saveWIPQtys(generalProcessCode, lineCode)
+
+        generalProcessCode = "BM0877"
+        saveWIPQtys(generalProcessCode, lineCode)
+
+        '================================================M1
+        lineCode = "LINE33"
+        generalProcessCode = "BM0770"
+        saveWIPQtys(generalProcessCode, lineCode)
+
+        lineCode = "LINE43"
+        generalProcessCode = "BM0843"
+        saveWIPQtys(generalProcessCode, lineCode)
+
+        generalProcessCode = "BM0877"
+        saveWIPQtys(generalProcessCode, lineCode)
+
     End Sub
 
+    Private Sub saveWIPQtys(processCode, lineCode)
 
+        Dim query As String = "DECLARE @MesSiteCode INT = 11
+       ,@ResultDate NVARCHAR(10) = @insertDate
+       ,@ViewTypeCode Nvarchar(30) = 'ByMachine'
+
+--검사 실적 테이블
+DECLARE @InspectResult TABLE (
+    MesSiteCode INT,
+    TimeTable NVARCHAR(20),
+    ProcessCode NVARCHAR(50),
+    MachineCode NVARCHAR(50),
+    LotNo NVARCHAR(20),
+    SubPno NVARCHAR(20),
+    QtyResult INT
+)
+
+--합격바코드 테이블
+DECLARE @PassBarCodeTable TABLE (
+    [MesSiteCode] [int] NOT NULL,
+    [ProcessCode] [nvarchar](20) NOT NULL,
+    [LotNo] [nvarchar](20) NOT NULL,
+    [SubPno] [nvarchar](50) NOT NULL,
+    [MachineCode] [nvarchar](20) NOT NULL,
+    [BarCode] [nvarchar](50) NOT NULL,
+    Primary Key([MesSiteCode], [ProcessCode], [LotNo], [SubPno], [MachineCode], [BarCode])
+)
+
+--조회 결과 테이블
+Declare @SearchResultTable Table (
+    MesSiteCode INT,
+    ProcessCode NVARCHAR(50),
+    LotNo NVARCHAR(20),
+    SubPno NVARCHAR(20),
+    MachineCode NVARCHAR(50),
+    [07:00~08:00] NVARCHAR(20),
+    [08:00~09:00] NVARCHAR(20),
+    [09:00~10:00] NVARCHAR(20),
+    [10:00~11:00] NVARCHAR(20),
+    [11:00~12:00] NVARCHAR(20),
+    [12:00~13:00] NVARCHAR(20),
+    [13:00~14:00] NVARCHAR(20),
+    [14:00~15:00] NVARCHAR(20),
+    [15:00~16:00] NVARCHAR(20),
+    [16:00~17:00] NVARCHAR(20),
+    [17:00~18:00] NVARCHAR(20),
+    [18:00~19:00] NVARCHAR(20),
+    [Shift1] NVARCHAR(20),
+    [19:00~20:00] NVARCHAR(20),
+    [20:00~21:00] NVARCHAR(20),
+    [21:00~22:00] NVARCHAR(20),
+    [22:00~23:00] NVARCHAR(20),
+    [23:00~24:00] NVARCHAR(20),
+    [00:00~01:00] NVARCHAR(20),
+    [01:00~02:00] NVARCHAR(20),
+    [02:00~03:00] NVARCHAR(20),
+    [03:00~04:00] NVARCHAR(20),
+    [04:00~05:00] NVARCHAR(20),
+    [05:00~06:00] NVARCHAR(20),
+    [06:00~07:00] NVARCHAR(20),
+    [Shift2] NVARCHAR(20),
+    [QtyPass] NVARCHAR(20),
+    [QtyFail] NVARCHAR(20)
+)
+
+--PCB 검사 실적 시간 별 수량
+INSERT INTO @InspectResult (MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], [dbo].[UF_GetShiftTimeTable](@MesSiteCode, T1.INSERT_DATE) AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], [dbo].[UF_GetShiftTimeTable](@MesSiteCode, T1.[INSERT_DATE]), T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--PCB 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult (MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END, T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--PCB 합격 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyPass' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS' AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--PCB 합격 바코드
+INSERT @PassBarCodeTable SELECT T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] T1
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS'
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+
+--PCB 불합격 수량, 불합격 후 합격된 바코드는 제외
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyFail' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_PCB] AS T1
+LEFT OUTER JOIN @PassBarCodeTable As T2 ON T2.[MesSiteCode] = T1.[MesSiteCode] AND T2.[ProcessCode] = T1.[ProcessCode] AND T2.[LotNo] = T1.[LotNo] AND T2.[SubPno] = T1.[SubPno] AND T2.[MachineCode] = T1.[MachineCode] AND T2.[BarCode] = T1.[BarCode]
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'FAIL' AND T2.[BarCode] Is Null AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 검사 실적 시간별 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], dbo.UF_GetShiftTimeTable(@MesSiteCode, T1.[INSERT_DATE]) AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], [dbo].[UF_GetShiftTimeTable](@MesSiteCode, T1.[INSERT_DATE]), T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 검사 실적 Shift 별 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], CASE WHEN LEFT(REPLACE(CONVERT(NVARCHAR(10), T1.[INSERT_DATE], 108), ':', ''), 4) BETWEEN '0700' AND '1900' THEN 'Shift1' ELSE 'Shift2' END, T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 합격 수량
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyPass' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS' AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--ASSY 합격 바코드
+INSERT @PassBarCodeTable SELECT T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'PASS'
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[BarCode]
+
+--ASSY 불합격 수량, 불합격 후 합격된 바코드는 제외
+INSERT INTO @InspectResult(MesSiteCode, TimeTable, ProcessCode, MachineCode, LotNo, SubPno, QtyResult)
+SELECT T1.[MesSiteCode], 'QtyFail' AS [TimeTable], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno], COUNT(Distinct T1.[BarCode]) AS [QtyResult]
+FROM [dbo].[TMES_PROCESSINSPECT_ASSY] AS T1
+LEFT OUTER JOIN @PassBarCodeTable As T2 ON T2.[MesSiteCode] = T1.[MesSiteCode] AND T2.[ProcessCode] = T1.[ProcessCode] AND T2.[LotNo] = T1.[LotNo] AND T2.[SubPno] = T1.[SubPno] AND T2.[MachineCode] = T1.[MachineCode] AND T2.[BarCode] = T1.[BarCode]
+LEFT OUTER JOIN [dbo].[TMES_SAMPLECHECKBARCODE] T9 ON T9.[MesSiteCode] = T1.[MesSiteCode] AND T9.[ProcessCode] = T1.[ProcessCode] AND T9.[MachineCode] = T1.[MachineCode] AND T9.[BarCode] = T1.[BarCode]
+WHERE T1.[MesSiteCode] = @MesSiteCode AND T1.[ResultDate] = @ResultDate AND T1.[InspectResult] = 'FAIL' AND T2.[BarCode] Is Null AND T9.[BarCode] Is Null
+GROUP BY T1.[MesSiteCode], T1.[ProcessCode], T1.[MachineCode], T1.[LotNo], T1.[SubPno]
+
+--[TimeTable] 행렬 변환
+INSERT INTO @SearchResultTable SELECT * FROM (SELECT T1.[MesSiteCode], T1.[TimeTable], T1.[ProcessCode], T1.[LotNo], T1.[SubPno], T1.[MachineCode], T1.[QtyResult] FROM @InspectResult AS T1) AS T1
+PIVOT (SUM(QtyResult) FOR [TimeTable] IN ([07:00~08:00], [08:00~09:00], [09:00~10:00], [10:00~11:00], [11:00~12:00], [12:00~13:00], [13:00~14:00], [14:00~15:00], [15:00~16:00], [16:00~17:00], [17:00~18:00], [18:00~19:00], [Shift1], [19:00~20:00], [20:00~21:00], [21:00~22:00], [22:00~23:00], [23:00~24:00], [00:00~01:00], [01:00~02:00], [02:00~03:00], [03:00~04:00], [04:00~05:00], [05:00~06:00], [06:00~07:00], [Shift2], [QtyPass], [QtyFail])) AS T2
+
+--Resultados Simplificados:
+SELECT
+    SUM(CONVERT(INT, T1.[QtyPass])) AS QtyPassSum
+FROM @SearchResultTable T1
+LEFT OUTER JOIN [dbo].[TMES_MACHINEMASTER] T4
+    ON T4.[MesSiteCode] = T1.[MesSiteCode]
+    AND T4.[MachineCode] = T1.[MachineCode]
+WHERE T1.ProcessCode = @ProcessCode AND T4.LineCode = @LineCode
+GROUP BY T1.ProcessCode, T4.LineCode, T1.MachineCode
+ORDER BY T1.ProcessCode, T1.MachineCode;"
+
+
+        Using command As New SqlCommand(query, conEISS)
+            command.Parameters.AddWithValue("@insertDate", ConvierteAdateMySQL(Date.Now.ToShortDateString))
+            command.Parameters.AddWithValue("@ProcessCode", processCode)
+            command.Parameters.AddWithValue("@LineCode", lineCode)
+
+            Using reader As SqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    For i As Integer = reader.FieldCount - 1 To 0 Step -1 ' Revisa todas las columnas en orden inverso
+                        If Not reader.IsDBNull(i) Then
+                            If CheckIfRowExists("SELECT * from t_bma_wip_qty where processCode='" & processCode & "' and linecode='" & lineCode & "' and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "buscaWIPQWTY") = False Then
+
+                                Call Ejecuta("INSERT INTO t_bma_wip_qty (processCode,lineCode, lastQty, insertDate) VALUES ('" & processCode & "', '" & lineCode & "', '" & Convert.ToInt32(reader.GetValue(i)) & "', '" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "')", "insertWip")
+                            Else
+                                Call Ejecuta("UPDATE t_bma_wip_qty SET lastQty='" & Convert.ToInt32(reader.GetValue(i)) & "' where processCode='" & processCode & "' and lineCode='" & lineCode & "' and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "updWip")
+                            End If
+                        End If
+
+                    Next
+                End If
+            End Using
+        End Using
+
+    End Sub
 
     Private Sub InsertarDatos(ByVal dgv As DataGridView) ' Ahora recibe el DataGridView como parámetro
 
         ' Validar que hay datos en las celdas
+        Dim cellName As String = GetCellName(dgv.Name) ' Obtener el nombre dinámico de la celda
         If dgv.CurrentRow Is Nothing OrElse
-       String.IsNullOrWhiteSpace(dgv.CurrentRow.Cells("qwm1").Value?.ToString()) OrElse
-       Not IsNumeric(dgv.CurrentRow.Cells("qwm1").Value) Then
+       String.IsNullOrWhiteSpace(dgv.CurrentRow.Cells(cellName).Value?.ToString()) OrElse
+       Not IsNumeric(dgv.CurrentRow.Cells(cellName).Value) Then
             MessageBox.Show("Por favor complete todos los campos correctamente")
             Return
         End If
 
         ' Obtener los valores de las celdas
         Dim process As String = "" ' Inicializar process
-        Dim wipQty As Integer = CInt(dgv.CurrentRow.Cells("qwm1").Value)
+        Dim wipQty As Integer = CInt(dgv.CurrentRow.Cells(cellName).Value) ' Usar el nombre dinámico de la celda
         Dim insertDate As Date = ConvierteAdateMySQL(Date.Now.ToShortDateString)
 
         ' Determinar el valor de process según el DataGridView y la fila
@@ -3399,7 +5339,7 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
                         updateCommand.Parameters.AddWithValue("@insertDate", insertDate)
 
                         updateCommand.ExecuteNonQuery()
-                        MessageBox.Show("Datos actualizados correctamente")
+                        ' MessageBox.Show("Datos actualizados correctamente")
                     End Using
                 Else
                     ' El registro no existe, realizar un INSERT
@@ -3411,7 +5351,7 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
                         insertCommand.Parameters.AddWithValue("@insertDate", insertDate)
 
                         insertCommand.ExecuteNonQuery()
-                        MessageBox.Show("Datos insertados correctamente")
+                        ' MessageBox.Show("Datos insertados correctamente")
                     End Using
                 End If
             End Using
@@ -3419,6 +5359,29 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
             MessageBox.Show($"Error al insertar/actualizar datos: {ex.Message}")
         End Try
     End Sub
+
+    ' Función para obtener el nombre de la celda dependiendo del DataGridView
+    Private Function GetCellName(dgvName As String) As String
+        Dim cellNumber As Integer = 0
+
+        Select Case dgvName
+            Case "dgvwipM1"
+                cellNumber = 1
+            Case "dgvwipM2"
+                cellNumber = 2
+            Case "dgvwipM3"
+                cellNumber = 3
+            Case "dgvwipM4"
+                cellNumber = 4
+            Case "dgvwipM5"
+                cellNumber = 5
+            Case Else
+                Throw New ArgumentException("DataGridView no válido")
+        End Select
+
+        Return $"qwm{cellNumber}" ' Construye el nombre de la celda como "qwm1", "qwm2", etc.
+    End Function
+
 
 
     Private Sub dgvwip1100_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvwipM1.CellEndEdit
@@ -3429,7 +5392,33 @@ ORDER BY T1.ProcessCode, T1.MachineCode;"
         End If
     End Sub
 
+    Private Sub dgvwipM2_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvwipM2.CellEndEdit
+        If e.ColumnIndex = 0 Then ' Verifica si la celda editada está en la primera columna
+            dgv.EndEdit() ' Fuerza la finalización de la edición
+            InsertarDatos(dgvwipM2) ' Llama a tu función
+        End If
+    End Sub
 
+    Private Sub dgvwipM3_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvwipM3.CellEndEdit
+        If e.ColumnIndex = 0 Then ' Verifica si la celda editada está en la primera columna
+            dgv.EndEdit() ' Fuerza la finalización de la edición
+            InsertarDatos(dgvwipM3) ' Llama a tu función
+        End If
+    End Sub
+
+    Private Sub dgvwipM4_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvwipm4.CellEndEdit
+        If e.ColumnIndex = 0 Then ' Verifica si la celda editada está en la primera columna
+            dgv.EndEdit() ' Fuerza la finalización de la edición
+            InsertarDatos(dgvwipm4) ' Llama a tu función
+        End If
+    End Sub
+
+    Private Sub dgvwipM5_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles dgvwipm5.CellEndEdit
+        If e.ColumnIndex = 0 Then ' Verifica si la celda editada está en la primera columna
+            dgv.EndEdit() ' Fuerza la finalización de la edición
+            InsertarDatos(dgvwipm5) ' Llama a tu función
+        End If
+    End Sub
 
     Private Sub GunaAdvenceButton1_Click(sender As Object, e As EventArgs) Handles GunaAdvenceButton1.Click
 
