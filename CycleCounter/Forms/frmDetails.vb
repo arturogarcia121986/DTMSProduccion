@@ -319,8 +319,13 @@
                   ,[ec4]
                   ,[ec5],defects
               FROM [db_kyungshin].[dbo].[t_bma_downtime] 
-              WHERE 1=1 AND AcumTime>='00:05:00' and STATUS='DOWN' 
-                AND  CONVERT(DATE ,insert_date) BETWEEN '" & desde & "' AND '" & hasta & "' AND  " & procesos & querycompl & " ORDER BY process"
+              WHERE 1=1  and STATUS='DOWN' 
+ AND (
+      (AcumTime >= '00:05:00')
+      OR (AcumTime = '' AND DATEDIFF(minute, startTime, GETDATE()) >= 5)
+  )
+  AND CONVERT(TIME, startTime) >= '07:00:00' -- Nueva condición para startTime
+                AND  CONVERT(DATE ,insert_date) BETWEEN '" & desde & "' AND '" & hasta & "' AND  " & procesos & querycompl & " ORDER BY process, endtime"
 
 
             Dim arre2 As DataRowCollection = GetRows(query)

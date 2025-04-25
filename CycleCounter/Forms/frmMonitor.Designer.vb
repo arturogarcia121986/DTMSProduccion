@@ -447,14 +447,14 @@ Partial Class frmMonitor
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.dgvwipM1 = New System.Windows.Forms.DataGridView()
-        Me.dgvwipM2 = New System.Windows.Forms.DataGridView()
-        Me.dgvwipM3 = New System.Windows.Forms.DataGridView()
-        Me.dgvwipm4 = New System.Windows.Forms.DataGridView()
-        Me.dgvwipm5 = New System.Windows.Forms.DataGridView()
         Me.qwm1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvwipM2 = New System.Windows.Forms.DataGridView()
         Me.qwm2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvwipM3 = New System.Windows.Forms.DataGridView()
         Me.qwm3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvwipm4 = New System.Windows.Forms.DataGridView()
         Me.qwm4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvwipm5 = New System.Windows.Forms.DataGridView()
         Me.qwm5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvAux, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -4259,6 +4259,12 @@ Partial Class frmMonitor
         Me.dgvwipM1.Size = New System.Drawing.Size(50, 154)
         Me.dgvwipM1.TabIndex = 449
         '
+        'qwm1
+        '
+        Me.qwm1.HeaderText = "WIP"
+        Me.qwm1.Name = "qwm1"
+        Me.qwm1.Width = 48
+        '
         'dgvwipM2
         '
         Me.dgvwipM2.AllowUserToAddRows = False
@@ -4276,6 +4282,12 @@ Partial Class frmMonitor
         Me.dgvwipM2.RowHeadersWidth = 10
         Me.dgvwipM2.Size = New System.Drawing.Size(50, 150)
         Me.dgvwipM2.TabIndex = 450
+        '
+        'qwm2
+        '
+        Me.qwm2.HeaderText = "WIP"
+        Me.qwm2.Name = "qwm2"
+        Me.qwm2.Width = 48
         '
         'dgvwipM3
         '
@@ -4295,6 +4307,12 @@ Partial Class frmMonitor
         Me.dgvwipM3.Size = New System.Drawing.Size(50, 151)
         Me.dgvwipM3.TabIndex = 451
         '
+        'qwm3
+        '
+        Me.qwm3.HeaderText = "WIP"
+        Me.qwm3.Name = "qwm3"
+        Me.qwm3.Width = 48
+        '
         'dgvwipm4
         '
         Me.dgvwipm4.AllowUserToAddRows = False
@@ -4313,6 +4331,12 @@ Partial Class frmMonitor
         Me.dgvwipm4.Size = New System.Drawing.Size(50, 153)
         Me.dgvwipm4.TabIndex = 452
         '
+        'qwm4
+        '
+        Me.qwm4.HeaderText = "WIP"
+        Me.qwm4.Name = "qwm4"
+        Me.qwm4.Width = 48
+        '
         'dgvwipm5
         '
         Me.dgvwipm5.AllowUserToAddRows = False
@@ -4330,30 +4354,6 @@ Partial Class frmMonitor
         Me.dgvwipm5.RowHeadersWidth = 10
         Me.dgvwipm5.Size = New System.Drawing.Size(50, 153)
         Me.dgvwipm5.TabIndex = 453
-        '
-        'qwm1
-        '
-        Me.qwm1.HeaderText = "WIP"
-        Me.qwm1.Name = "qwm1"
-        Me.qwm1.Width = 48
-        '
-        'qwm2
-        '
-        Me.qwm2.HeaderText = "WIP"
-        Me.qwm2.Name = "qwm2"
-        Me.qwm2.Width = 48
-        '
-        'qwm3
-        '
-        Me.qwm3.HeaderText = "WIP"
-        Me.qwm3.Name = "qwm3"
-        Me.qwm3.Width = 48
-        '
-        'qwm4
-        '
-        Me.qwm4.HeaderText = "WIP"
-        Me.qwm4.Name = "qwm4"
-        Me.qwm4.Width = 48
         '
         'qwm5
         '
