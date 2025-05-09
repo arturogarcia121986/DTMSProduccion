@@ -1890,6 +1890,7 @@ primeraVez:
         End Try
     End Sub
     Private Sub tGeneral_Tick(sender As Object, e As EventArgs) Handles tGeneral.Tick
+
         tGeneral.Stop()
         lbCounter.Text = CInt(lbCounter.Text) - 1
         If lbCounter.Text = "0" Then
@@ -1898,7 +1899,7 @@ primeraVez:
             lbCounter.Text = "200"
         End If
 
-        ' enviarWhatsappLineasActivas()
+        'enviarWhatsappLineasActivas()
 
         If versionSistema = "PRODUCTION" Then
             If m100.Tipo = UCStatus.UCLed.Type.Help Or m100.Tipo = UCStatus.UCLed.Type.Panic Then
@@ -2403,12 +2404,12 @@ primeraVez:
     End Sub
 
     Private Sub rbAll_CheckedChanged(sender As Object, e As EventArgs) Handles rbAll.CheckedChanged
-        intialLoad()
+        ' intialLoad()
         lbCounter.Text = "200"
     End Sub
 
     Private Sub rbShift1_CheckedChanged(sender As Object, e As EventArgs) Handles rbShift1.CheckedChanged
-        intialLoad()
+        'intialLoad()
         lbCounter.Text = "200"
     End Sub
 
@@ -4930,6 +4931,7 @@ WHERE CONVERT(DATE, [insertDate]) = (SELECT MAX(CONVERT(DATE, [insertDate])) FRO
         Try
             CargarDatosDataGridView(dgvwipM1, 1)
             CargarDatosDataGridView(dgvwipM2, 2)
+            CargarDatosDataGridView(dgvwipM3, 3)
 
             'quitar estas lineas al finalizar las pruebas 
 
@@ -4942,6 +4944,12 @@ WHERE CONVERT(DATE, [insertDate]) = (SELECT MAX(CONVERT(DATE, [insertDate])) FRO
                 .Font = New Font("Segoe UI", 10, FontStyle.Bold)
                 .Alignment = DataGridViewContentAlignment.MiddleRight
             End With
+
+            With dgvwipM3.DefaultCellStyle
+                .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+                .Alignment = DataGridViewContentAlignment.MiddleRight
+            End With
+
             '------------------------------------------
 
 
@@ -5130,6 +5138,101 @@ WHERE CONVERT(DATE, [insertDate]) = (SELECT MAX(CONVERT(DATE, [insertDate])) FRO
             End If
 
             saveWIPQtys(processCodeBM0874M2, lineCodeM2)
+
+            '================================================M3
+            Dim lineCodeM3 As String = "LINE33"
+
+            ' Operación para BM0770 (suma en la fila 1)
+            Dim processCodeBM0770M3 As String = "BM0770"
+            Dim lastNonNullValueBM0770M3 As Integer = GetLastNonNullValue(processCodeBM0770M3, lineCodeM3)
+
+            queryresult = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0770M3 & "'
+  and lineCode='" & lineCodeM3 & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
+            If queryresult IsNot DBNull.Value AndAlso queryresult IsNot Nothing AndAlso Not String.IsNullOrEmpty(Convert.ToString(queryresult)) Then
+                ' Verifica que no sea una cadena vacía antes de convertir
+                If Integer.TryParse(Convert.ToString(queryresult), lastQty) Then
+                    ' Si la conversión a entero es exitosa, lastQty tendrá el valor correcto
+                Else
+                    ' Si la conversión falla (no es un número válido), lastQty seguirá siendo 0
+                    ' Puedes agregar un mensaje de error o registro aquí si lo deseas
+                    Console.WriteLine("Advertencia: El valor de lastQty en la base de datos no es un número válido.")
+                End If
+            Else
+                ' Si queryResult es DBNull, Nothing o una cadena vacía, lastQty seguirá siendo 0
+            End If
+
+            If dgvwipM3.Rows.Count > 1 Then
+                dgvwipM3.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM3.Rows(0).Cells(0).Value) + (lastNonNullValueBM0770M3 - lastQty)
+            End If
+            saveWIPQtys(processCodeBM0770M3, lineCodeM3)
+
+
+
+            lineCodeM3 = "LINE43"
+            ' Operación para BM0843 (resta en la fila 1 y suma en la fila 2)
+            Dim processCodeBM0843M3 As String = "BM0843"
+            Dim lastNonNullValueBM0843M3 As Integer = GetLastNonNullValue400(processCodeBM0843M3, lineCodeM3)
+
+            queryresult = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0843M3 & "'
+  and lineCode='" & lineCodeM3 & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
+            If queryresult IsNot DBNull.Value AndAlso queryresult IsNot Nothing AndAlso Not String.IsNullOrEmpty(Convert.ToString(queryresult)) Then
+                ' Verifica que no sea una cadena vacía antes de convertir
+                If Integer.TryParse(Convert.ToString(queryresult), lastQty) Then
+                    ' Si la conversión a entero es exitosa, lastQty tendrá el valor correcto
+                Else
+                    ' Si la conversión falla (no es un número válido), lastQty seguirá siendo 0
+                    ' Puedes agregar un mensaje de error o registro aquí si lo deseas
+                    Console.WriteLine("Advertencia: El valor de lastQty en la base de datos no es un número válido.")
+                End If
+            Else
+                ' Si queryResult es DBNull, Nothing o una cadena vacía, lastQty seguirá siendo 0
+            End If
+
+
+            If dgvwipM3.Rows.Count > 1 Then
+                dgvwipM3.Rows(0).Cells(0).Value = Convert.ToInt32(dgvwipM3.Rows(0).Cells(0).Value) - (lastNonNullValueBM0843M3 - lastQty)
+                dgvwipM3.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM3.Rows(1).Cells(0).Value) + (lastNonNullValueBM0843M3 - lastQty)
+            End If
+
+            saveWIPQtys(processCodeBM0843M3, lineCodeM3)
+
+            ' Operación para BM0874 (resta en la fila 2)
+            Dim processCodeBM0874M3 As String = "BM0877"
+            Dim lastNonNullValueBM0874M3 As Integer = GetLastNonNullValue700(processCodeBM0874M3, lineCodeM3)
+
+            queryresult = QueryRow("SELECT lastQty
+  FROM [db_kyungshin].[dbo].[t_bma_wip_qty]
+  where processCode='" & processCodeBM0874M3 & "'
+  and lineCode='" & lineCodeM3 & "'
+  and insertDate='" & ConvierteAdateMySQL(Date.Now.ToShortDateString) & "'", "lastQty", "byuscaCant")
+
+            If queryresult IsNot DBNull.Value AndAlso queryresult IsNot Nothing AndAlso Not String.IsNullOrEmpty(Convert.ToString(queryresult)) Then
+                ' Verifica que no sea una cadena vacía antes de convertir
+                If Integer.TryParse(Convert.ToString(queryresult), lastQty) Then
+                    ' Si la conversión a entero es exitosa, lastQty tendrá el valor correcto
+                Else
+                    ' Si la conversión falla (no es un número válido), lastQty seguirá siendo 0
+                    ' Puedes agregar un mensaje de error o registro aquí si lo deseas
+                    Console.WriteLine("Advertencia: El valor de lastQty en la base de datos no es un número válido.")
+                End If
+            Else
+                ' Si queryResult es DBNull, Nothing o una cadena vacía, lastQty seguirá siendo 0
+            End If
+
+            If dgvwipM3.Rows.Count > 1 Then
+                dgvwipM3.Rows(1).Cells(0).Value = Convert.ToInt32(dgvwipM3.Rows(1).Cells(0).Value) - (lastNonNullValueBM0874M3 - lastQty)
+            End If
+
+            saveWIPQtys(processCodeBM0874M3, lineCodeM3)
+
         Catch ex As Exception
             Console.Write("Error " & ex.ToString)
         End Try
